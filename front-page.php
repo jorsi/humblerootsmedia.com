@@ -17,40 +17,34 @@
       <section id="productions">
         <div class="container">
 
-          <div id="carousel">
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                <a href="https://vimeo.com/121850734">
-                  <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
-                  <div class="carousel-caption">
-                    <h3>Catherine North Sessions</h3>
-                    <p>Description here</p>
-                  </div>
-              </div>
-              <div class="item">
-                <a href="https://vimeo.com/130975587">
-                  <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
-                </a>
-                  <div class="carousel-caption">
-                    <h3>MAC</h3>
-                    <p>Description here</p>
-                  </div>
-              </div>
-              <div class="item">
-                <a href="https://vimeo.com/135975911">
-                  <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
-                </a>
+          <ul class="bxslider">
+            <li>
+              <a href="https://vimeo.com/121850734">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
                 <div class="carousel-caption">
-                  <h3>LOL</h3>
+                  <h3>Catherine North Sessions</h3>
                   <p>Description here</p>
                 </div>
+              </li>
+            <li>
+              <a href="https://vimeo.com/130975587">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
+              </a>
+                <div class="carousel-caption">
+                  <h3>MAC</h3>
+                  <p>Description here</p>
+                </div>
+              </li>
+            <li>
+              <a href="https://vimeo.com/135975911">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
+              </a>
+              <div class="carousel-caption">
+                <h3>LOL</h3>
+                <p>Description here</p>
               </div>
-            </div>
-
-          </div>
-
+            </li>
+          </ul>
         </div>
       </section>
 
