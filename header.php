@@ -26,31 +26,31 @@
 </head>
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
+    <nav class="nav-desktop">
+      <div class="container">
         <div class="row">
-        <div class="col-sm-6">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="/">
-            <img id="brand-image" src="<?php echo get_template_directory_uri(); ?>/images/humble-logo.png">
-              <div>Welcome to</div>
-              <div>Humble Roots Media</div>
-          </a>
-      </div>
-      <div class="col-sm-6">
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/clientele">Clientele</a></li>
-            <li><a href="/humblethoughts">Humble Thoughts</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
+          <div class="col-half">
+            <a href="/">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <img id="brand-image" src="<?php echo get_template_directory_uri(); ?>/images/humble-logo.png">
+                  </div>
+                  <div class="col">
+                    <div id="welcometo">Welcome to</div>
+                    <div id="humblerootsmedia">Humble Roots Media</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-half">
+            <ul class="nav-links clearfix">
+              <li class="active"><a href="/clientele">Clientele</a></li>
+              <li><a href="/humblethoughts">Humble Thoughts</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </div>
       </div>
     </nav>
