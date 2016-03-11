@@ -1,16 +1,61 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font: inherit;
+}
+
+/* HTML section styles */
+html {}
 body {
   font-family: "Lato", sans-serif;
+  font-size: 14px;
 }
 header {}
 footer {
   color: #223;
   background-color: rgba(111,166,109,1);
 }
+
+/* Default Element Styles */
+a {
+  text-decoration: none;
+}
+a:hover, a:active, a:focus {
+  text-decoration: underline;
+}
 img {
   max-width: 100%; /* Ensures no image breaks its container */
 }
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 /* Layout Classes */
+.row {
+  vertical-align: top;
+}
+.row::before, .row::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.col-half {
+  float: left;
+  width: 50%;
+}
+.col-third {
+  float: left;
+  width: 33%;
+}
+.col-fourth {
+  float: left;
+  width: 49.99%;
+}
+.container {
+  margin: 0 auto;
+  max-width: 900px;
+}
 .flex-center {
   display: flex;
   flex-direction: column;
@@ -24,6 +69,11 @@ img {
 .break {
   min-height: 250px;
   font-size: 2em;
+}
+.clearfix::before, .clearfix::after {
+  display: table;
+  content: "";
+  clear: both;
 }
 
 /* Components */
