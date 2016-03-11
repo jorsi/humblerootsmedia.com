@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-  <header data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/camera.jpg" class="slide parallax-window">
+  <header data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/camera.jpg" class="flex-center slide parallax-window">
     <h1>We're Your Storytellers</h1>
     <h2>Crafting Beautiful Online Content</h2>
     <a class="ghost" href="#intro">Grow With Us</a>
@@ -8,8 +8,8 @@
   </header>
 
   <main>
-      <section id="intro" class="break">
-        <div class="container-fluid">
+      <section id="intro" class="flex-center break">
+        <div class="container">
             <p>We're a collaboration between passionate producers and creative clients.  Branching out across the GTA.</p>
         </div>
       </section>
@@ -76,23 +76,23 @@
         </div>
       </section>
 
-      <aside data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/film.jpg" class="slide parallax-window">
+      <aside data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/film.jpg" class="flex-center slide parallax-window">
         <h2>Humble Thoughts</h2>
         <h3>Our blog, our memories and scribes.</h3><a href="/humblethoughts">
         <a class="ghost" href="/humblethoughts">Discover</a>
       </aside>
 
-      <section id="midtro" class="break">
+      <section id="midtro" class="flex-center break">
         <div class="wrap">
           <p>Our imagination, experience and dedication are at your service. <a href="/clientele">See how.</a></p>
         </div>
       </section>
 
-      <section id="instafeed" class="">
+      <section id="instafeed" class="flex-center">
         <i class="fa fa-fw fa-instagram"></i>
       </section>
 
-      <section id="outro" class="break">
+      <section id="outro" class="flex-center break">
         <div class="wrap">
           <p>We're passionate about our craft. Let's grow together.</p>
         </div>

@@ -11,21 +11,17 @@ img {
 }
 
 /* Layout Classes */
-.slide {
+.flex-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+}
+.slide {
   height: 100vh;
   color: #e4e4e4;
 }
 .break {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
   min-height: 250px;
   font-size: 2em;
 }
@@ -36,6 +32,11 @@ img {
   padding: 10px;
   background: transparent;
   border: 2px solid rgba(111,166,109,1);
+}
+
+/* Bootstrap Overrides */
+.navbar {
+  margin-bottom: 0;
 }
 
 /* Specific Blocks */
