@@ -1,3 +1,21 @@
+/*
+  Humble Roots Media
+  Standard Branding Colours
+
+  Green: #6fa66d
+  Brown: #332a20
+
+  Hues
+  White: #efefef
+  Black: #111111
+  Light-Grey: #cbcbcd
+  Dark-Greyish-Blue: #23232d
+  Dark-Greyish-Green: #232d23
+
+
+
+*/
+
 /* HTML section styles */
 html {}
 body {
@@ -6,8 +24,8 @@ body {
 }
 header {}
 footer {
-  color: #223;
-  background-color: rgba(111,166,109,1);
+  color: #23232d;
+  background-color: #6fa66d;
 }
 
 /* Default Element Styles */
@@ -62,11 +80,12 @@ ul {
 }
 .slide {
   height: 100vh;
-  color: #e4e4e4;
+  color: #efefef;
 }
 .break {
   min-height: 250px;
   font-size: 2em;
+  text-align: center;
 }
 .clearfix::before, .clearfix::after {
   display: table;
@@ -76,10 +95,10 @@ ul {
 
 /* Components */
 .ghost {
-  color: rgba(111,166,109,1);
+  color: #6fa66d;
   padding: 10px;
   background: transparent;
-  border: 2px solid rgba(111,166,109,1);
+  border: 2px solid #6fa66d;
 }
 .nav-links {}
   .nav-links li {
@@ -105,19 +124,19 @@ ul {
 #welcometo {
   padding-top: 5px;
   font-style: italic;
-  color: #333;
+  color: #111;
 }
 #humblerootsmedia {
   display: block;
   padding-bottom: 5px;
   font-size: 1.5em;
-  color: #333;
+  color: #111;
 }
 #intro {
   height: 50vh;
 }
 #copyright {
   text-align: center;
-  color: #e4e4e4;
+  color: #efefef;
   background-color: #332a20;
 }
