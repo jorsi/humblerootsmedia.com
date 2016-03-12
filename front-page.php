@@ -17,31 +17,34 @@
       <section id="productions">
         <div class="container">
 
+          <div id="productions-control">
+            <span class="prev"><i class="fa fa-fw fa-chevron-left"></i></span>
+            <h2>Our Pieces</h2>
+            <span class="next"><i class="fa fa-fw fa-chevron-right"></i></span>
+          </div>
+
           <ul class="bxslider">
             <li>
-              <a href="https://vimeo.com/121850734">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
-                <div class="carousel-caption">
+              <div class="item">
+                <a href="https://vimeo.com/121850734">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
                   <h3>Catherine North Sessions</h3>
                   <p>Description here</p>
-                </div>
-              </li>
-            <li>
-              <a href="https://vimeo.com/130975587">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
-              </a>
-                <div class="carousel-caption">
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://vimeo.com/130975587">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
                   <h3>MAC</h3>
                   <p>Description here</p>
-                </div>
-              </li>
-            <li>
-              <a href="https://vimeo.com/135975911">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
-              </a>
-              <div class="carousel-caption">
-                <h3>LOL</h3>
-                <p>Description here</p>
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://vimeo.com/135975911">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
+                  <h3>LOL</h3>
+                  <p>Description here</p>
+                </a>
               </div>
             </li>
           </ul>
