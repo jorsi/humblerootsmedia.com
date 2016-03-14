@@ -63,8 +63,12 @@
         </div>
       </section>
 
-      <section id="instafeed" class="flex-center">
-        <i class="fa fa-fw fa-instagram"></i>
+      <section id="instagram" class="center-h">
+        <div class="container">
+          <i class="fa fa-fw fa-instagram"></i>
+          <div id="instafeed" class="clearfix"></div>
+          <button id="load-more"><i class="fa fa-fw fa-ellipsis-h"></i></button>
+        </div>
       </section>
 
       <section id="outro" class="flex-center break">

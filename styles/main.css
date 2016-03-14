@@ -183,6 +183,34 @@ ul li { margin: 0; padding: 0; }
     padding: 15px;
     width: 28%;
   }
+#instagram i {
+  padding: 5px;
+  font-size: 3em;
+}
+#instagram #load-more {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+#instafeed {
+  padding: 0 15px;
+}
+  #instafeed .instagram-item {
+    float: left;
+    padding: 1%;
+    width: 50%;
+    box-sizing: border-box;
+  }
+  @media (min-width: 600px) {
+    #instafeed .instagram-item {
+      width: 25%;
+    }
+  }
+  #instafeed .instagram-item img {
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
 #scrollUp {
   padding: 15px 0;
   font-size: 3em;
