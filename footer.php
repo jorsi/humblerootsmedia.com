@@ -4,7 +4,7 @@
 
       <div class="container">
 
-        <div class="row">
+        <div id="info" class="row">
           <div class="col-third center-h">
             <h2>Grow With Us</h2>
             <ul id="socialmedia">

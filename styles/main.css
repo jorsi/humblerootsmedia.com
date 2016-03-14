@@ -48,6 +48,7 @@ ul {
   list-style: none;
 }
 ul li { margin: 0; padding: 0; }
+address { font-style: normal; }
 
 /* Layout Classes */
 .row {
@@ -59,29 +60,45 @@ ul li { margin: 0; padding: 0; }
   clear: both;
 }
 .col {
-  float: left;
   vertical-align: top;
   box-sizing: border-box;
 }
+  @media (min-width: 750px) {
+    .col {
+      float: left;
+    }
+  }
 .col-half {
-  float: left;
-  width: 50%;
   vertical-align: top;
   box-sizing: border-box;
 }
+  @media (min-width: 750px) {
+    .col-half {
+      float: left;
+      width: 50%;
+    }
+  }
 .col-third {
-  float: left;
-  padding: 15px;
-  width: 33%;
   vertical-align: top;
   box-sizing: border-box;
 }
+  @media (min-width: 750px) {
+    .col-third {
+      float: left;
+      padding: 15px;
+      width: 33%;
+    }
+  }
 .col-fourth {
-  float: left;
-  width: 49.99%;
   vertical-align: top;
   box-sizing: border-box;
 }
+  @media (min-width: 750px) {
+    .col-fourth {
+      float: left;
+      width: 49.99%;
+    }
+  }
 .container {
   margin: 0 auto;
   max-width: 900px;
@@ -201,7 +218,7 @@ ul li { margin: 0; padding: 0; }
     width: 50%;
     box-sizing: border-box;
   }
-  @media (min-width: 600px) {
+  @media (min-width: 750px) {
     #instafeed .instagram-item {
       width: 25%;
     }
@@ -218,6 +235,22 @@ ul li { margin: 0; padding: 0; }
 }
   #scrollUp a {
     color: #332a20;
+  }
+#info {}
+  #info > div {
+    margin: 45px auto;
+    padding: 0 25px;
+  }
+  #info > div::after {
+    display: block;
+    margin: 25px auto 0 auto;
+    content: "";
+    border-bottom: 1px solid #23232d;
+  }
+  @media (min-width: 750px) {
+    #info > div::after {
+      display: none;
+    }
   }
 #socialmedia {
   font-size: 1.5em;
