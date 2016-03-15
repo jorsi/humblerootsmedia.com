@@ -31,7 +31,7 @@
       </div>
 
       <div id="copyright">
-        <span>Humble Roots Media &copy;<script>document.write(new Date().getFullYear())</script></span>
+        <small>Humble Roots Media &copy;<script>document.write(new Date().getFullYear())</script></small>
       </div>
 
     </footer>

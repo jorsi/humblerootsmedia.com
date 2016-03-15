@@ -132,19 +132,27 @@ address { font-style: normal; }
   }
 .content {
   padding: 25px 15px;
-  background-color: #cdcdcd;
+  background-color: #cbcbcd;
 }
 .slide {
-  height: 85vh;
+  min-height: 300px;
+  height: 56.5vw;
+  max-height: 85vh;
+  
   font-size: 1.2rem;
   color: #efefef;
 }
+  .slide h3 { display: none; }
+  @media (min-width: 600px) {
+    .slide h3 { display: block; font-style: italic; font-weight: 200; }
+  }
 .break {
   position: relative;
-  padding: 25px 15px;
+  padding: 45px 15px;
   font-size: 1.7rem;
   background-color: #efefef;
 }
+  .break a { color: #6fa66d; text-decoration: underline; }
 .break::after {
   position: absolute;
   left: 50%;

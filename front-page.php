@@ -51,8 +51,8 @@
       </section>
 
       <aside class="flex flex-column flex-center slide text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/film.jpg">
-        <h2>Humble Thoughts</h2>
-        <h3>Our blog, our memories and scribes.</h3><a href="/humblethoughts">
+        <h1>Humble Thoughts</h1>
+        <h3>Our blog, our memories and scribes.</h3>
         <a class="ghost" href="/humblethoughts">Discover</a>
       </aside>
 
