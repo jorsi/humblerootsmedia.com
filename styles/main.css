@@ -60,7 +60,7 @@ address { font-style: normal; }
   vertical-align: top;
   box-sizing: border-box;
 }
-  @media (min-width: 750px) {
+  @media (min-width: 600px) {
     .col {
       float: left;
     }
@@ -69,7 +69,7 @@ address { font-style: normal; }
   vertical-align: top;
   box-sizing: border-box;
 }
-  @media (min-width: 750px) {
+  @media (min-width: 600px) {
     .col-half {
       float: left;
       width: 50%;
@@ -79,7 +79,7 @@ address { font-style: normal; }
   vertical-align: top;
   box-sizing: border-box;
 }
-  @media (min-width: 750px) {
+  @media (min-width: 600px) {
     .col-third {
       float: left;
       padding: 15px;
@@ -90,7 +90,7 @@ address { font-style: normal; }
   vertical-align: top;
   box-sizing: border-box;
 }
-  @media (min-width: 750px) {
+  @media (min-width: 600px) {
     .col-fourth {
       float: left;
       width: 49.99%;
@@ -118,6 +118,89 @@ address { font-style: normal; }
   }
 
 /* Section Layouts */
+.nav {
+  height: auto;
+  background-color: #efefef;
+  border-bottom: 1px solid #232d23;
+}
+.nav-mobile {
+}
+  .nav-mobile .brand {
+    display: inline-block;
+    width: 85%;
+  }
+    .nav-mobile .brand .brand-image {
+      margin: 3px auto;
+      width: 35px;
+    }
+    .nav-mobile .brand .humblerootsmedia {
+      display: inline-block;
+      margin: 5px auto;
+      padding: 0 5px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      vertical-align: top;
+    }
+  .nav-mobile .menu {
+    float: right;
+    margin: 3px auto;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  .nav-mobile .links {
+    display: none;
+  }
+    .nav-mobile .links li {
+      padding: 10px;
+    }
+  @media (min-width: 600px) {
+    .nav-mobile { display: none; }
+  }
+
+.nav-desktop { display: none; }
+  @media (min-width: 600px) {
+    .nav-desktop {
+      display: block;
+    }
+      .nav-desktop .links {
+        text-align: right;
+      }
+      .nav-desktop .links li {
+        display: inline-block;
+        text-align: center;
+      }
+      .nav-desktop .links li a {
+        display: inline-block;
+        padding: 22px 7px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        transition: color .3s, background-color .3s;
+      }
+        .nav-desktop .links li a:hover, a:active, a:focus {
+          color: #efefef;
+          background-color: #6fa66d;
+        }
+      .nav-desktop .brand-image {
+        float: left;
+        margin: 5px;
+        width: 50px;
+        vertical-align: middle;
+      }
+      .nav-desktop  .welcometo {
+        padding-top: 3px;
+        font-style: italic;
+        color: #111;
+      }
+      .nav-desktop .humblerootsmedia {
+        display: block;
+        padding-bottom: 5px;
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #111;
+      }
+  }
+
 .splash {
   min-height: 450px;
   height: 56.5vw;
@@ -138,7 +221,7 @@ address { font-style: normal; }
   min-height: 300px;
   height: 56.5vw;
   max-height: 85vh;
-  
+
   font-size: 1.2rem;
   color: #efefef;
 }
@@ -200,39 +283,8 @@ address { font-style: normal; }
   text-align: center;
   color: #332a20;
 }
-.nav-links {}
-  .nav-links li {
-    float: left;
-    display: inline-block;
-    width: 33%;
-    text-align: center;
-  }
-  .nav-links li a {
-    display: inline-block;
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-  }
 
 /* Specific Blocks */
-#brand-image {
-  float: left;
-  margin: 5px;
-  width: 50px;
-  vertical-align: middle;
-}
-#welcometo {
-  padding-top: 5px;
-  font-style: italic;
-  color: #111;
-}
-#humblerootsmedia {
-  display: block;
-  padding-bottom: 5px;
-  font-size: 1.5em;
-  color: #111;
-}
 #productions-control {
   text-align: center;
 }
@@ -301,7 +353,7 @@ address { font-style: normal; }
     content: "";
     border-bottom: 1px solid #23232d;
   }
-  @media (min-width: 750px) {
+  @media (min-width: 600px) {
     #info > div::after {
       display: none;
     }

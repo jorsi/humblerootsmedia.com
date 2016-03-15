@@ -2,6 +2,13 @@ $(document).ready(function(){
   // Smooth Scrolling
   $('.smooth-scroll').smoothScroll();
 
+  // Mobile Navigation Menu
+  var menu = $('.menu');
+  var links = $('.nav-mobile .links');
+  menu.on('click', function(ev) {
+    links.slideToggle();
+  });
+
   // Initialize the video slider
   var slider = $('.bxslider').bxSlider({
     pager: false,

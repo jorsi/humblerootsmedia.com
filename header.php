@@ -26,26 +26,41 @@
 </head>
   <body id="top">
 
-    <nav class="nav-desktop">
-      <div class="container">
+    <nav class="nav nav-mobile">
+      <div class="container clearfix">
+        <a class="brand" href="/">
+          <img class="brand-image" src="<?php echo get_template_directory_uri(); ?>/images/humble-logo.png">
+          <div class="humblerootsmedia">Humble Roots Media</div>
+        </a>
+        <i class="menu fa fa-fw fa-bars"></i>
+        <ul class="links">
+          <li class="active"><a href="/clientele">Clientele</a></li>
+          <li><a href="/humblethoughts">Humble Thoughts</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="nav nav-desktop">
+      <div class="container-md">
         <div class="row">
           <div class="col-half">
             <a href="/">
-              <div class="container">
+              <div class="container-sm">
                 <div class="row">
                   <div class="col">
-                    <img id="brand-image" src="<?php echo get_template_directory_uri(); ?>/images/humble-logo.png">
+                    <img class="brand-image" src="<?php echo get_template_directory_uri(); ?>/images/humble-logo.png">
                   </div>
                   <div class="col">
-                    <div id="welcometo">Welcome to</div>
-                    <div id="humblerootsmedia">Humble Roots Media</div>
+                    <div class="welcometo">Welcome to</div>
+                    <div class="humblerootsmedia">Humble Roots Media</div>
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-half">
-            <ul class="nav-links clearfix">
+            <ul class="links">
               <li class="active"><a href="/clientele">Clientele</a></li>
               <li><a href="/humblethoughts">Humble Thoughts</a></li>
               <li><a href="/contact">Contact</a></li>
