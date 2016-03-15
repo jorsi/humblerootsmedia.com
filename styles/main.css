@@ -185,6 +185,13 @@ address { font-style: normal; }
     background-color: #6fa66d;
     text-decoration: none;
   }
+.scroll-up {
+  display: block;
+  padding: 15px 0;
+  font-size: 3em;
+  text-align: center;
+  color: #332a20;
+}
 .nav-links {}
   .nav-links li {
     float: left;
@@ -275,14 +282,6 @@ address { font-style: normal; }
   color: #23232d;
   background-color: #6fa66d;
 }
-#scrollUp {
-  padding: 15px 0;
-  font-size: 3em;
-  text-align: center;
-}
-  #scrollUp a {
-    color: #332a20;
-  }
 #info {}
   #info > div {
     margin: 45px auto;

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  // Smooth Scrolling
+  $('.smooth-scroll').smoothScroll();
 
   // Initialize the video slider
   var slider = $('.bxslider').bxSlider({

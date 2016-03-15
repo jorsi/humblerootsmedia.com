@@ -24,7 +24,7 @@
     <![endif]-->
 	<?php wp_head();?>
 </head>
-  <body>
+  <body id="top">
 
     <nav class="nav-desktop">
       <div class="container">

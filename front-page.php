@@ -3,7 +3,7 @@
   <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/camera.jpg">
     <h1>We're Your Storytellers</h1>
     <h3>Crafting beautiful online content</h3>
-    <a class="ghost" href="#main">Grow With Us</a>
+    <a class="ghost smooth-scroll" href="#main">Grow With Us</a>
   </header>
 
   <main id="main">
