@@ -161,7 +161,14 @@ address { font-style: normal; }
   @media (min-width: 600px) {
     .nav-desktop {
       display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      transition: top .3s;
     }
+    .nav-desktop.nav-up { top: -100%; }
       .nav-desktop .links {
         text-align: right;
       }
