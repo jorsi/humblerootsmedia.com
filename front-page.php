@@ -3,10 +3,10 @@
   <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/camera.jpg">
     <h1>We're Your Storytellers</h1>
     <h3>Crafting beautiful online content</h3>
-    <a class="ghost" href="#intro">Grow With Us</a>
+    <a class="ghost" href="#main">Grow With Us</a>
   </header>
 
-  <main>
+  <main id="main">
       <aside class="break text-center">
         <div class="container-md">
             <p>We're a collaboration between passionate producers and creative clients.  Branching out across the GTA.</p>
@@ -57,21 +57,21 @@
       </aside>
 
       <aside class="break text-center">
-        <div class="wrap">
+        <div class="container-md">
           <p>Our imagination, experience and dedication are at your service. <a href="/clientele">See how.</a></p>
         </div>
       </aside>
 
       <section class="content text-center">
         <div class="container-md">
-          <i class="fa fa-fw fa-instagram"></i>
+          <i id="instagram-icon" class="fa fa-fw fa-instagram"></i>
           <div id="instafeed" class="clearfix"></div>
-          <button id="load-more"><i class="fa fa-fw fa-ellipsis-h"></i></button>
+          <i id="load-more" class="fa fa-fw fa-ellipsis-h"></i></button>
         </div>
       </section>
 
-      <aside id="outro" class="flex-center break">
-        <div class="wrap">
+      <aside class="break text-center">
+        <div class="container-md">
           <p>We're passionate about our craft. Let's grow together.</p>
         </div>
       </aside>

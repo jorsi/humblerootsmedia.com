@@ -218,7 +218,6 @@ address { font-style: normal; }
   font-size: 1.5em;
   color: #111;
 }
-#intro {}
 #productions-control {
   text-align: center;
 }
@@ -245,6 +244,10 @@ address { font-style: normal; }
 #instafeed {
   padding: 0 15px;
 }
+  #instagram-icon {
+    padding: 10px;
+    font-size: 3em;
+  }
   #instafeed .instagram-item {
     float: left;
     padding: 1%;
@@ -262,6 +265,7 @@ address { font-style: normal; }
     height: auto;
   }
   #load-more {
+    font-size: 3em;
     border: none;
     background: transparent;
     cursor: pointer;
