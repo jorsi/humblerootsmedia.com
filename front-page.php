@@ -1,20 +1,19 @@
 <?php get_header(); ?>
 
-  <header data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/camera.jpg" class="flex-center slide parallax-window">
+  <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/camera.jpg">
     <h1>We're Your Storytellers</h1>
-    <h2>Crafting Beautiful Online Content</h2>
+    <h3>Crafting beautiful online content</h3>
     <a class="ghost" href="#intro">Grow With Us</a>
-    <div class="scrollDown"><a href="#content"><i class="fa fa-angle-down"></i></a></div>
   </header>
 
   <main>
-      <section id="intro" class="flex-center break">
+      <aside class="break text-center">
         <div class="container-md">
             <p>We're a collaboration between passionate producers and creative clients.  Branching out across the GTA.</p>
         </div>
-      </section>
+      </aside>
 
-      <section id="productions">
+      <section class="content">
         <div class="container-lg">
 
           <div id="productions-control">
@@ -51,19 +50,19 @@
         </div>
       </section>
 
-      <aside data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/film.jpg" class="flex-center slide parallax-window">
+      <aside class="flex flex-column flex-center slide text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/film.jpg">
         <h2>Humble Thoughts</h2>
         <h3>Our blog, our memories and scribes.</h3><a href="/humblethoughts">
         <a class="ghost" href="/humblethoughts">Discover</a>
       </aside>
 
-      <section id="midtro" class="flex-center break">
+      <aside class="break text-center">
         <div class="wrap">
           <p>Our imagination, experience and dedication are at your service. <a href="/clientele">See how.</a></p>
         </div>
-      </section>
+      </aside>
 
-      <section id="instagram" class="center-h">
+      <section class="content text-center">
         <div class="container-md">
           <i class="fa fa-fw fa-instagram"></i>
           <div id="instafeed" class="clearfix"></div>
@@ -71,11 +70,11 @@
         </div>
       </section>
 
-      <section id="outro" class="flex-center break">
+      <aside id="outro" class="flex-center break">
         <div class="wrap">
           <p>We're passionate about our craft. Let's grow together.</p>
         </div>
-      </section>
+      </aside>
 
     </div>
   </main>
