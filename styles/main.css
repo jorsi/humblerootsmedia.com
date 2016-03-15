@@ -99,9 +99,17 @@ address { font-style: normal; }
       width: 49.99%;
     }
   }
-.container {
+.container-sm {
+  margin: 0 auto;
+  max-width: 600px;
+}
+.container-md {
   margin: 0 auto;
   max-width: 900px;
+}
+.container-lg {
+  margin: 0 auto;
+  max-width: 1200px;
 }
 .flex-center {
   display: flex;
@@ -198,7 +206,12 @@ address { font-style: normal; }
   .bxslider .item {
     float: left;
     padding: 15px;
-    width: 28%;
+    box-sizing: border-box;
+  }
+  @media (min-width: 600px) {
+    .bxslider .item {
+      width: 33.33%;
+    }
   }
 #instagram i {
   padding: 5px;

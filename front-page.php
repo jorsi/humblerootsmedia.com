@@ -9,13 +9,13 @@
 
   <main>
       <section id="intro" class="flex-center break">
-        <div class="container">
+        <div class="container-md">
             <p>We're a collaboration between passionate producers and creative clients.  Branching out across the GTA.</p>
         </div>
       </section>
 
       <section id="productions">
-        <div class="container">
+        <div class="container-lg">
 
           <div id="productions-control">
             <span class="prev"><i class="fa fa-fw fa-chevron-left"></i></span>
@@ -64,7 +64,7 @@
       </section>
 
       <section id="instagram" class="center-h">
-        <div class="container">
+        <div class="container-md">
           <i class="fa fa-fw fa-instagram"></i>
           <div id="instafeed" class="clearfix"></div>
           <button id="load-more"><i class="fa fa-fw fa-ellipsis-h"></i></button>
