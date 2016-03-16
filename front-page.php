@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
   <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/camera.jpg">
-    <h1>We're Your Storytellers</h1>
-    <h3>Crafting beautiful online content</h3>
+    <h1><?php echo stripslashes( get_option( 'frontpage_splash_title', 'Splash Title Here' ) ); ?></h1>
+    <h3><?php echo stripslashes( get_option( 'frontpage_splash_tagline', 'Witty tagline should go here' ) ); ?></h3>
     <a class="ghost smooth-scroll" href="#main">Grow With Us</a>
   </header>
 
