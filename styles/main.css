@@ -120,10 +120,10 @@ address { font-style: normal; }
 /* Section Layouts */
 .nav {
   height: auto;
-  background-color: #efefef;
-  border-bottom: 1px solid #232d23;
 }
 .nav-mobile {
+  background-color: #efefef;
+  border-bottom: 1px solid #232d23;
 }
   .nav-mobile .brand {
     display: inline-block;
@@ -166,7 +166,12 @@ address { font-style: normal; }
       left: 0;
       right: 0;
       z-index: 1;
-      transition: top .3s;
+      transition: top .3s, background .3s;
+      background: linear-gradient(to top, transparent, rgba(255,255,255,.4), rgba(255,255,255,.6));
+    }
+    .nav-desktop.nav-fixed {
+      background-color: #efefef;
+      border-bottom: 1px solid #232d23;
     }
     .nav-desktop.nav-up { top: -100%; }
       .nav-desktop .links {
