@@ -1,15 +1,15 @@
 <?php get_header(); ?>
 
-  <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/camera.jpg">
+  <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php header_image(); ?>">
     <h1><?php echo stripslashes( get_option( 'frontpage_splash_title', 'Splash Title Here' ) ); ?></h1>
-    <h3><?php echo stripslashes( get_option( 'frontpage_splash_tagline', 'Witty tagline should go here' ) ); ?></h3>
+    <h3><?php echo stripslashes( get_option( 'frontpage_splash_tagline', 'Witty splash tagline should go here' ) ); ?></h3>
     <a class="ghost smooth-scroll" href="#main">Grow With Us</a>
   </header>
 
   <main id="main">
       <aside class="break text-center">
         <div class="container-md">
-            <p>We're a collaboration between passionate producers and creative clients.  Branching out across the GTA.</p>
+            <p><?php echo stripslashes( get_option( 'frontpage_intro', 'Something profound about the company goes here.' ) ); ?></p>
         </div>
       </aside>
 
@@ -58,7 +58,7 @@
 
       <aside class="break text-center">
         <div class="container-md">
-          <p>Our imagination, experience and dedication are at your service. <a href="/clientele">See how.</a></p>
+          <p><?php echo stripslashes( get_option( 'frontpage_midtro', 'A little bit about how you work with people.' ) ); ?> <a href="/clientele">See how.</a></p>
         </div>
       </aside>
 
@@ -72,7 +72,7 @@
 
       <aside class="break text-center">
         <div class="container-md">
-          <p>We're passionate about our craft. Let's grow together.</p>
+          <p><?php echo stripslashes( get_option( 'frontpage_outro', 'Any last words, punk?' ) ); ?></p>
         </div>
       </aside>
 
