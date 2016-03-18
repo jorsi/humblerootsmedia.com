@@ -1,7 +1,7 @@
 <?php
   get_header();
-?>
-  <h2>HIIII</h2>
-<?php
   the_post_thumbnail();
+?>
+  <h2>Clientele</h2>
+<?php
   get_footer();
