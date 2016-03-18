@@ -267,8 +267,14 @@ address { font-style: normal; }
   clear: both;
 }
 .text-center {
-  margin: 0 auto;
   text-align: center;
+}
+.block-center {
+  display: block;
+  margin: 0 auto;
+}
+.padding-menu {
+  padding-top: 50px;
 }
 
 /* Components */

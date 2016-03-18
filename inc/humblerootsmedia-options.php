@@ -101,12 +101,15 @@ function humblerootsmedia_init() {
       wp_enqueue_script( 'humblerootsmedia_script_main', get_template_directory_uri().'/js/main.js', array('jquery'));
 
       /**
-       * Adds JavaScript to pages with the comment form to support
-       * sites with threaded comments (when in use).
+       * Adds Page specific styles and scripts
        */
-      if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-          wp_enqueue_script( 'comment-reply' );
-  }
+      if ( is_page( 'Clientele') )
+        wp_enqueue_style( 'humblerootsmedia_style_clientele', get_stylesheet_directory_uri() . '/styles/clientle.css');
+      if ( is_page( 'Humble Thoughts') )
+        wp_enqueue_style( 'humblerootsmedia_style_humble-thoughts', get_stylesheet_directory_uri() . '/styles/humble-thoughts.css');
+      if ( is_page( 'Contact') )
+        wp_enqueue_style( 'humblerootsmedia_style_contact', get_stylesheet_directory_uri() . '/styles/contact.css');
+}
 
   // Set-up Default Pages
   if (isset($_GET['activated']) && is_admin()) {
