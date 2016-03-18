@@ -26,11 +26,14 @@
           <div class="humblerootsmedia">Humble Roots Media</div>
         </a>
         <i class="menu fa fa-fw fa-bars"></i>
-        <ul class="links">
-          <li class="active"><a href="/clientele">Clientele</a></li>
-          <li><a href="/humblethoughts">Humble Thoughts</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
+        <?php
+          if ( has_nav_menu( 'pages' ) ) {
+              wp_nav_menu( array(
+                'theme_location' => 'pages',
+                'menu_class' => 'links'
+              ) );
+            }
+        ?>
       </div>
     </nav>
 
@@ -53,11 +56,14 @@
             </a>
           </div>
           <div class="col-half">
-            <ul class="links">
-              <li class="active"><a href="/clientele">Clientele</a></li>
-              <li><a href="/humblethoughts">Humble Thoughts</a></li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
+            <?php
+              if ( has_nav_menu( 'pages' ) ) {
+									wp_nav_menu( array(
+                    'theme_location' => 'pages',
+                    'menu_class' => 'links'
+                  ) );
+								}
+            ?>
           </div>
         </div>
       </div>

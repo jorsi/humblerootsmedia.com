@@ -108,14 +108,127 @@ function humblerootsmedia_init() {
           wp_enqueue_script( 'comment-reply' );
   }
 
+  // Set-up Default Pages
+  if (isset($_GET['activated']) && is_admin()) {
 
+    $new_page_title = 'Clientele';
+    $new_page_content = '';
+    $new_page_template = ''; //ex. template-custom.php. Leave blank if you don't want a custom page template.
 
+    $page_check = get_page_by_title($new_page_title);
+    $new_page = array(
+            'post_type' => 'page',
+            'post_title' => $new_page_title,
+            'post_content' => $new_page_content,
+            'post_status' => 'publish',
+            'post_author' => 1,
+    );
+    if(!isset($page_check->ID)){
+            $new_page_id = wp_insert_post($new_page);
+            if(!empty($new_page_template)){
+                    update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+            }
+    }
 
-  // Register navigation menus
+    $new_page_title = 'Humble Thoughts';
+    $new_page_content = '';
+    $new_page_template = ''; //ex. template-custom.php. Leave blank if you don't want a custom page template.
+
+    $page_check = get_page_by_title($new_page_title);
+    $new_page = array(
+            'post_type' => 'page',
+            'post_title' => $new_page_title,
+            'post_content' => $new_page_content,
+            'post_status' => 'publish',
+            'post_author' => 1,
+    );
+    if(!isset($page_check->ID)){
+            $new_page_id = wp_insert_post($new_page);
+            if(!empty($new_page_template)){
+                    update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+            }
+    }
+
+    $new_page_title = 'Contact';
+    $new_page_content = '';
+    $new_page_template = ''; //ex. template-custom.php. Leave blank if you don't want a custom page template.
+
+    $page_check = get_page_by_title($new_page_title);
+    $new_page = array(
+            'post_type' => 'page',
+            'post_title' => $new_page_title,
+            'post_content' => $new_page_content,
+            'post_status' => 'publish',
+            'post_author' => 1,
+    );
+    if(!isset($page_check->ID)){
+            $new_page_id = wp_insert_post($new_page);
+            if(!empty($new_page_template)){
+                    update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+            }
+    }
+  }
+
+  // Register Menu Locations
   register_nav_menus( array(
-      'primary' 	=> 'Primary Menu',
-      'socialmedia' => 'Social Media Menu',
-  ) );
+    'pages' => 'Pages Menu',
+    'socialmedia' => 'Social Media Menu',
+  ));
+
+  // Check if the menus exists
+  $menu_name = 'Pages Menu';
+  $menu_exists = wp_get_nav_menu_object( $menu_name );
+
+  // If it doesn't exist, let's create it.
+  if( !$menu_exists){
+      $menu_id = wp_create_nav_menu($menu_name);
+
+  	// Set up default menu items
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>  'Clientele',
+        'menu-item-classes' => 'clientele',
+        'menu-item-url' => home_url( '/clientele' ),
+        'menu-item-status' => 'publish'));
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>  'Humble Thoughts',
+        'menu-item-url' => home_url( '/humble-thoughts/' ),
+        'menu-item-status' => 'publish'));
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>  'Contact',
+        'menu-item-url' => home_url( '/contact/' ),
+        'menu-item-status' => 'publish'));
+
+    $locations = get_theme_mod('nav_menu_locations');
+    $locations['pages'] = $menu_id;  //$foo is term_id of menu
+    set_theme_mod('nav_menu_locations', $locations);
+  }
+
+  $menu_name = 'Social Media Menu';
+  $menu_exists = wp_get_nav_menu_object( $menu_name );
+
+  // If it doesn't exist, let's create it.
+  if( !$menu_exists){
+      $menu_id = wp_create_nav_menu($menu_name);
+
+  	// Set up default menu items
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>  'Clientele',
+        'menu-item-classes' => 'clientele',
+        'menu-item-url' => home_url( '/clientele' ),
+        'menu-item-status' => 'publish'));
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>  'Humble Thoughts',
+        'menu-item-url' => home_url( '/humble-thoughts/' ),
+        'menu-item-status' => 'publish'));
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>  'Contact',
+        'menu-item-url' => home_url( '/contact/' ),
+        'menu-item-status' => 'publish'));
+
+    $locations = get_theme_mod('nav_menu_locations');
+    $locations['socialmedia'] = $menu_id;  //$foo is term_id of menu
+    set_theme_mod('nav_menu_locations', $locations);
+  }
 }
 add_action( 'after_setup_theme', 'humblerootsmedia_init' );
 
