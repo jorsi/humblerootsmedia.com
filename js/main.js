@@ -92,10 +92,12 @@ $(document).ready(function(){
     });
 
     // bind the load more button
-    loadButton.addEventListener('click', function() {
-      feed.next();
-    });
+    if ( loadButton != null ) {
+      loadButton.addEventListener('click', function() {
+        feed.next();
+      });
 
-    // run the feed
-    feed.run();
+      // run the feed
+      feed.run();
+    }
 });
