@@ -1,0 +1,32 @@
+#clientele { margin: 55px auto; }
+  #clientele h2 { font-size: 3em; }
+  .client {
+    float: left;
+    padding: 15px;
+    width: 33%;
+    height: 18.25vw;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .client img {}
+
+#testimonials { margin: 55px auto; }
+  #testimonials h2 { font-size: 3em; }
+  .testimonial {
+    margin: 60px auto;
+    padding: 0 30px;
+  }
+  .testimonial h3 {
+    font-size: 2.5em;
+    font-weight: 400;
+  }
+  .testimonial img {
+  }
+  .testimonial:nth-child(odd) .row .col-half:first-of-type {
+    float: right;
+  }
+  .testimonial blockquote {
+    margin: 25px;
+    font-size: 1.5em;
+    line-height: 1.75;
+  }
