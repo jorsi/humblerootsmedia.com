@@ -104,7 +104,7 @@ function humblerootsmedia_init() {
        * Adds Page specific styles and scripts
        */
       if ( is_page( 'Clientele') )
-        wp_enqueue_style( 'humblerootsmedia_style_clientele', get_stylesheet_directory_uri() . '/styles/clientle.css');
+        wp_enqueue_style( 'humblerootsmedia_style_clientele', get_stylesheet_directory_uri() . '/styles/clientele.css');
       if ( is_page( 'Humble Thoughts') )
         wp_enqueue_style( 'humblerootsmedia_style_humble-thoughts', get_stylesheet_directory_uri() . '/styles/humble-thoughts.css');
       if ( is_page( 'Contact') )
