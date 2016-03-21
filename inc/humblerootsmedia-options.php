@@ -479,6 +479,7 @@ function humblerootsmedia_settings_display() {
         update_option('clientele_splash_title', $_POST[ 'clientele_splash_title' ] );
         update_option('clientele_splash_tagline', $_POST[ 'clientele_splash_tagline' ] );
         update_option('clientele_max_clients', $_POST[ 'clientele_max_clients' ] );
+        update_option('clientele_max_testimonials', $_POST[ 'clientele_max_testimonials' ] );
 
         // Put a "settings saved" message on the screen
         ?>
@@ -571,6 +572,13 @@ add_action('admin_init', function() {
     'humblerootsmedia-settings',                  // ID of the page this field is for
     'humblerootsmedia_section'                 // ID of the sectino this field is for
   );
+  add_settings_field(
+    'clientele_max_testimonials',           // ID of this settings field
+    'Max amount of Testimonials to display',                // Title of this settings field
+    'display_clientele_max_testimonials',   // Callback function for displaying this field
+    'humblerootsmedia-settings',                  // ID of the page this field is for
+    'humblerootsmedia_section'                 // ID of the sectino this field is for
+  );
 
   // Register Setting
   register_setting(
@@ -604,6 +612,10 @@ add_action('admin_init', function() {
   register_setting(
     'humblerootsmedia-settings',                  // ID of the page to register to
     'clientele_max_clients'             // ID of the field to register to
+  );
+  register_setting(
+    'humblerootsmedia-settings',                  // ID of the page to register to
+    'clientele_max_testimonials'             // ID of the field to register to
   );
 });
 
@@ -639,5 +651,8 @@ function display_clientele_splash_tagline() {
   echo '<input type="text" class="large-text" name="clientele_splash_tagline" value="'. stripslashes( get_option('clientele_splash_tagline') ) . '">';
 }
 function display_clientele_max_clients() {
-  echo '<input type="text" class="large-text" name="clientele_max_clients" value="'. stripslashes( get_option('clientele_max_clients') ) . '">';
+  echo '<input type="number" name="clientele_max_clients" value="'. get_option('clientele_max_clients') . '">';
+}
+function display_clientele_max_testimonials() {
+  echo '<input type="number" name="clientele_max_testimonials" value="'. get_option('clientele_max_testimonials') . '">';
 }
