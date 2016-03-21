@@ -27,6 +27,10 @@ function humblerootsmedia_get_default_options() {
         'frontpage_blog_button_text' => '',
 
         // Clientele Options
+        'clientele_splash_title' => 'How We Work',
+        'clientele_splash_tagline' => 'Hear what our clients say about Humble Roots Media',
+        'clientele_max_clients' => 3,
+
         // Blog Options
         // Contact Options
 
@@ -472,6 +476,10 @@ function humblerootsmedia_settings_display() {
         update_option( 'frontpage_midtro', $_POST[ 'frontpage_midtro' ] );
         update_option( 'frontpage_outro', $_POST[ 'frontpage_outro' ] );
 
+        update_option('clientele_splash_title', $_POST[ 'clientele_splash_title' ] );
+        update_option('clientele_splash_tagline', $_POST[ 'clientele_splash_tagline' ] );
+        update_option('clientele_max_clients', $_POST[ 'clientele_max_clients' ] );
+
         // Put a "settings saved" message on the screen
         ?>
         <div class="updated"><p><strong>Settings saved.</strong></p></div>
@@ -481,7 +489,7 @@ function humblerootsmedia_settings_display() {
     <form method="post" action="">
       <input type="hidden" name="humblerootsmedia_submit_hidden" value="Y">
       <?php
-        settings_fields('frontpage_section');
+        settings_fields('humblerootsmedia_section');
         do_settings_sections('humblerootsmedia-settings');
         submit_button();
       ?>
@@ -495,10 +503,10 @@ add_action('admin_init', function() {
 
   // Add the Front Page section
   add_settings_section(
-    'frontpage_section',           // ID of the this section
-    'Frontpage Section',           // Title of the this section
-    'display_frontpage_section',   // Callback function for displaying section
-    'humblerootsmedia-settings'              // ID of the page that this section is for
+    'humblerootsmedia_section',           // ID of the this section
+    'Humble Roots Media Custom Settings', // Title of the this section
+    'display_humblerootsmedia_section',   // Callback function for displaying section
+    'humblerootsmedia-settings'    // ID of the page that this section is for
   );
 
   // Add fields to the Front Page section
@@ -507,7 +515,7 @@ add_action('admin_init', function() {
     'Splash Title',                // Title of this settings field
     'display_frontpage_splash_title',   // Callback function for displaying this field
     'humblerootsmedia-settings',                  // ID of the page this field is for
-    'frontpage_section'                 // ID of the sectino this field is for
+    'humblerootsmedia_section'                 // ID of the sectino this field is for
   );
 
   add_settings_field(
@@ -515,7 +523,7 @@ add_action('admin_init', function() {
     'Splash Tagline',                // Title of this settings field
     'display_frontpage_splash_tagline',   // Callback function for displaying this field
     'humblerootsmedia-settings',                  // ID of the page this field is for
-    'frontpage_section'                 // ID of the sectino this field is for
+    'humblerootsmedia_section'                 // ID of the sectino this field is for
   );
 
   add_settings_field(
@@ -523,7 +531,7 @@ add_action('admin_init', function() {
     'Intro Text',                // Title of this settings field
     'display_frontpage_intro',   // Callback function for displaying this field
     'humblerootsmedia-settings',                  // ID of the page this field is for
-    'frontpage_section'                 // ID of the sectino this field is for
+    'humblerootsmedia_section'                 // ID of the sectino this field is for
   );
 
   add_settings_field(
@@ -531,7 +539,7 @@ add_action('admin_init', function() {
     'Midtro Text',                // Title of this settings field
     'display_frontpage_midtro',   // Callback function for displaying this field
     'humblerootsmedia-settings',                  // ID of the page this field is for
-    'frontpage_section'                 // ID of the sectino this field is for
+    'humblerootsmedia_section'                 // ID of the sectino this field is for
   );
 
   add_settings_field(
@@ -539,7 +547,29 @@ add_action('admin_init', function() {
     'Outro Text',                // Title of this settings field
     'display_frontpage_outro',   // Callback function for displaying this field
     'humblerootsmedia-settings',                  // ID of the page this field is for
-    'frontpage_section'                 // ID of the sectino this field is for
+    'humblerootsmedia_section'                 // ID of the sectino this field is for
+  );
+
+  add_settings_field(
+    'clientele_splash_title',           // ID of this settings field
+    'Clientle Splash Title',                // Title of this settings field
+    'display_clientele_splash_title',   // Callback function for displaying this field
+    'humblerootsmedia-settings',                  // ID of the page this field is for
+    'humblerootsmedia_section'                 // ID of the sectino this field is for
+  );
+  add_settings_field(
+    'clientele_splash_tagline',           // ID of this settings field
+    'Clientele Splash Tagline',                // Title of this settings field
+    'display_clientele_splash_tagline',   // Callback function for displaying this field
+    'humblerootsmedia-settings',                  // ID of the page this field is for
+    'humblerootsmedia_section'                 // ID of the sectino this field is for
+  );
+  add_settings_field(
+    'clientele_max_clients',           // ID of this settings field
+    'Max amount of Clients to display',                // Title of this settings field
+    'display_clientele_max_clients',   // Callback function for displaying this field
+    'humblerootsmedia-settings',                  // ID of the page this field is for
+    'humblerootsmedia_section'                 // ID of the sectino this field is for
   );
 
   // Register Setting
@@ -563,10 +593,22 @@ add_action('admin_init', function() {
     'humblerootsmedia-settings',                  // ID of the page to register to
     'frontpage_outro'             // ID of the field to register to
   );
+  register_setting(
+    'humblerootsmedia-settings',                  // ID of the page to register to
+    'clientele_splash_title'             // ID of the field to register to
+  );
+  register_setting(
+    'humblerootsmedia-settings',                  // ID of the page to register to
+    'clientele_splash_tagline'             // ID of the field to register to
+  );
+  register_setting(
+    'humblerootsmedia-settings',                  // ID of the page to register to
+    'clientele_max_clients'             // ID of the field to register to
+  );
 });
 
-function display_frontpage_section() {
-  echo 'These settings change various text and styling options on the front page of Humble Roots Media.';
+function display_humblerootsmedia_section() {
+  echo 'These settings change various text and styling options on the pages of Humble Roots Media.';
 }
 function display_frontpage_splash_image() {
     ?>
@@ -589,4 +631,13 @@ function display_frontpage_midtro() {
 }
 function display_frontpage_outro() {
   echo '<input type="text" class="large-text" name="frontpage_outro" value="'. stripslashes( get_option('frontpage_outro') ) . '">';
+}
+function display_clientele_splash_title() {
+  echo '<input type="text" class="large-text" name="clientele_splash_title" value="'. stripslashes( get_option('clientele_splash_title') ) . '">';
+}
+function display_clientele_splash_tagline() {
+  echo '<input type="text" class="large-text" name="clientele_splash_tagline" value="'. stripslashes( get_option('clientele_splash_tagline') ) . '">';
+}
+function display_clientele_max_clients() {
+  echo '<input type="text" class="large-text" name="clientele_max_clients" value="'. stripslashes( get_option('clientele_max_clients') ) . '">';
 }
