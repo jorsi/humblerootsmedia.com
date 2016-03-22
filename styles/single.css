@@ -1,0 +1,31 @@
+.post-content {}
+  .post-metadata {
+    margin: 50px auto;
+    font-weight: 400;
+  }
+  .post-entry {
+    margin: 50px auto;
+    padding: 0 2%;
+  }
+  .post-entry h2, .post-entry h3, .post-entry h4, .post-entry h5, .post-entry h6 {
+    margin: 25px auto;
+    max-width: 750px;
+  }
+  .post-entry p {
+    margin: 45px auto;
+    max-width: 750px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 200;
+  }
+  .post-entry blockquote {
+    margin: 50px 0;
+    padding: 25px 3%;
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.7;
+    border-top: 1px solid #bebebe;
+    border-bottom: 1px solid #bebebe;
+    text-align: center;
+  }

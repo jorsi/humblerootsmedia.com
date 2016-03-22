@@ -1,4 +1,8 @@
 <?php
+// Remove Auto <p> tags
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
+
 // Default Options
 function humblerootsmedia_get_default_options() {
     $options = array(
@@ -113,6 +117,8 @@ function humblerootsmedia_init() {
         wp_enqueue_style( 'humblerootsmedia_style_humble-thoughts', get_stylesheet_directory_uri() . '/styles/humble-thoughts.css');
       if ( is_page( 'Contact') )
         wp_enqueue_style( 'humblerootsmedia_style_contact', get_stylesheet_directory_uri() . '/styles/contact.css');
+      if ( is_single() )
+        wp_enqueue_style( 'humblerootsmedia_style_single', get_stylesheet_directory_uri() . '/styles/single.css');
 }
 
   // Set-up Default Pages
