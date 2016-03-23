@@ -1,8 +1,14 @@
+.post-title {
+  color: #6fa66d;
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+.post-metadata {
+  color: #bacdba;
+  font-size: 1rem;
+  font-weight: 200;
+}
 .post-content {}
-  .post-metadata {
-    margin: 50px auto;
-    font-weight: 400;
-  }
   .post-entry {
     margin: 50px auto;
     padding: 0 2%;
