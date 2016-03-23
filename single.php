@@ -6,8 +6,8 @@
 ?>
 <div class="nav-pad"></div>
 <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo $thumb; ?>">
-  <h1 class="post-title tangerine"><?php single_post_title(); ?></h1>
-  <h2 class="post-metadata text-center">
+  <h1 class="splash-title tangerine"><?php single_post_title(); ?></h1>
+  <h2 class="splash-tagline">
     Posted in <?php the_category( ', ' ); ?> on <?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?>
   </h2>
 </header>
