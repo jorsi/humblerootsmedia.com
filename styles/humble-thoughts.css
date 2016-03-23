@@ -1,15 +1,10 @@
 header h1 {
   margin: 50px auto;
   color: #6fa66d;
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   font-weight: 400;
 }
   header h3 {}
-  @media (min-width:600px) {
-    header h1 {
-      font-size: 4.5rem;
-    }
-  }
 
 .blog-posts {
   padding: 0 2%;
@@ -18,6 +13,16 @@ header h1 {
   margin: 50px auto;
   padding: 0 2%;
 }
+.post-summary {}
+  .post-summary .post-title {
+    color: #6fa66d;
+    font-size: 2rem;
+    font-weight: 200;
+  }
+    .post-summary .post-title:hover { text-decoration: underline; }
+  .post-summary .post-metadata {
+    color: #bacdba;
+  }
   .post-entry h2, .post-entry h3, .post-entry h4, .post-entry h5, .post-entry h6 {
     margin: 25px auto;
     max-width: 750px;
