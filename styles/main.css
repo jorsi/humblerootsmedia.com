@@ -229,7 +229,6 @@ address { font-style: normal; }
 .splash {
   min-height: 450px;
   height: 56.5vw;
-  max-height: 85vh;
 
   font-size: 1.4em;
   color: #efefef;
@@ -238,21 +237,9 @@ address { font-style: normal; }
   @media (min-width: 600px) {
     .splash h3 { display: block; font-style: italic; font-weight: 200; }
   }
-.splash-half {
-  min-height: 300px;
-  height: 28.75vw;
-  max-height: 50vh;
-
-  font-size: 1.4em;
-  color: #efefef;
-}
-  .splash-half h3 { display: none; }
-  @media (min-width: 600px) {
-    .splash-half h3 { display: block; font-style: italic; font-weight: 200; }
-  }
 .content {
   padding: 25px 15px;
-  background-color: #cbcbcd;
+  background-color: #dbdbdb;
 }
 .slide {
   min-height: 300px;
@@ -269,9 +256,9 @@ address { font-style: normal; }
 .break {
   position: relative;
   padding: 45px 15px;
-  font-size: 1.7rem;
   background-color: #efefef;
 }
+  .break p { font-size: 1.7rem; }
   .break a { color: #6fa66d; text-decoration: underline; }
 .break::after {
   position: absolute;
