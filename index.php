@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+  <div class="nav-pad"></div>
   <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php header_image(); ?>">
     <h1><?php echo stripslashes( get_option( 'frontpage_splash_title', 'Splash Title Here' ) ); ?></h1>
     <h3><?php echo stripslashes( get_option( 'frontpage_splash_tagline', 'Witty splash tagline should go here' ) ); ?></h3>

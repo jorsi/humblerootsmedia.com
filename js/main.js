@@ -38,14 +38,14 @@ $(document).ready(function(){
   // Navigation - Desktop
   var nav = $('.nav-desktop');
   function navHide(ev) {
-    if(user.isScrollingDown && user.isPastSplash && !user.isAtBottom) {
+    if(user.isScrollingDown && user.scrollY > 100 && !user.isAtBottom) {
       !nav.hasClass('nav-up') ? nav.toggleClass('nav-up') : null;
     } else {
       nav.hasClass('nav-up') ? nav.toggleClass('nav-up') : null;
     }
   }
   function navShrinke(ev) {
-    if (user.scrollY < 100) {
+    if (user.scrollY < 1) {
       nav.hasClass('nav-fixed') ? nav.toggleClass('nav-fixed') : null;
     } else {
       !nav.hasClass('nav-fixed') ? nav.toggleClass('nav-fixed') : null;

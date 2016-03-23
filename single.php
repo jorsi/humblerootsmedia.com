@@ -4,6 +4,7 @@
   the_post();
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
+<div class="nav-pad"></div>
 <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo $thumb; ?>">
   <h1><?php single_post_title(); ?></h1>
 </header>

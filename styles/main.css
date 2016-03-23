@@ -169,12 +169,15 @@ address { font-style: normal; }
       left: 0;
       right: 0;
       z-index: 1;
-      transition: top .3s, background .3s;
-      background: linear-gradient(to top, transparent, rgba(255,255,255,.4), rgba(255,255,255,.6));
+
+      color: #111;
+      background-color: #efefef;
+      border-bottom: 1px solid #dfdfdf;
+
+      transition: top .3s, border-bottom .3s;
     }
     .nav-desktop.nav-fixed {
-      background-color: #efefef;
-      border-bottom: 1px solid #232d23;
+      border-bottom: 1px solid #4d4d4d;
     }
     .nav-desktop.nav-up { top: -100%; }
       .nav-desktop .links {
@@ -196,6 +199,12 @@ address { font-style: normal; }
           color: #efefef;
           background-color: #6fa66d;
         }
+      .nav-desktop .brand-name { transition: color .3s; }
+      .nav-desktop .brand-name:hover,
+      .nav-desktop .brand-name:active,
+      .nav-desktop .brand-name:focus {
+        color: #6fa66d;
+      }
       .nav-desktop .brand-image {
         float: left;
         margin: 5px;
@@ -205,17 +214,18 @@ address { font-style: normal; }
       .nav-desktop  .welcometo {
         padding-top: 3px;
         font-style: italic;
-        color: #111;
       }
       .nav-desktop .humblerootsmedia {
         display: block;
         padding-bottom: 5px;
         font-size: 1.5em;
         font-weight: 700;
-        color: #111;
       }
   }
 
+.nav-pad {
+  height: 65px;
+}
 .splash {
   min-height: 450px;
   height: 56.5vw;
