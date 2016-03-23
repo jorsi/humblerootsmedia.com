@@ -9,7 +9,7 @@
   White: #efefef
   Black: #111111
   Light-Grey: #cbcbcd
-  Light-Greyish-Green: #cbd1cb
+  Light-Greyish-Green: #cbdfcb
   Dark-Greyish-Blue: #23232d
   Dark-Greyish-Green: #232d23
 
@@ -18,21 +18,21 @@
 */
 
 /* Default Typography */
-html {
-  font-family: "Lato", sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.4;
-}
+html {}
 
 /* Default Element Styles */
 body {
   color: #1d1d1d;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.4;
   background-color: #efefef;
 }
+@media (min-width: 600px) { body { font-size: 16px; }}
 header {}
 footer {}
-h1, h2, h3, h4, h5, h6 { margin: 10px 0; }
+h1, h2, h3, h4, h5, h6 {}
 a {
   color: inherit;
   text-decoration: none;
@@ -87,7 +87,7 @@ address { font-style: normal; }
     .col-third {
       float: left;
       padding: 15px;
-      width: 33%;
+      width: 33.33%;
     }
   }
 .col-fourth {
@@ -113,13 +113,8 @@ address { font-style: normal; }
   max-width: 1200px;
 }
 .flex { display: flex; }
-  .flex-column {
-    flex-direction: column;
-  }
-  .flex-center {
-    align-items: center;
-    justify-content: center;
-  }
+.flex-column { flex-direction: column; }
+.flex-center { justify-content: center; align-items: center; }
 
 /* Section Layouts */
 .nav {
@@ -127,7 +122,7 @@ address { font-style: normal; }
 }
 .nav-mobile {
   background-color: #efefef;
-  border-bottom: 1px solid #232d23;
+  border-bottom: 1px solid #dfdfdf;
 }
   .nav-mobile .brand {
     display: inline-block;
@@ -224,35 +219,51 @@ address { font-style: normal; }
       }
   }
 
-.nav-pad {
-  height: 65px;
+@media (min-width: 600px) {
+  .nav-pad { height: 65px;}
 }
 .splash {
-  min-height: 450px;
   height: 56.5vw;
-
-  font-size: 1.4em;
-  color: #efefef;
 }
-  .splash h3 { display: none; }
+  .splash .splash-title {
+    color: #efefef;
+    font-size: 2.5rem;
+  }
+  .splash .splash-tagline {
+    display: none;
+    color: #efefef;
+    font-style: italic;
+    font-weight: 200;
+  }
+  .splash .splash-ghost {
+    display: none;
+  }
   @media (min-width: 600px) {
-    .splash h3 { display: block; font-style: italic; font-weight: 200; }
+    .splash .splash-title {
+      font-size: 4.5rem;
+    }
+    .splash .splash-tagline { display: block; }
+    .splash .splash-ghost { display: inline-block; }
   }
 .content {
   padding: 25px 15px;
   background-color: #dbdbdb;
 }
 .slide {
-  min-height: 300px;
   height: 56.5vw;
-  max-height: 85vh;
-
-  font-size: 1.2rem;
-  color: #efefef;
 }
-  .slide h3 { display: none; }
+  .slide .slide-title {
+    color: #efefef;
+    font-size: 2.5rem;
+  }
+  .slide .slide-tagline {
+    display: none;
+    color: #efefef;
+
+  }
   @media (min-width: 600px) {
-    .slide h3 { display: block; font-style: italic; font-weight: 200; }
+    .slide .slide-title { font-size: 4.5rem; }
+    .slide .slide-tagline { display: block; font-style: italic; font-weight: 200; }
   }
 .break {
   position: relative;
@@ -293,8 +304,7 @@ address { font-style: normal; }
 
 /* Components */
 .ghost {
-  margin: 10px;
-  padding: 10px;
+  padding: 5px 10px;
   font-size: 1.2rem;
   font-weight: 700;
   color: #6fa66d;

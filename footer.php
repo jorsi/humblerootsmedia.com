@@ -24,8 +24,10 @@
 
           <div class="col-third center-h">
             <h2>Contact Us</h2>
-            <address>hello@humblerootsmedia.com</address>
-            <address>905-929-5417</address>
+            <p>
+              hello-at-humblerootsmedia.com<br>
+              905-929-5417
+            </p>
           </div>
         </div>
       </div>
