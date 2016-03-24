@@ -110,7 +110,7 @@
 .fancybox-nav {
 	position: absolute;
 	top: 0;
-	width: 40%;
+	width: 20%;
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
@@ -120,11 +120,11 @@
 }
 
 .fancybox-prev {
-	left: 0;
+	left: -60px;
 }
 
 .fancybox-next {
-	right: 0;
+	right: -60px;
 }
 
 .fancybox-nav span {
@@ -256,6 +256,28 @@
 	background: #000;
 	background: rgba(0, 0, 0, .8);
 }
+
+.fancybox-type-iframe .fancybox-nav {
+    width: 60px;
+}
+
+.fancybox-type-iframe .fancybox-nav span {
+    visibility: visible;
+    opacity: 0.5;
+}
+
+.fancybox-type-iframe .fancybox-nav:hover span {
+    opacity: 1;
+}
+
+.fancybox-type-iframe .fancybox-next {
+    right: -60px;
+}
+
+.fancybox-type-iframe .fancybox-prev {
+    left: -60px;
+}
+
 
 /*Retina graphics!*/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),

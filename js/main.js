@@ -75,6 +75,15 @@ $(document).ready(function(){
     slider.goToNextSlide();
   });
 
+  // Initialize FancyBox Modal
+  $(".fancybox")
+    .attr('rel', 'gallery')
+    .fancybox({
+        type: 'iframe',
+        padding     : 0,
+        margin      : [20, 60, 20, 60] // Increase left/right margin
+    });
+
   //Initialize Instafeed
     // grab out load more button
     var loadButton = document.getElementById('load-more');

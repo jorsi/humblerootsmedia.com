@@ -23,6 +23,25 @@
           </div>
 
           <ul class="bxslider">
+          <?php
+            // Display Testimonials
+            $args = array( 'post_type' => 'production' );
+            $loop = new WP_Query( $args );
+            while ( $loop->have_posts() ) :
+              echo '<li>';
+                for ( $i = 0; $i < 3; $i++ ) : $loop->the_post();
+                  echo '<div class="item">';
+                    echo '<a class="fancybox fancybox.iframe" href="' . get_post_meta($post->ID, 'productions_video_uri', true) . '">';
+                      echo '<img src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '">';
+                      echo '<h3>' . get_the_title() . '</h3>';
+                      echo '<p>' . get_post_meta($post->ID, 'productions_video_description', true) . '</p>';
+                    echo '</a>';
+                  echo '</div>';
+                endfor;
+              echo '</li>';
+            endwhile; ?>
+          </ul>
+<!--
             <li>
               <div class="item">
                 <a href="https://vimeo.com/121850734">
@@ -45,8 +64,7 @@
                   <p>Description here</p>
                 </a>
               </div>
-            </li>
-          </ul>
+            </li> -->
         </div>
       </section>
 
