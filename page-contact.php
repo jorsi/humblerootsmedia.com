@@ -1,4 +1,28 @@
 <?php
+  $postback = false;
+
+  if ( isset($_POST['action']) ) {
+    $name = $_POST['name_full'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $enquiry = $_POST['enquryType'];
+    $message = $_POST['message'];
+
+    $to = 'jonathon.orsi@gmail.com';
+    $subject = 'New Email from Humble Roots';
+    $msg = 'This message is being sent to you through the humble roots media website.\r\n'
+          .'From: ' . $name . '\r\n'
+          .'Email: ' . $email . '\r\n'
+          .'Phone: ' . $phone . '\r\n'
+          .'Enquiry: ' . $enquiry . '\r\n'
+          .'Message: ' .$message;
+    $headers = 'From: Jonathon Orsi <jonathon.orsi@gmail.com>' . '\r\n';
+
+    wp_mail($to, $subject, $msg, $headers);
+
+    $postback = true;
+  }
+
   get_header();
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
@@ -6,7 +30,12 @@
 <main id="main">
   <aside class="break text-center">
     <div class="container-md">
-      <p><?php echo stripslashes( get_option( 'contact_intro', 'You are only a few moments away from creating beautiful content for your next major project.' ) ); ?></p>
+      <p><?php
+        if ($postback)
+          echo 'Thank you for contacting us. We\'ll get back to you shortly.';
+        else
+          echo 'You are only a few moments away from creating beautiful content for your next major project.';
+      ?></p>
     </div>
   </aside>
 
