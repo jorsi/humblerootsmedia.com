@@ -107,7 +107,7 @@ function humblerootsmedia_init() {
       // Global scripts
       wp_enqueue_script( 'humblerootsmedia_script_parallax', get_template_directory_uri().'/js/jquery.parallax.min.js', array('jquery'));
       wp_enqueue_script( 'humblerootsmedia_script_smoothscroll', get_template_directory_uri() . '/js/jquery.smooth-scroll.min.js', array('jquery'));
-      wp_enqueue_script( 'humblerootsmedia_script_main', get_template_directory_uri().'/js/main.js', array('jquery'));
+      wp_enqueue_script( 'humblerootsmedia_script_global', get_template_directory_uri().'/js/global.js', array('jquery'));
 
       /**
        * Adds Page specific styles and scripts
@@ -117,6 +117,7 @@ function humblerootsmedia_init() {
         wp_enqueue_script( 'humblerootsmedia_script_fancybox', get_template_directory_uri().'/js/jquery.fancybox.pack.js', array('jquery'));
         wp_enqueue_script( 'humblerootsmedia_script_bxslider', get_template_directory_uri().'/js/jquery.bxslider.min.js', array('jquery'));
         wp_enqueue_script( 'humblerootsmedia_script_instafeed', get_template_directory_uri().'/js/instafeed.min.js', array('jquery'));
+        wp_enqueue_script( 'humblerootsmedia_script_index', get_template_directory_uri().'/js/index.js', array('jquery'));
       }
       if ( is_page( 'Clientele') )
         wp_enqueue_style( 'humblerootsmedia_style_clientele', get_stylesheet_directory_uri() . '/styles/clientele.css');
