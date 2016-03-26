@@ -37,7 +37,8 @@ header h1 {
   .post-entry blockquote {
     margin: 50px 0;
     padding: 25px 3%;
-    font-size: 1.3rem;
+    color: #6fa66d;
+    font-size: 1.5rem;
     font-weight: 500;
     font-style: italic;
     line-height: 1.7;
