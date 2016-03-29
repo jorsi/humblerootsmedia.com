@@ -358,13 +358,15 @@ address { font-style: normal; }
     display: inline-block;
   }
   .bxslider .item {
-    float: left;
     padding: 15px;
+    text-align: center;
     box-sizing: border-box;
   }
   @media (min-width: 600px) {
     .bxslider .item {
+      float: left;
       width: 33.33%;
+      text-align: left;
     }
   }
 #instafeed {
