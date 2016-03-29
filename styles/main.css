@@ -263,18 +263,22 @@ address { font-style: normal; }
   max-height: 80vmin;
 }
   .slide .slide-title {
+    margin: 15px auto;
     color: #efefef;
     font-size: 2.5rem;
     text-shadow: 1px 1px 1px black;
   }
   .slide .slide-tagline {
     display: none;
+    margin: 10px auto;
     color: #efefef;
+    font-style: italic;
+    font-weight: 200;
 
   }
   @media (min-width: 600px) {
     .slide .slide-title { font-size: 4.5rem; }
-    .slide .slide-tagline { display: block; font-style: italic; font-weight: 200; }
+    .slide .slide-tagline { display: block; }
   }
 .break {
   position: relative;
