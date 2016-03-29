@@ -4,7 +4,7 @@
 ?>
   <div class="nav-pad"></div>
   <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo $thumb; ?>">
-    <h1 class="splash-title tangerine"><?php echo stripslashes( get_option( 'clientele_splash_title' ) ); ?></h1>
+    <h1 class="splash-title"><?php echo stripslashes( get_option( 'clientele_splash_title' ) ); ?></h1>
     <h3 class="splash-tagline"><?php echo stripslashes( get_option( 'clientele_splash_tagline' ) ); ?></h3>
     <a class="splash-ghost ghost smooth-scroll" href="#main"><?php echo stripslashes( get_option( 'clientele_ghost_text', 'See What We Mean' ) ); ?></a>
   </header>

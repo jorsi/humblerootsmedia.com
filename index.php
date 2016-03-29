@@ -1,7 +1,7 @@
 <?php get_header(); ?>
   <div class="nav-pad"></div>
   <header class="splash flex flex-column flex-center parallax-window" data-parallax="scroll" data-image-src="<?php header_image(); ?>">
-    <h1 class="splash-title tangerine"><?php echo stripslashes( get_option( 'frontpage_splash_title', 'Splash Title Here' ) ); ?></h1>
+    <h1 class="splash-title"><?php echo stripslashes( get_option( 'frontpage_splash_title', 'Splash Title Here' ) ); ?></h1>
     <h3 class="splash-tagline"><?php echo stripslashes( get_option( 'frontpage_splash_tagline', 'Witty splash tagline should go here' ) ); ?></h3>
     <a class="splash-ghost ghost smooth-scroll" href="#main">Grow With Us</a>
   </header>
@@ -69,7 +69,7 @@
       </section>
 
       <aside class="flex flex-column flex-center slide parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/film.jpg">
-        <h1 class="slide-title tangerine">Humble Thoughts</h1>
+        <h1 class="slide-title">Humble Thoughts</h1>
         <h3 class="slide-tagline">Our blog, our memories and scribes.</h3>
         <a class="ghost" href="/humblethoughts">Discover</a>
       </aside>

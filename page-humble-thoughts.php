@@ -5,7 +5,7 @@
 
 <div class="nav-pad"></div>
 <header class="flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo $thumb; ?>">
-  <h1 class="tangerine"><?php echo stripslashes( get_option( 'humblethoughts_splash_title', 'Our Humble Thoughts' ) ); ?></h1>
+  <h1 class="splash-title"><?php echo stripslashes( get_option( 'humblethoughts_splash_title', 'Our Humble Thoughts' ) ); ?></h1>
   <h3><?php echo stripslashes( get_option( 'humblethoughts_splash_tagline' ) ); ?></h3>
 </header>
 
