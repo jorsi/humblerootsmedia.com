@@ -41,30 +41,6 @@
               echo '</li>';
             endwhile; ?>
           </ul>
-<!--
-            <li>
-              <div class="item">
-                <a href="https://vimeo.com/121850734">
-                  <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
-                  <h3>Catherine North Sessions</h3>
-                  <p>Description here</p>
-                </a>
-              </div>
-              <div class="item">
-                <a href="https://vimeo.com/130975587">
-                  <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
-                  <h3>MAC</h3>
-                  <p>Description here</p>
-                </a>
-              </div>
-              <div class="item">
-                <a href="https://vimeo.com/135975911">
-                  <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="aasdf">
-                  <h3>LOL</h3>
-                  <p>Description here</p>
-                </a>
-              </div>
-            </li> -->
         </div>
       </section>
 
