@@ -258,7 +258,9 @@ address { font-style: normal; }
   background-color: #dbdbdb;
 }
 .slide {
+  min-height: 300px;
   height: 56.5vw;
+  max-height: 80vmin;
 }
   .slide .slide-title {
     color: #efefef;
