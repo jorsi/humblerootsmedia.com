@@ -76,7 +76,10 @@
 
       <aside class="break text-center">
         <div class="container-md">
-          <p><?php echo stripslashes( get_option( 'frontpage_midtro', 'A little bit about how you work with people.' ) ); ?> <a href="/clientele">See how.</a></p>
+          <p>
+            <?php echo stripslashes( get_option( 'frontpage_midtro', 'A little bit about how you work with people.' ) ); ?>
+            <a href="/clientele">See how.</a>
+          </p>
         </div>
       </aside>
 
@@ -92,8 +95,6 @@
         <div class="container-md">
           <p>
             <?php echo stripslashes( get_option( 'frontpage_outro', 'Any last words, punk?' ) ); ?>
-          </p>
-          <p>
             <a href="/contact">Grow with us.</a>
           </p>
         </div>
