@@ -223,17 +223,25 @@ address { font-style: normal; }
   .nav-pad { height: 65px;}
 }
 .splash {
+  min-height: 300px;
   height: 56.5vw;
+  max-height: 80vmin;
 }
   .splash .splash-title {
+    margin: 15px auto;
     color: #efefef;
     font-size: 2.5rem;
+    font-weight: 200;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
   }
   .splash .splash-tagline {
     display: none;
+    margin: 10px auto;
     color: #efefef;
     font-style: italic;
     font-weight: 200;
+    text-align: center;
   }
   .splash .splash-ghost {
     display: none;
