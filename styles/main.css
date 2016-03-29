@@ -391,7 +391,8 @@ address { font-style: normal; }
   }
 #footer {
   padding-top: 30px;
-  color: #23232d;
+  font-weight: 400;
+  text-align: center;
   background-color: #6fa66d;
 }
 #info {}
