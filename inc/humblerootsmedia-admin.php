@@ -1,207 +1,150 @@
 <?php
-// Add Humble Roots Media Theme Options
-function humblerootsmedia_menu_options() {
-  add_theme_page(
-    'Humble Roots Settings',  // Title for the page
-    'Humble Roots',           // Text for the menu
-    'manage_options',         // Who has privileges to see it
-    'humblerootsmedia-settings',        // Page slug
-    'humblerootsmedia_settings_display'  // Callback function
-  );
+// Setup Metaboxes for Humble Roots Media theme
+$prefix = 'humblerootsmedia_';
+$meta_box = array(
+    'id' => 'humblerootsmedia-meta-box',
+    'title' => 'Humble Roots Media Meta Box',
+    'page' => 'page',
+    'context' => 'normal',
+    'priority' => 'high',
+    'fields' => array(
+        array(
+            'name' => 'Splash Title',
+            'desc' => 'Big-text title displayed on the splash of this page.',
+            'id' => $prefix . 'splash-title',
+            'type' => 'text',
+            'std' => 'Default value 1'
+        ),
+        array(
+            'name' => 'Splash Tagline',
+            'desc' => 'Smaller text displayed below the splash title',
+            'id' => $prefix . 'splash-tagline',
+            'type' => 'text',
+            'std' => 'Default value 1'
+        ),
+        array(
+            'name' => 'Show Ghost Button in Splash',
+            'desc' => 'Show a button that scrolls user to below the page',
+            'id' => $prefix . 'ghost-checkbox',
+            'type' => 'checkbox'
+        ),
+        array(
+            'name' => 'Ghost Button Text',
+            'desc' => 'The text inside the ghost button',
+            'id' => $prefix . 'ghost-text',
+            'type' => 'text',
+            'std' => 'Default value 1'
+        ),
+        array(
+            'name' => 'Introductory Text',
+            'desc' => 'Text usually positioned right under the splash.',
+            'id' => $prefix . 'intro-text',
+            'type' => 'text',
+            'std' => 'Bonjour. Salve. Hello. Aloha.'
+        ),
+        array(
+            'name' => 'Midtro Text',
+            'desc' => 'Text usually found in the middle of the page. Used as a break for layout.',
+            'id' => $prefix . 'midtro-text',
+            'type' => 'text',
+            'std' => 'Surprise.'
+        ),
+        array(
+            'name' => 'Outro Text',
+            'desc' => 'Text found at the end of the content area, right before the footer.',
+            'id' => $prefix . 'outro-text',
+            'type' => 'text',
+            'std' => 'I don\'t know why you say goodbye, I say hello.'
+        )
+    )
+);
+
+// Add Metaboxes
+add_action('admin_menu', 'humblerootsmedia_add_box');
+function humblerootsmedia_add_box() {
+    global $meta_box;
+
+    add_meta_box($meta_box['id'], $meta_box['title'], 'humblerootsmedia_show_box', $meta_box['page'], $meta_box['context'], $meta_box['priority']);
 }
-add_action('admin_menu', 'humblerootsmedia_menu_options');
 
-function humblerootsmedia_settings_display() {
-?>
-  <div class="wrap">
-    <h2>Humble Roots Media Theme Settings</h2>
-    <?php
-    // Check to see if data has been posted back
-    if( isset($_POST[ 'humblerootsmedia_submit_hidden' ]) && $_POST[ 'humblerootsmedia_submit_hidden' ] == 'Y' ) {
-        // Save the posted value in the database
-        update_option( 'frontpage_splash_title', $_POST[ 'frontpage_splash_title' ] );
-        update_option( 'frontpage_splash_tagline', $_POST[ 'frontpage_splash_tagline' ] );
-        update_option( 'frontpage_intro', $_POST[ 'frontpage_intro' ] );
-        update_option( 'frontpage_midtro', $_POST[ 'frontpage_midtro' ] );
-        update_option( 'frontpage_outro', $_POST[ 'frontpage_outro' ] );
+// Show Metaboxes
+function humblerootsmedia_show_box() {
+    global $meta_box, $post;
 
-        update_option('clientele_splash_title', $_POST[ 'clientele_splash_title' ] );
-        update_option('clientele_splash_tagline', $_POST[ 'clientele_splash_tagline' ] );
-        update_option('clientele_max_clients', $_POST[ 'clientele_max_clients' ] );
-        update_option('clientele_max_testimonials', $_POST[ 'clientele_max_testimonials' ] );
+    // Use nonce for verification
+    echo '<input type="hidden" name="humblerootsmedia_meta_box_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
 
-        // Put a "settings saved" message on the screen
-        ?>
-        <div class="updated"><p><strong>Settings saved.</strong></p></div>
-    <?php
+    echo '<table class="form-table">';
+
+    foreach ($meta_box['fields'] as $field) {
+        // get current post meta data
+        $meta = get_post_meta($post->ID, $field['id'], true);
+
+        echo '<tr>',
+                '<th style="width:20%"><label for="', $field['id'], '">', $field['name'], '</label></th>',
+                '<td>';
+        switch ($field['type']) {
+            case 'text':
+                echo '<input type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta ? $meta : $field['std'], '" size="30" style="width:97%" />', '<br />', $field['desc'];
+                break;
+            case 'textarea':
+                echo '<textarea name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="4" style="width:97%">', $meta ? $meta : $field['std'], '</textarea>', '<br />', $field['desc'];
+                break;
+            case 'select':
+                echo '<select name="', $field['id'], '" id="', $field['id'], '">';
+                foreach ($field['options'] as $option) {
+                    echo '<option ', $meta == $option ? ' selected="selected"' : '', '>', $option, '</option>';
+                }
+                echo '</select>';
+                break;
+            case 'radio':
+                foreach ($field['options'] as $option) {
+                    echo '<input type="radio" name="', $field['id'], '" value="', $option['value'], '"', $meta == $option['value'] ? ' checked="checked"' : '', ' />', $option['name'];
+                }
+                break;
+            case 'checkbox':
+                echo '<input type="checkbox" name="', $field['id'], '" id="', $field['id'], '"', $meta ? ' checked="checked"' : '', ' />';
+                break;
+        }
+        echo     '</td><td>',
+            '</td></tr>';
     }
-    ?>
-    <form method="post" action="">
-      <input type="hidden" name="humblerootsmedia_submit_hidden" value="Y">
-      <?php
-        settings_fields('humblerootsmedia_section');
-        do_settings_sections('humblerootsmedia-settings');
-        submit_button();
-      ?>
-    </form>
-  </div>
-<?php
+
+    echo '</table>';
 }
 
-// Register settings for the Humble Roots Media theme
-add_action('admin_init', function() {
+// Save data from meta box
+add_action('save_post', 'humblerootsmedia_save_data');
+function humblerootsmedia_save_data($post_id) {
+    global $meta_box;
 
-  // Add the Front Page section
-  add_settings_section(
-    'humblerootsmedia_section',           // ID of the this section
-    'Humble Roots Media Custom Settings', // Title of the this section
-    'display_humblerootsmedia_section',   // Callback function for displaying section
-    'humblerootsmedia-settings'    // ID of the page that this section is for
-  );
+    // verify nonce
+    if (!wp_verify_nonce($_POST['humblerootsmedia_meta_box_nonce'], basename(__FILE__))) {
+        return $post_id;
+    }
 
-  // Add fields to the Front Page section
-  add_settings_field(
-    'frontpage_splash_title',           // ID of this settings field
-    'Splash Title',                // Title of this settings field
-    'display_frontpage_splash_title',   // Callback function for displaying this field
-    'humblerootsmedia-settings',                  // ID of the page this field is for
-    'humblerootsmedia_section'                 // ID of the sectino this field is for
-  );
+    // check autosave
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return $post_id;
+    }
 
-  add_settings_field(
-    'frontpage_splash_tagline',           // ID of this settings field
-    'Splash Tagline',                // Title of this settings field
-    'display_frontpage_splash_tagline',   // Callback function for displaying this field
-    'humblerootsmedia-settings',                  // ID of the page this field is for
-    'humblerootsmedia_section'                 // ID of the sectino this field is for
-  );
+    // check permissions
+    if ('page' == $_POST['post_type']) {
+        if (!current_user_can('edit_page', $post_id)) {
+            return $post_id;
+        }
+    } elseif (!current_user_can('edit_post', $post_id)) {
+        return $post_id;
+    }
 
-  add_settings_field(
-    'frontpage_intro',           // ID of this settings field
-    'Intro Text',                // Title of this settings field
-    'display_frontpage_intro',   // Callback function for displaying this field
-    'humblerootsmedia-settings',                  // ID of the page this field is for
-    'humblerootsmedia_section'                 // ID of the sectino this field is for
-  );
+    foreach ($meta_box['fields'] as $field) {
+        $old = get_post_meta($post_id, $field['id'], true);
+        $new = $_POST[$field['id']];
 
-  add_settings_field(
-    'frontpage_midtro',           // ID of this settings field
-    'Midtro Text',                // Title of this settings field
-    'display_frontpage_midtro',   // Callback function for displaying this field
-    'humblerootsmedia-settings',                  // ID of the page this field is for
-    'humblerootsmedia_section'                 // ID of the sectino this field is for
-  );
-
-  add_settings_field(
-    'frontpage_outro',           // ID of this settings field
-    'Outro Text',                // Title of this settings field
-    'display_frontpage_outro',   // Callback function for displaying this field
-    'humblerootsmedia-settings',                  // ID of the page this field is for
-    'humblerootsmedia_section'                 // ID of the sectino this field is for
-  );
-
-  add_settings_field(
-    'clientele_splash_title',           // ID of this settings field
-    'Clientle Splash Title',                // Title of this settings field
-    'display_clientele_splash_title',   // Callback function for displaying this field
-    'humblerootsmedia-settings',                  // ID of the page this field is for
-    'humblerootsmedia_section'                 // ID of the sectino this field is for
-  );
-  add_settings_field(
-    'clientele_splash_tagline',           // ID of this settings field
-    'Clientele Splash Tagline',                // Title of this settings field
-    'display_clientele_splash_tagline',   // Callback function for displaying this field
-    'humblerootsmedia-settings',                  // ID of the page this field is for
-    'humblerootsmedia_section'                 // ID of the sectino this field is for
-  );
-  add_settings_field(
-    'clientele_max_clients',           // ID of this settings field
-    'Max amount of Clients to display',                // Title of this settings field
-    'display_clientele_max_clients',   // Callback function for displaying this field
-    'humblerootsmedia-settings',                  // ID of the page this field is for
-    'humblerootsmedia_section'                 // ID of the sectino this field is for
-  );
-  add_settings_field(
-    'clientele_max_testimonials',           // ID of this settings field
-    'Max amount of Testimonials to display',                // Title of this settings field
-    'display_clientele_max_testimonials',   // Callback function for displaying this field
-    'humblerootsmedia-settings',                  // ID of the page this field is for
-    'humblerootsmedia_section'                 // ID of the sectino this field is for
-  );
-
-  // Register Setting
-  register_setting(
-    'humblerootsmedia-settings',                  // ID of the page to register to
-    'frontpage_splash_title'            // ID of the field to register to
-  );
-  register_setting(
-    'humblerootsmedia-settings',                  // ID of the page to register to
-    'frontpage_splash_tagline'            // ID of the field to register to
-  );
-  register_setting(
-    'humblerootsmedia-settings',                  // ID of the page to register to
-    'frontpage_intro'            // ID of the field to register to
-  );
-  register_setting(
-    'humblerootsmedia-settings',                  // ID of the page to register to
-    'frontpage_midtro'            // ID of the field to register to
-  );
-  register_setting(
-    'humblerootsmedia-settings',                  // ID of the page to register to
-    'frontpage_outro'             // ID of the field to register to
-  );
-  register_setting(
-    'humblerootsmedia-settings',                  // ID of the page to register to
-    'clientele_splash_title'             // ID of the field to register to
-  );
-  register_setting(
-    'humblerootsmedia-settings',                  // ID of the page to register to
-    'clientele_splash_tagline'             // ID of the field to register to
-  );
-  register_setting(
-    'humblerootsmedia-settings',                  // ID of the page to register to
-    'clientele_max_clients'             // ID of the field to register to
-  );
-  register_setting(
-    'humblerootsmedia-settings',                  // ID of the page to register to
-    'clientele_max_testimonials'             // ID of the field to register to
-  );
-});
-
-function display_humblerootsmedia_section() {
-  echo 'These settings change various text and styling options on the pages of Humble Roots Media.';
-}
-function display_frontpage_splash_image() {
-    ?>
-        <img src="">
-        <input id="upload_logo_button" type="button" class="button" value="<?php _e( 'Upload Logo', 'wptuts' ); ?>" />
-        <span class="description"><?php _e('Upload an image for the banner.', 'wptuts' ); ?></span>
-    <?php
-}
-function display_frontpage_splash_title() {
-  echo '<input type="text" class="large-text" name="frontpage_splash_title" value="'. stripslashes( get_option('frontpage_splash_title') ) . '">';
-}
-function display_frontpage_splash_tagline() {
-  echo '<input type="text" class="large-text" name="frontpage_splash_tagline" value="'. stripslashes( get_option('frontpage_splash_tagline') ) . '">';
-}
-function display_frontpage_intro() {
-  echo '<input type="text" class="large-text" name="frontpage_intro" value="'. stripslashes( get_option('frontpage_intro') ) . '">';
-}
-function display_frontpage_midtro() {
-  echo '<input type="text" class="large-text" name="frontpage_midtro" value="'. stripslashes( get_option('frontpage_midtro') ) . '">';
-}
-function display_frontpage_outro() {
-  echo '<input type="text" class="large-text" name="frontpage_outro" value="'. stripslashes( get_option('frontpage_outro') ) . '">';
-}
-function display_clientele_splash_title() {
-  echo '<input type="text" class="large-text" name="clientele_splash_title" value="'. stripslashes( get_option('clientele_splash_title') ) . '">';
-}
-function display_clientele_splash_tagline() {
-  echo '<input type="text" class="large-text" name="clientele_splash_tagline" value="'. stripslashes( get_option('clientele_splash_tagline') ) . '">';
-}
-function display_clientele_max_clients() {
-  echo '<input type="number" name="clientele_max_clients" value="'. get_option('clientele_max_clients') . '">';
-}
-function display_clientele_max_testimonials() {
-  echo '<input type="number" name="clientele_max_testimonials" value="'. get_option('clientele_max_testimonials') . '">';
+        if ($new && $new != $old) {
+            update_post_meta($post_id, $field['id'], $new);
+        } elseif ('' == $new && $old) {
+            delete_post_meta($post_id, $field['id'], $old);
+        }
+    }
 }

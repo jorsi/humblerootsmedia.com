@@ -1,12 +1,22 @@
 <?php
   get_header();
+  $postid = $post->ID;
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
 
 <div class="nav-pad"></div>
 <header class="flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo $thumb; ?>">
-  <h1 class="splash-title"><?php echo stripslashes( get_option( 'humblethoughts_splash_title', 'Our Humble Thoughts' ) ); ?></h1>
-  <h3><?php echo stripslashes( get_option( 'humblethoughts_splash_tagline' ) ); ?></h3>
+  <h1 class="splash-title"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-title', true ) ); ?></h1>
+  <h3><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
+  <?php
+    if ( get_post_meta($postid, 'humblerootsmedia_ghost-checkbox', true) ) {
+      ?>
+      <a class="splash-ghost ghost smooth-scroll" href="#main">
+        <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_ghost-text', true ) ); ?>
+      </a>
+  <?php
+    }
+  ?>
 </header>
 
 <main id="main">

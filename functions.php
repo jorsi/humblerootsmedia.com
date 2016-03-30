@@ -6,5 +6,6 @@
 // Require the custom options page for Humble Roots Media
 require_once( 'inc/humblerootsmedia-options.php' );
 require_once( 'inc/humblerootsmedia-enqueue.php' );
+require_once( 'inc/humblerootsmedia-pages.php' );
 require_once( 'inc/humblerootsmedia-customposts.php' );
 require_once( 'inc/humblerootsmedia-admin.php' );

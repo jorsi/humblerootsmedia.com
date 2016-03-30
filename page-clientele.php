@@ -1,12 +1,22 @@
 <?php
   get_header();
+  $postid = $post->ID;
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
   <div class="nav-pad"></div>
   <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo $thumb; ?>">
-    <h1 class="splash-title"><?php echo stripslashes( get_option( 'clientele_splash_title' ) ); ?></h1>
-    <h3 class="splash-tagline"><?php echo stripslashes( get_option( 'clientele_splash_tagline' ) ); ?></h3>
-    <a class="splash-ghost ghost smooth-scroll" href="#main"><?php echo stripslashes( get_option( 'clientele_ghost_text', 'See What We Mean' ) ); ?></a>
+    <h1 class="splash-title"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-title', true) ); ?></h1>
+    <h3 class="splash-tagline"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-tagline', true) ); ?></h3>
+
+    <?php
+      if ( get_post_meta($postid, 'humblerootsmedia_ghost-checkbox', true) ) {
+        ?>
+        <a class="splash-ghost ghost smooth-scroll" href="#main">
+          <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_ghost-text', true ) ); ?>
+        </a>
+    <?php
+      }
+    ?>
   </header>
 
 <main id="main">
@@ -52,7 +62,7 @@
 
   <aside class="break text-center">
     <div class="container-md">
-      <p><?php echo stripslashes( get_option( 'clientele_outro', 'Any last words, punk?' ) ); ?></p>
+      <p><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_outro-text', true ) ); ?></p>
     </div>
 
   </aside>

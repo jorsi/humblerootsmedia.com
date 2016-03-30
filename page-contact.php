@@ -34,7 +34,7 @@
         if ($postback)
           echo 'Thank you for contacting us. We\'ll get back to you shortly.';
         else
-          echo 'You are only a few moments away from creating beautiful content for your next major project.';
+          echo get_post_meta( $post->ID, 'humblerootsmedia_intro-text', true );
       ?></p>
     </div>
   </aside>
