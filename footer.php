@@ -1,8 +1,6 @@
 <?php ?>
 		<footer id="footer">
-      <a class="scroll-up smooth-scroll" href="#top"><i class="fa fa-chevron-circle-up"></i></a>
-
-      <div class="container">
+      <div class="container-lg">
 
         <div id="info" class="row">
           <?php
@@ -22,7 +20,8 @@
       </div>
 
       <div id="copyright">
-        <small>Humble Roots Media &copy;<script>document.write(new Date().getFullYear())</script></small>
+        <!-- <a class="scroll-up smooth-scroll" href="#top"><i class="fa fa-chevron-circle-up"></i></a> -->
+        <small>&copy; <script>document.write(new Date().getFullYear())</script> Humble Roots Media</small>
       </div>
 
     </footer>
