@@ -226,7 +226,7 @@ address { font-style: normal; }
   min-height: 300px;
   height: 56.5vw;
 }
-  .splash .splash-title {
+  .splash-title {
     margin: 5px auto;
     color: #efefef;
     font-size: 3.5rem;
@@ -235,7 +235,7 @@ address { font-style: normal; }
     text-align: center;
     text-shadow: 1px 1px 1px black;
   }
-  .splash .splash-tagline {
+  .splash-tagline {
     display: none;
     margin: 5px auto 45px auto;
     color: #efefef;
@@ -244,19 +244,23 @@ address { font-style: normal; }
     font-weight: 200;
     text-align: center;
   }
-  .splash .splash-ghost {
+  .splash-ghost {
     display: none;
   }
   @media (min-width: 600px) {
-    .splash .splash-title {
+    .splash-title {
       font-size: 5rem;
     }
-    .splash .splash-tagline { display: block; }
-    .splash .splash-ghost { display: inline-block; }
+    .splash-tagline { display: block; }
+    .splash-ghost { display: inline-block; }
   }
 .content {
   padding: 25px 15px;
   background-color: #dbdbdb;
+}
+.content h2 {
+  font-size: 2.5rem;
+  font-weight: 200;
 }
 .slide {
   min-height: 300px;
@@ -317,6 +321,9 @@ address { font-style: normal; }
 }
 .padding-menu {
   padding-top: 50px;
+}
+.green {
+  color: #6fa66d;
 }
 /* Components */
 .ghost {
