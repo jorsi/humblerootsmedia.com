@@ -9,3 +9,4 @@ require_once( 'inc/humblerootsmedia-enqueue.php' );
 require_once( 'inc/humblerootsmedia-pages.php' );
 require_once( 'inc/humblerootsmedia-customposts.php' );
 require_once( 'inc/humblerootsmedia-admin.php' );
+require_once( 'inc/humblerootsmedia-customize.php' );
