@@ -266,6 +266,7 @@ address { font-style: normal; }
     margin: 15px auto;
     color: #efefef;
     font-size: 2.5rem;
+    font-weight: 200;
     text-shadow: 1px 1px 1px black;
   }
   .slide .slide-tagline {
@@ -285,7 +286,7 @@ address { font-style: normal; }
   padding: 45px 15px;
   background-color: #efefef;
 }
-  .break p { font-size: 1.7rem; }
+  .break p { font-size: 1.9rem; }
   .break a { color: #6fa66d; text-decoration: underline; }
 .break::after {
   position: absolute;
