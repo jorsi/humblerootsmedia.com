@@ -5,30 +5,19 @@
       <div class="container">
 
         <div id="info" class="row">
-          <div class="col-third center-h">
-            <h2>Grow With Us</h2>
-            <ul id="socialmedia">
-              <li><a href="http://www.linkedin.com/company/humble-roots-media" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>
-              <li><a href="https://twitter.com/@HumbleRootsNews" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
-              <li><a href="https://www.instagram.com/adrianjmiller/" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
-              <li><a href="https://vimeo.com/humblerootsmedia" target="_blank"><i class="fa fa-fw fa-vimeo"></i></a></li>
-              <li><a href="https://www.facebook.com/HumbleRootsMedia" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
-              <li><a href="/contact"><i class="fa fa-fw fa-envelope"></i></a></li>
-            </ul>
-          </div>
-
-          <div class="col-third center-h">
-            <h2>What We Do</h2>
-            <p>We're visual communicators who work with corporations, educators and creatives.</p>
-          </div>
-
-          <div class="col-third center-h">
-            <h2>Contact Us</h2>
-            <p>
-              hello-at-humblerootsmedia.com<br>
-              905-929-5417
-            </p>
-          </div>
+          <?php
+            // Display Testimonials
+            $args = array( 'post_type' => 'footer', 'posts_per_page' => 3 );
+            $loop = new WP_Query( $args );
+            while ( $loop->have_posts() ) : $loop->the_post();
+              echo '<div class="col-third center-h">';
+                echo '<h2>' . get_the_title() . '</h2>';
+                echo '<p>';
+                  the_content();
+                echo '</p>';
+              echo '</div>';
+            endwhile;
+          ?>
         </div>
       </div>
 

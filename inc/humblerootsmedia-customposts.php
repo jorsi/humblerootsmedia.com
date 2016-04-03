@@ -86,13 +86,13 @@ function humblerootsmedia_custom_posts() {
     // 'singular_name'      => _x( 'Footer', 'post type singular name' ),
     // 'add_new'            => _x( 'Add New', 'book' ),
     // 'add_new_item'       => __( 'Add New Production' ),
-    'edit_item'          => __( 'Edit Production' ),
+    'edit_item'          => __( 'Edit Footer Item' ),
     // 'new_item'           => __( 'New Production' ),
     'all_items'          => __( 'All Footer Items' ),
     'view_item'          => __( 'View Footer Item' ),
     // 'search_items'       => __( 'Search Productions' ),
-    'not_found'          => __( 'No productions found' ),
-    'not_found_in_trash' => __( 'No productions found in the Trash' ),
+    'not_found'          => __( 'No footer items found' ),
+    'not_found_in_trash' => __( 'No footer items found in the trash' ),
     'parent_item_colon'  => '',
     'menu_name'          => 'Footer'
   );
@@ -101,8 +101,8 @@ function humblerootsmedia_custom_posts() {
     'description'   => 'Sections for the footer',
     'public'        => true,
     'menu_position' => 5,
-    'menu_icon'     => 'dashicons-video-alt',
-    'supports'      => array( 'title', 'thumbnail', 'page-attributes' ),
+    'menu_icon'     => 'dashicons-building',
+    'supports'      => array( 'title', 'editor', 'page-attributes' ),
     'has_archive'   => true,
     'capability_type' => 'post',
     'capabilities' => array(

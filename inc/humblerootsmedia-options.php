@@ -2,10 +2,6 @@
 
 // Initialize Theme
 function humblerootsmedia_init() {
-  // Remove Auto <p> tags
-  remove_filter( 'the_content', 'wpautop' );
-  remove_filter( 'the_excerpt', 'wpautop' );
-
   // Check if the Humble Roots theme options are in the database
   $humblerootsmedia_options = get_option( 'theme_humblerootsmedia_options' );
   if ( $humblerootsmedia_options === false ) {
