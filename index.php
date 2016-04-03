@@ -17,9 +17,9 @@
         <div class="container-lg">
 
           <div id="productions-control">
-            <span class="prev"><i class="fa fa-fw fa-chevron-left"></i></span>
-            <h2>Our Pieces</h2>
-            <span class="next"><i class="fa fa-fw fa-chevron-right"></i></span>
+            <span class="prev"><i class="fa fa-fw fa-angle-left"></i></span>
+            <h2>View Our Work</h2>
+            <span class="next"><i class="fa fa-fw fa-angle-right"></i></span>
           </div>
 
           <ul class="bxslider">
