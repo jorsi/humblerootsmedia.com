@@ -225,20 +225,21 @@ address { font-style: normal; }
 .splash {
   min-height: 300px;
   height: 56.5vw;
-  max-height: 80vmin;
 }
   .splash .splash-title {
-    margin: 15px auto;
+    margin: 5px auto;
     color: #efefef;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 200;
+    line-height: 1;
     text-align: center;
     text-shadow: 1px 1px 1px black;
   }
   .splash .splash-tagline {
     display: none;
-    margin: 10px auto;
+    margin: 5px auto 45px auto;
     color: #efefef;
+    font-size: 1.5rem;
     font-style: italic;
     font-weight: 200;
     text-align: center;
@@ -248,7 +249,7 @@ address { font-style: normal; }
   }
   @media (min-width: 600px) {
     .splash .splash-title {
-      font-size: 4.5rem;
+      font-size: 5rem;
     }
     .splash .splash-tagline { display: block; }
     .splash .splash-ghost { display: inline-block; }
