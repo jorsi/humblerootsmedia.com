@@ -147,6 +147,26 @@ function productions_video_uri_display() {
   echo '<input type="text" name="productions_video_uri" value="' . $location  . '" class="widefat" />';
 }
 
+// Adds the Testimonial Custom Fields
+function add_testimonial_metaboxes() {
+    add_meta_box('testimonial_quote', 'Testimonial Quote', 'testimonial_quote_display', 'testimonial', 'normal', 'default');
+}
+
+// The Testimonial Quote Metabox
+function testimonial_quote_display() {
+  global $post;
+
+  // Noncename needed to verify where the data originated
+  echo '<input type="hidden" name="eventmeta_noncename" id="eventmeta_noncename" value="' .
+  wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+
+  // Get the location data if its already been entered
+  $location = get_post_meta($post->ID, 'testimonial_quote', true);
+
+  // Echo out the field
+  echo '<input type="text" name="testimonial_quote" value="' . $location  . '" class="widefat" />';
+}
+
 // Save the Metabox Data
 function productions_save_data($post_id, $post) {
 
@@ -179,25 +199,7 @@ function productions_save_data($post_id, $post) {
     if(!$value) delete_post_meta($post->ID, $key); // Delete if blank
   }
 }
-// Adds the Testimonial Custom Fields
-function add_testimonial_metaboxes() {
-    add_meta_box('testimonial_quote', 'Testimonial Quote', 'testimonial_quote_display', 'testimonial', 'normal', 'default');
-}
-// The Testimonial Quote Metabox
-function testimonial_quote_display() {
-  global $post;
-
-  // Noncename needed to verify where the data originated
-  echo '<input type="hidden" name="eventmeta_noncename" id="eventmeta_noncename" value="' .
-  wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
-
-  // Get the location data if its already been entered
-  $location = get_post_meta($post->ID, 'testimonial_quote', true);
-
-  // Echo out the field
-  echo '<input type="text" name="testimonial_quote" value="' . $location  . '" class="widefat" />';
-}
-  // Save the Metabox Data
+add_action('save_post', 'productions_save_data', 1, 2); // save the custom fields
 
 function testimonial_save_data($post_id, $post) {
 
@@ -229,6 +231,4 @@ function testimonial_save_data($post_id, $post) {
     if(!$value) delete_post_meta($post->ID, $key); // Delete if blank
   }
 }
-
-add_action('save_post', 'productions_save_data', 1, 2); // save the custom fields
 add_action('save_post', 'testimonial_save_data', 1, 2); // save the custom fields
