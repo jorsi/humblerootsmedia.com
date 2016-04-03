@@ -261,19 +261,20 @@ address { font-style: normal; }
 .slide {
   min-height: 300px;
   height: 56.5vw;
-  max-height: 80vmin;
 }
   .slide .slide-title {
     margin: 15px auto;
     color: #efefef;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 200;
+    line-height: 1;
     text-shadow: 1px 1px 1px black;
   }
   .slide .slide-tagline {
     display: none;
-    margin: 10px auto;
+    margin: 5px auto 45px auto;
     color: #efefef;
+    font-size: 1.5rem;
     font-style: italic;
     font-weight: 200;
 
