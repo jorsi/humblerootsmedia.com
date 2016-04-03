@@ -46,6 +46,13 @@
     	   <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
     <?php endif; ?>
   </section>
+
+    <aside class="break text-center">
+      <div class="container-md">
+        <p><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_outro-text', true ) ); ?></p>
+      </div>
+
+    </aside>
 </main>
 
 <?php
