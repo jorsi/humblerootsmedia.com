@@ -325,6 +325,9 @@ address { font-style: normal; }
 .green {
   color: #6fa66d;
 }
+.black {
+  color: #111111;
+}
 /* Components */
 .ghost {
   padding: 5px 10px;
