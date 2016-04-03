@@ -47,7 +47,7 @@
       <aside class="flex flex-column flex-center slide parallax-window" data-parallax="scroll" data-image-src="<?php echo get_theme_mod('humblerootsmedia_slide_image') ?>">
         <h1 class="slide-title">Humble Thoughts</h1>
         <h3 class="slide-tagline">Our blog, our memories and scribes.</h3>
-        <a class="ghost" href="/humblethoughts">Discover</a>
+        <a class="ghost" href="/humble-thoughts">Discover</a>
       </aside>
 
       <aside class="break text-center">
