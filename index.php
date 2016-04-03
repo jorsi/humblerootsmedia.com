@@ -71,6 +71,8 @@
         <div class="container-md">
           <p>
             <?php echo stripslashes( get_option( 'frontpage_outro', 'Any last words, punk?' ) ); ?>
+          </p>
+          <p>
             <a href="/contact">Grow with us.</a>
           </p>
         </div>
