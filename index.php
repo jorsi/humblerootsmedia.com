@@ -9,7 +9,11 @@
   <main id="main">
       <aside class="break text-center">
         <div class="container-md">
-            <p><?php echo stripslashes( get_option( 'frontpage_intro', 'Something profound about the company goes here.' ) ); ?></p>
+            <p>
+              <?php
+              echo stripslashes( get_option( 'frontpage_intro', 'Something profound about the company goes here.' ) );
+              ?>
+            </p>
         </div>
       </aside>
 
