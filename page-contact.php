@@ -1,5 +1,5 @@
 <?php
-  $postback = false;
+  $status = get_post_meta( $post->ID, 'humblerootsmedia_intro-text', true );
 
   if ( isset($_POST['action']) ) {
     $name = $_POST['name_full'];
@@ -9,18 +9,21 @@
     $message = $_POST['message'];
 
     $to = 'jonathon.orsi@gmail.com';
-    $subject = 'New Email from Humble Roots';
+    $subject = 'New Email from Humble Roots Media Website';
     $msg = 'This message is being sent to you through the humble roots media website.\r\n'
           .'From: ' . $name . '\r\n'
           .'Email: ' . $email . '\r\n'
           .'Phone: ' . $phone . '\r\n'
           .'Enquiry: ' . $enquiry . '\r\n'
           .'Message: ' .$message;
-    $headers = 'From: root <root@jonorsi.com>' . '\r\n';
+    //$headers = 'From: root <root@jonorsi.com>' . '\r\n';
 
-    wp_mail($to, $subject, $msg, $headers);
-
-    $postback = true;
+    if ( mail($to, $subject, $msg) ) {
+      $status = 'Thank you for contacting us. We\'ll get back to you shortly.';
+    }
+    else {
+      $status = 'We\'re super sorry, but we couldn\'t send your message!. Try again, or send to us directly via hello@humblerootsmedia.com';
+    }
   }
 
   get_header();
@@ -31,10 +34,7 @@
   <aside class="break text-center">
     <div class="container-md">
       <p><?php
-        if ($postback)
-          echo 'Thank you for contacting us. We\'ll get back to you shortly.';
-        else
-          echo get_post_meta( $post->ID, 'humblerootsmedia_intro-text', true );
+        echo $status;
       ?></p>
     </div>
   </aside>
