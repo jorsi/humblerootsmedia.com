@@ -16,14 +16,13 @@
           .'Phone: ' . $phone . '\r\n'
           .'Enquiry: ' . $enquiry . '\r\n'
           .'Message: ' .$message;
-    //$headers = 'From: root <root@jonorsi.com>' . '\r\n';
+    $headers = 'From: root <root@jonorsi.com>' . '\r\n';
 
-    if ( mail($to, $subject, $msg) ) {
+    if ( mail($to, $subject, $msg, $headers) ) {
       $status = 'Thank you for contacting us. We\'ll get back to you shortly.';
     }
     else {
-      $status = 'We\'re super sorry, but we couldn\'t send your message! Try again, or send to us directly via hello@humblerootsmedia.com <br>'
-      . print_r(error_get_last());
+      $status = 'We\'re super sorry, but we couldn\'t send your message! Try again, or send to us directly via hello@humblerootsmedia.com.';
     }
   }
 
