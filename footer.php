@@ -5,7 +5,12 @@
         <div id="info" class="row">
           <?php
             // Display Testimonials
-            $args = array( 'post_type' => 'footer', 'posts_per_page' => 3 );
+            $args = array(
+              'post_type' => 'footer',
+              'posts_per_page' => 3,
+              'orderby' => 'menu_order',
+              'order'   => 'ASC',
+            );
             $loop = new WP_Query( $args );
             while ( $loop->have_posts() ) : $loop->the_post();
               echo '<div class="col-third center-h">';
