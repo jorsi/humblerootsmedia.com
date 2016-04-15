@@ -22,7 +22,8 @@
       $status = 'Thank you for contacting us. We\'ll get back to you shortly.';
     }
     else {
-      $status = 'We\'re super sorry, but we couldn\'t send your message!. Try again, or send to us directly via hello@humblerootsmedia.com';
+      $status = 'We\'re super sorry, but we couldn\'t send your message! Try again, or send to us directly via hello@humblerootsmedia.com \r\n'
+      . error_get_last();
     }
   }
 
