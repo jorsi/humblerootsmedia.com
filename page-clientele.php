@@ -26,7 +26,11 @@
       <h2 class="testimonial-title">What Our Clients Say About Us</h2>
       <?php
         // Display Testimonials
-        $args = array( 'post_type' => 'testimonial', 'posts_per_page' => get_option( 'clientele_max_testimonials' ) );
+        $args = array(
+          'post_type' => 'testimonial',
+          'orderby' => 'menu_order',
+          'order'   => 'ASC'
+         );
         $loop = new WP_Query( $args );
         while ( $loop->have_posts() ) : $loop->the_post();
           echo '<div class="testimonial clearfix">';
@@ -48,7 +52,11 @@
       <div class="container-md clearfix">
       <?php
         // Display Clientele
-        $args = array( 'post_type' => 'client', 'posts_per_page' => get_option( 'clientele_max_clients' ) );
+        $args = array(
+          'post_type' => 'client',
+          'orderby' => 'menu_order',
+          'order'   => 'ASC'
+        );
         $loop = new WP_Query( $args );
         while ( $loop->have_posts() ) : $loop->the_post();
           echo '<div class="col-third client">';
