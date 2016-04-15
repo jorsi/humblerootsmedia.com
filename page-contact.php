@@ -16,9 +16,9 @@
           .'Phone: ' . $phone . '\r\n'
           .'Enquiry: ' . $enquiry . '\r\n'
           .'Message: ' .$message;
-    $headers = 'From: root <root@jonorsi.com>' . '\r\n';
+    $headers = 'From: Wordpress <wordpress@jonorsi.com>' . '\r\n';
 
-    if ( mail($to, $subject, $msg, $headers) ) {
+    if ( wp_mail($to, $subject, $msg, $headers) ) {
       $status = 'Thank you for contacting us. We\'ll get back to you shortly.';
     }
     else {
