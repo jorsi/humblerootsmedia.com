@@ -16,7 +16,7 @@
           .'Phone: ' . $phone . '\r\n'
           .'Enquiry: ' . $enquiry . '\r\n'
           .'Message: ' .$message;
-    $headers = 'From: Jonathon Orsi <jonathon.orsi@gmail.com>' . '\r\n';
+    $headers = 'From: root <root@jonorsi.com>' . '\r\n';
 
     wp_mail($to, $subject, $msg, $headers);
 
