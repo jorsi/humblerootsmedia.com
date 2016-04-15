@@ -29,7 +29,11 @@
           <ul class="bxslider">
           <?php
             // Display Testimonials
-            $args = array( 'post_type' => 'production' );
+            $args = array(
+              'post_type' => 'production',
+              'orderby' => 'menu_order',
+              'order'   => 'ASC'
+            );
             $loop = new WP_Query( $args );
             while ( $loop->have_posts() ) :
               echo '<li>';
