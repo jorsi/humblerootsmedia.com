@@ -23,7 +23,7 @@
     }
     else {
       $status = 'We\'re super sorry, but we couldn\'t send your message! Try again, or send to us directly via hello@humblerootsmedia.com \r\n'
-      . error_get_last();
+      . print_r(error_get_last());
     }
   }
 
