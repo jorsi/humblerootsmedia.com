@@ -5,20 +5,21 @@
     $name = $_POST['name_full'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $enquiry = $_POST['enquryType'];
+    $enquiry = $_POST['enquiryType'];
     $message = $_POST['message'];
 
     $to = 'jonathon.orsi@gmail.com';
     $subject = 'New Email from Humble Roots Media Website';
-    $msg = 'This message is being sent to you through the humble roots media website.\r\n'
-          .'From: ' . $name . '\r\n'
-          .'Email: ' . $email . '\r\n'
-          .'Phone: ' . $phone . '\r\n'
-          .'Enquiry: ' . $enquiry . '\r\n'
-          .'Message: ' .$message;
-    $headers = 'From: Wordpress <wordpress@jonorsi.com>' . '\r\n';
+    $msg = 'This message is being sent to you through the Humble Roots Media website.<br><br>'
+          .'From: ' . $name . '<br>'
+          .'Email: ' . $email . '<br>'
+          .'Phone: ' . $phone . '<br>'
+          .'Enquiry: ' . $enquiry . '<br>'
+          .'Message: ' .$message . '<br><br>'
+	  .'Reply to the email address given in the information above. Replies to this email will not be received by the person who sent this message.';
+//    $headers = 'From: Wordpress <wordpress@jonorsi.com>' . '\r\n';
 
-    if ( wp_mail($to, $subject, $msg, $headers) ) {
+    if ( wp_mail($to, $subject, $msg) ) {
       $status = 'Thank you for contacting us. We\'ll get back to you shortly.';
     }
     else {
