@@ -5,8 +5,8 @@
 ?>
 
 <div class="nav-pad"></div>
-<header class="flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo $thumb; ?>">
-  <h1 class="splash-title green"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-title', true ) ); ?></h1>
+<header class="flex flex-column flex-center text-center">
+  <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-title', true ) ); ?></h1>
   <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
   <?php
     if ( get_post_meta($postid, 'humblerootsmedia_ghost-checkbox', true) ) {

@@ -1,3 +1,26 @@
+header {
+  margin: 45px auto 35px auto;
+  border-bottom: 1px solid #6fa66d;
+}
+.humble-title {
+  margin: 5px auto;
+  color: #111;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+.post-title {
+  /*color: #6fa66d*/;
+  font-family: Georgia;
+  margin: 10px auto;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.post-metadata {
+  color: #bacdba;
+}
 .post-content {}
   .post-entry {
     margin: 50px auto;
@@ -10,19 +33,29 @@
   .post-entry p {
     margin: 45px auto;
     max-width: 750px;
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-family: Arial, san-serif;
+    line-height: 1.5;
     font-weight: 200;
   }
   .post-entry blockquote {
-    margin: 50px 0;
-    padding: 25px 3%;
-    color: #6fa66d;
+    position: relative;
+    margin: 45px 15px 15px 45px;
+    padding: 0 5%;
+  }
+  .post-entry blockquote p {
+    margin: 0;
+    padding: 0;
     font-size: 1.5rem;
-    font-weight: 500;
-    font-style: italic;
-    line-height: 1.7;
-    border-top: 1px solid #bebebe;
-    border-bottom: 1px solid #bebebe;
-    text-align: center;
+    line-height: 1.1;
+  }
+  .post-entry blockquote:before {
+    content: "“";
+    font-family: serif;
+    font-size: 300px;
+    color: #d0e2d0;
+    position: absolute;
+    top: -35px;
+    left: -5px;
+    line-height: .8;
+    z-index: -1;
   }
