@@ -1,25 +1,35 @@
 header {
-  margin: 45px auto 35px auto;
+  margin: 0 auto;
+  padding: 25px 0;
   border-bottom: 1px solid #6fa66d;
 }
+  @media (min-width: 600px) {
+    header {
+      margin: 45px auto 35px auto;
+      padding: 0;
+    }
+  }
 .humble-title {
   margin: 5px auto;
-  color: #111;
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 700;
   line-height: 1;
   text-align: center;
 }
+  @media (min-width: 600px) {
+    .humble-title {
+      font-size: 6rem;
+    }
+  }
 .post-title {
-  /*color: #6fa66d*/;
   font-family: Georgia;
   margin: 10px auto;
   font-size: 2rem;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.1;
 }
 .post-metadata {
-  color: #bacdba;
+  color: #ababab;
 }
 .post-content {}
   .post-entry {
@@ -30,7 +40,14 @@ header {
     margin: 25px auto;
     max-width: 750px;
   }
-  .post-entry p {
+  .post-entry > p:first-of-type:first-letter {
+    float: left;
+    margin: 0 5px 5px 0;
+    font-family: Georgia, serif;
+    font-size: 4.5rem;
+    line-height: .9;
+  }
+  .post-entry > p {
     margin: 45px auto;
     max-width: 750px;
     font-family: Arial, san-serif;

@@ -1,5 +1,7 @@
 <?php
   get_header();
+  // the query
+  $post_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=> 5));
   $postid = $post->ID;
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
@@ -24,8 +26,7 @@
     <section class="blog-posts">
       <!-- Start the Loop. -->
       <?php
-        query_posts(null);
-        if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        if ( $post_query->have_posts() ) : while ( $post_query->have_posts() ) : $post_query->the_post(); ?>
           <section class="post-summary">
             <div class="container-md">
             	<h2 class="post-title text-center">
@@ -38,12 +39,16 @@
               <img class="post-image block-center" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>">
 
             	<article class="post-entry">
-            		<?php the_content(); ?>
+            		<?php the_content('Read on...'); ?>
             	</article>
             </div>
           </section>
 
-        <?php endwhile; else : ?>
+        <?php
+          endwhile;
+          wp_reset_postdata();
+          else :
+        ?>
       	   <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
       <?php endif; ?>
     </section>

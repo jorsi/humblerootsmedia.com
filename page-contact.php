@@ -27,9 +27,8 @@
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
   <div class="nav-pad"></div>
-<main id="main" style="background-image: url(<?php echo $thumb; ?>);">
+<main id="main" class="contact" style="background-image: url(<?php echo $thumb; ?>);">
   <div class="container-lg clearfix">
-
     <aside class="col-half contact-text">
       <div>
         <?php echo $status; ?>
