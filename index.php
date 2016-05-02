@@ -1,18 +1,28 @@
-<?php get_header(); ?>
+<?php get_header();
+      $postid = $post->ID;
+?>
   <div class="nav-pad"></div>
   <header class="splash flex flex-column flex-center parallax-window" data-parallax="scroll" data-image-src="<?php header_image(); ?>">
-    <h1 class="splash-title"><?php echo stripslashes( get_option( 'frontpage_splash_title', 'Splash Title Here' ) ); ?></h1>
-    <h3 class="splash-tagline"><?php echo stripslashes( get_option( 'frontpage_splash_tagline', 'Witty splash tagline should go here' ) ); ?></h3>
-    <a class="splash-ghost ghost smooth-scroll" href="#main">Grow With Us</a>
+    <h1 class="splash-title"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-title', true) ); ?></h1>
+    <h3 class="splash-tagline"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-tagline', true) ); ?></h3>
+
+    <?php
+      if ( get_post_meta($postid, 'humblerootsmedia_ghost-checkbox', true) ) {
+        ?>
+        <a class="splash-ghost ghost smooth-scroll" href="#main">
+          <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_ghost-text', true ) ); ?>
+        </a>
+    <?php
+      }
+    ?>
+
   </header>
 
   <main id="main">
       <aside class="break text-center">
         <div class="container-md">
             <p>
-              <?php
-              echo stripslashes( get_option( 'frontpage_intro', 'Something profound about the company goes here.' ) );
-              ?>
+              <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_intro-text', true ) ); ?>
             </p>
         </div>
       </aside>
@@ -61,7 +71,7 @@
       <aside class="break text-center">
         <div class="container-md">
           <p>
-            <?php echo stripslashes( get_option( 'frontpage_midtro', 'A little bit about how you work with people.' ) ); ?>
+            <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_midtro-text', true ) ); ?>
             <a href="/clientele">See how.</a>
           </p>
         </div>
@@ -78,7 +88,7 @@
       <aside class="break text-center">
         <div class="container-md">
           <p>
-            <?php echo stripslashes( get_option( 'frontpage_outro', 'Any last words, punk?' ) ); ?>
+            <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_outro-text', true ) ); ?>
           </p>
           <p>
             <a href="/contact">Grow with us.</a>

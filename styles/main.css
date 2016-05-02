@@ -18,10 +18,6 @@
 */
 
 /* Default Typography */
-@font-face {
-    font-family: geomanist;
-    src: url(/fonts/Geomanist-Regulat.otf);
-}
 html {}
 
 /* Default Element Styles */
@@ -29,8 +25,8 @@ body {
   color: #1d1d1d;
   font-family: "Cabin", sans-serif;
   font-size: 14px;
-  font-weight: 300;
-  line-height: 1.4;
+  font-weight: 200;
+  line-height: 1.5;
   letter-spacing: .05rem;
   background-color: #efefef;
 }
@@ -217,13 +213,13 @@ address { font-style: normal; }
       }
       .nav-desktop .humblerootsmedia {
         display: block;
-        padding-bottom: 5px;
+        padding-top: 23px;
         font-size: 1.5em;
         font-weight: 700;
       }
   }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .nav-pad { height: 65px;}
 }
 .splash {
@@ -297,7 +293,7 @@ address { font-style: normal; }
   padding: 45px 15px;
   background-color: #efefef;
 }
-  .break p { font-size: 1.9rem; }
+  .break p { margin: 0; font-size: 2rem; }
   .break a { color: #6fa66d; text-decoration: underline; }
 .break::after {
   position: absolute;

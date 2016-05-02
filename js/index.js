@@ -30,8 +30,8 @@ $(document).ready(function(){
     var loadButton = document.getElementById('load-more');
     var feed = new Instafeed({
       get: 'user',
-      userId: '3031133615',
-      accessToken: '3031133615.e9691b2.c7d82787da9e4081b58d5a4e19cd59d6',
+      userId: '3006504832',
+      accessToken: '3006504832.e9691b2.2aa96b63b31d4228bcbd9b9db7434db0',
       template: '<a class="instagram-item" href="{{link}}" target="_blank"><img src="{{image}}" width="{{width}}" height="{{height}}" alt="{{caption}}"/></a>',
       resolution: 'low_resolution',
       after: function() {

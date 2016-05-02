@@ -114,7 +114,7 @@ function humblerootsmedia_custom_posts() {
 }
 add_action( 'init', 'humblerootsmedia_custom_posts' );
 
-// Adds the Testimonial Custom Fields
+// Adds the Productions Custom Fields
 function add_productions_metaboxes() {
   add_meta_box('productions_video_description', 'Video Description', 'productions_video_desc_display', 'production', 'normal', 'default');
     add_meta_box('productions_video_uri', 'Video Source', 'productions_video_uri_display', 'production', 'normal', 'default');
@@ -150,6 +150,7 @@ function productions_video_uri_display() {
 // Adds the Testimonial Custom Fields
 function add_testimonial_metaboxes() {
     add_meta_box('testimonial_quote', 'Testimonial Quote', 'testimonial_quote_display', 'testimonial', 'normal', 'default');
+    add_meta_box('testimonial_link', 'Testimonial Link', 'testimonial_link_display', 'testimonial', 'normal', 'default');
 }
 
 // The Testimonial Quote Metabox
@@ -165,6 +166,19 @@ function testimonial_quote_display() {
 
   // Echo out the field
   echo '<input type="text" name="testimonial_quote" value="' . $location  . '" class="widefat" />';
+}
+function testimonial_link_display() {
+  global $post;
+
+  // Noncename needed to verify where the data originated
+  echo '<input type="hidden" name="eventmeta_noncename" id="eventmeta_noncename" value="' .
+  wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+
+  // Get the location data if its already been entered
+  $location = get_post_meta($post->ID, 'testimonial_link', true);
+
+  // Echo out the field
+  echo '<input type="text" name="testimonial_link" value="' . $location  . '" class="widefat" />';
 }
 
 // Save the Metabox Data
@@ -217,6 +231,7 @@ function testimonial_save_data($post_id, $post) {
   // We'll put it into an array to make it easier to loop though.
 
   $events_meta['testimonial_quote'] = $_POST['testimonial_quote'];
+  $events_meta['testimonial_link'] = $_POST['testimonial_link'];
 
   // Add values of $events_meta as custom fields
 

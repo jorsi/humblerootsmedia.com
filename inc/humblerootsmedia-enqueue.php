@@ -7,7 +7,7 @@ function humblerootsmedia_enqueue() {
     // Global Styles
     wp_enqueue_style( 'humblerootsmedia_style', get_stylesheet_uri() );
     wp_enqueue_style( 'humblerootsmedia_style_normalize', get_template_directory_uri().'/styles/normalize.css' );
-    wp_enqueue_style( 'humblerootsmedia_style_googlefont_lato', 'https://fonts.googleapis.com/css?family=Cabin' );
+    wp_enqueue_style( 'humblerootsmedia_style_googlefont_cabin', 'https://fonts.googleapis.com/css?family=Cabin' );
 
     wp_enqueue_style( 'humblerootsmedia_style_fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' );
     wp_enqueue_style( 'humblerootsmedia_style_main', get_template_directory_uri().'/styles/main.css' );

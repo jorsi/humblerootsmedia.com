@@ -48,7 +48,6 @@
                     <img class="brand-image" src="<?php echo get_template_directory_uri(); ?>/images/humble-logo.png">
                   </div>
                   <div class="col brand-name">
-                    <div class="welcometo">Welcome to</div>
                     <div class="humblerootsmedia">Humble Roots Media</div>
                   </div>
                 </div>

@@ -4,7 +4,7 @@
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
   <div class="nav-pad"></div>
-  <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo $thumb; ?>">
+  <!-- <header class="splash flex flex-column flex-center text-center parallax-window" data-parallax="scroll" data-image-src="<?php echo $thumb; ?>">
     <h1 class="splash-title"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-title', true) ); ?></h1>
     <h3 class="splash-tagline"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-tagline', true) ); ?></h3>
 
@@ -17,13 +17,33 @@
     <?php
       }
     ?>
-  </header>
+  </header> -->
 
 <main id="main">
+  <div class="container-md">
+    <h1 class="testimonial-title text-center"><?php echo stripslashes( get_post_meta( $post->ID, 'humblerootsmedia_intro-text', true )); ?></h2>
+  </div>
+  <aside class="break text-center">
+    <div class="container-lg clearfix">
+    <?php
+      // Display Clientele
+      $args = array(
+        'post_type' => 'client',
+        'orderby' => 'menu_order',
+        'order'   => 'ASC'
+      );
+      $loop = new WP_Query( $args );
+      while ( $loop->have_posts() ) : $loop->the_post();
+        echo '<div class="client">';
+          echo '<img class="client-image" src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '" title="' . get_the_title() . '" alt="' . get_the_title() . '">';
+        echo '</div>';
+      endwhile;
+    ?>
+    </div>
+  </aside>
 
   <section class="content text-center">
-    <div class="container-lg">
-      <h2 class="testimonial-title">What Our Clients Say About Us</h2>
+    <div class="container-lg clearfix">
       <?php
         // Display Testimonials
         $args = array(
@@ -33,40 +53,22 @@
          );
         $loop = new WP_Query( $args );
         while ( $loop->have_posts() ) : $loop->the_post();
-          echo '<div class="testimonial clearfix">';
-            echo '<div class="row">';
-              echo '<div class="col-half">';
-                echo '<img class="testimonial-image" src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '">';
-              echo '</div>';
-              echo '<div class="testimonial-info col-half">';
-                echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
+            echo '<div class="testimonial col-third">';
+              echo '<div class="flex flex-column flex-center testimonial-content">';
                 echo '<blockquote class="testimonial-quote">' . get_post_meta($post->ID, 'testimonial_quote', true) . '</blockquote>';
               echo '</div>';
+              echo '<div class="testimonial-footer">';
+                echo '<img class="testimonial-image" src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '">';
+                echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
+                echo '<h4 class="testimonial-link">';
+                  echo '<a href="'. get_post_meta($post->ID, 'testimonial_link', true) . '" target="_blank">' . get_post_meta($post->ID, 'testimonial_link', true) . '</a>';
+                echo '</h4>';
+              echo '</div>';
             echo '</div>';
-          echo '</div>';
-        endwhile; ?>
-    </div>
-  </section>
-
-    <aside class="break text-center">
-      <div class="container-md clearfix">
-      <?php
-        // Display Clientele
-        $args = array(
-          'post_type' => 'client',
-          'orderby' => 'menu_order',
-          'order'   => 'ASC'
-        );
-        $loop = new WP_Query( $args );
-        while ( $loop->have_posts() ) : $loop->the_post();
-          echo '<div class="col-third client">';
-            echo '<img class="client-image" src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '" title="' . get_the_title() . '" alt="' . get_the_title() . '">';
-          echo '</div>';
         endwhile;
       ?>
-      </div>
-    </aside>
-
+    </div>
+  </section>
 
   <aside class="break text-center">
     <div class="container-md">
