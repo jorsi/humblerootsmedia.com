@@ -1,11 +1,9 @@
 <?php
-  $status = get_post_meta( $post->ID, 'humblerootsmedia_intro-text', true );
+  $status = $post->post_content;
 
   if ( isset($_POST['action']) ) {
     $name = $_POST['name_full'];
     $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $enquiry = $_POST['enquiryType'];
     $message = $_POST['message'];
 
     $to = 'jonathon.orsi@gmail.com';
@@ -13,8 +11,6 @@
     $msg = 'This message is being sent to you through the Humble Roots Media website.<br><br>'
           .'From: ' . $name . '<br>'
           .'Email: ' . $email . '<br>'
-          .'Phone: ' . $phone . '<br>'
-          .'Enquiry: ' . $enquiry . '<br>'
           .'Message: ' .$message . '<br><br>'
 	  .'Reply to the email address given in the information above. Replies to this email will not be received by the person who sent this message.';
 //    $headers = 'From: Wordpress <wordpress@jonorsi.com>' . '\r\n';
@@ -31,17 +27,16 @@
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
   <div class="nav-pad"></div>
-<main id="main">
-  <aside class="break text-center">
-    <div class="container-md">
-      <p><?php
-        echo $status;
-      ?></p>
-    </div>
-  </aside>
+<main id="main" style="background-image: url(<?php echo $thumb; ?>);">
+  <div class="container-lg clearfix">
 
-  <section class="content contact-form">
-    <div class="container-lg">
+    <aside class="col-half contact-text">
+      <div>
+        <?php echo $status; ?>
+      </div>
+    </aside>
+
+    <section class="col-half contact-form">
       <form method="post">
         <input type="hidden" name="action" value="contact">
         <label>
@@ -51,23 +46,12 @@
           <input type="email" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue" value="Your email" name="email">
         </label>
         <label>
-          <input type="text" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue" value="Your contact number" name="phone">
-        </label>
-        <label>
-          <select name="enquiryType">
-            <option selected disabled>What are you contacting us about?</option>
-            <option value="message">Just leaving a message</option>
-            <option value="question">I've got a question</option>
-            <option value="other">Something else...</option>
-          </select>
-        </label>
-        <label>
-          <textarea name="message" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue">Tell us a bit about yourself</textarea>
+          <textarea name="message" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue">Tell us about your project.</textarea>
         </label>
         <button type="submit">Send</button>
       </form>
-    </div>
-  </section>
+    </section>
+  </div>
 </main>
 <?php
   get_footer();
