@@ -4,11 +4,11 @@
 function humblerootsmedia_init() {
   // Check if the Humble Roots theme options are in the database
   $humblerootsmedia_options = get_option( 'theme_humblerootsmedia_options' );
-  if ( $humblerootsmedia_options === false ) {
-      // Humble Roots options are not saved, get default
-      $humblerootsmedia_options = humblerootsmedia_get_default_options();
-      add_option( 'theme_humblerootsmedia_options', $humblerootsmedia_options );
-  }
+  // if ( $humblerootsmedia_options === false ) {
+  //     // Humble Roots options are not saved, get default
+  //     $humblerootsmedia_options = humblerootsmedia_get_default_options();
+  //     add_option( 'theme_humblerootsmedia_options', $humblerootsmedia_options );
+  // }
 
   // Add Google Font to TinyMCE editor styles
   $font_url = urlencode( '//fonts.googleapis.com/css?family=Lato:400,300,700,900' );
