@@ -377,9 +377,45 @@ address { font-style: normal; }
     #productions-control h2 {font-size: 3rem;}
   }
   .bxslider .item {
+    position: relative;
+    margin: 0 auto;
     padding: 15px;
+    max-width: 320px;
     text-align: center;
     box-sizing: border-box;
+  }
+  @media (min-width: 600px) {
+    .bxslider .item {
+      float: left;
+      width: 33.33%;
+      max-width: none;
+    }
+  }
+  .bxslider .item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(255,255,255,.3);
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+    .bxslider .item:hover .item-overlay { opacity: 1; }
+  .bxslider .item-overlay i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    padding: 10px 0;
+    font-size: 4rem;
+    color: #6fa66d;
+    text-shadow:
+      1px 1px 0 #283B27,
+      -1px -1px 0 #283B27,
+      1px -1px 0 #283B27,
+      -1px 1px 0 #283B27;
   }
   .bxslider .item h3 {
     margin: 5px auto;
@@ -388,12 +424,6 @@ address { font-style: normal; }
   .bxslider .item p {
     margin: 5px auto;
     color: #5d5d5d;
-  }
-  @media (min-width: 600px) {
-    .bxslider .item {
-      float: left;
-      width: 33.33%;
-    }
   }
 #instafeed {
   padding: 0 15px;

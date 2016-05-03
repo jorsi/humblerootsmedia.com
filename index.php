@@ -50,6 +50,7 @@
                 for ( $i = 0; $i < 3; $i++ ) : $loop->the_post();
                   echo '<div class="item">';
                     echo '<a class="fancybox fancybox.iframe" href="' . get_post_meta($post->ID, 'productions_video_uri', true) . '">';
+                      echo '<div class="item-overlay"><i class="fa fa-fw fa-play-circle"></i></div>';
                       echo '<img src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '">';
                       echo '<h3>' . get_the_title() . '</h3>';
                       echo '<p>' . get_post_meta($post->ID, 'productions_video_description', true) . '</p>';
