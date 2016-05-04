@@ -31,16 +31,20 @@
     margin: 5px;
     font-weight: 200;
   }
-
   .testimonial .testimonial-jobtitle {
     margin: 5px;
     font-size: .8rem;
   }
-  .testimonial .testimonial-link {
+  .testimonial .testimonial-company {
     margin: 5px;
     font-size: .8rem;
     font-weight: 200;
+    text-decoration: underline;
+    transition: color .3s ease-in;
   }
+    .testimonial .testimonial-company:hover {
+      color: #6fa66d;
+    }
 
 .client {
   display: inline-block;
