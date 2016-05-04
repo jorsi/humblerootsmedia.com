@@ -138,6 +138,7 @@ address { font-style: normal; }
       padding: 0 5px;
       font-size: 1.3rem;
       font-weight: 700;
+      text-transform: uppercase;
       vertical-align: top;
     }
   .nav-mobile .menu {
@@ -181,6 +182,9 @@ address { font-style: normal; }
       }
       .nav-desktop .links li {
         float: left;
+        width: 25%;
+        text-transform: uppercase;
+        font-size: .9rem;
         text-align: center;
       }
       .nav-desktop .links li:nth-child(2) {
@@ -188,7 +192,7 @@ address { font-style: normal; }
       }
       .nav-desktop .links li a {
         display: inline-block;
-        padding: 22px 7px;
+        padding: 34px 0 10px 0;
         width: 100%;
         height: 100%;
         box-sizing: border-box;
@@ -198,7 +202,9 @@ address { font-style: normal; }
           color: #efefef;
           background-color: #6fa66d;
         }
-      .nav-desktop .brand-name { transition: color .3s; }
+      .nav-desktop .brand-name {
+        transition: color .3s;
+      }
       .nav-desktop .brand-name:hover,
       .nav-desktop .brand-name:active,
       .nav-desktop .brand-name:focus {
@@ -219,6 +225,7 @@ address { font-style: normal; }
         padding-top: 23px;
         font-size: 1.5em;
         font-weight: 700;
+        text-transform: uppercase;
       }
   }
 
