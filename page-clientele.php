@@ -60,6 +60,7 @@
               echo '<div class="testimonial-footer">';
                 echo '<img class="testimonial-image" src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '">';
                 echo '<h3 class="testimonial-name">' . get_the_title() . '</h3>';
+                echo '<h4 class="testimonial-jobtitle">' . get_post_meta($post->ID, 'testimonial_jobtitle', true) . '</h4>';
                 echo '<h4 class="testimonial-link">';
                   echo '<a href="'. get_post_meta($post->ID, 'testimonial_link', true) . '" target="_blank">' . get_post_meta($post->ID, 'testimonial_link', true) . '</a>';
                 echo '</h4>';

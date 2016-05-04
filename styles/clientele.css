@@ -25,11 +25,16 @@
     content: "\"";
   }
   .testimonial .testimonial-image {
-    max-height: 75px;
+    max-height: 100px;
   }
   .testimonial .testimonial-name {
     margin: 5px;
     font-weight: 200;
+  }
+
+  .testimonial .testimonial-jobtitle {
+    margin: 5px;
+    font-size: .8rem;
   }
   .testimonial .testimonial-link {
     margin: 5px;
