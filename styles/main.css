@@ -180,8 +180,11 @@ address { font-style: normal; }
         text-align: right;
       }
       .nav-desktop .links li {
-        display: inline-block;
+        float: left;
         text-align: center;
+      }
+      .nav-desktop .links li:nth-child(2) {
+        width: 50%;
       }
       .nav-desktop .links li a {
         display: inline-block;
