@@ -83,14 +83,14 @@ function humblerootsmedia_custom_posts() {
 
   $labels = array(
     'name'               => _x( 'Footer', 'post type general name' ),
-    // 'singular_name'      => _x( 'Footer', 'post type singular name' ),
-    // 'add_new'            => _x( 'Add New', 'book' ),
-    // 'add_new_item'       => __( 'Add New Production' ),
+    'singular_name'      => _x( 'Footer', 'post type singular name' ),
+    'add_new'            => _x( 'Add New', 'book' ),
+    'add_new_item'       => __( 'Add New Footer' ),
     'edit_item'          => __( 'Edit Footer Item' ),
-    // 'new_item'           => __( 'New Production' ),
+    'new_item'           => __( 'New Footer' ),
     'all_items'          => __( 'All Footer Items' ),
     'view_item'          => __( 'View Footer Item' ),
-    // 'search_items'       => __( 'Search Productions' ),
+    'search_items'       => __( 'Search Footer' ),
     'not_found'          => __( 'No footer items found' ),
     'not_found_in_trash' => __( 'No footer items found in the trash' ),
     'parent_item_colon'  => '',
@@ -103,12 +103,7 @@ function humblerootsmedia_custom_posts() {
     'menu_position' => 5,
     'menu_icon'     => 'dashicons-building',
     'supports'      => array( 'title', 'editor', 'page-attributes' ),
-    'has_archive'   => true,
-    'capability_type' => 'post',
-    'capabilities' => array(
-      'create_posts' => 'do_not_allow'
-    ),
-    'map_meta_cap' => true, // Set to `false`, if users are not allowed to edit/delete existing posts
+    'has_archive'   => true
   );
   register_post_type( 'footer', $args);
 }
