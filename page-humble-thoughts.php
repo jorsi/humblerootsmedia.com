@@ -1,7 +1,11 @@
 <?php
   get_header();
   // the query
-  $post_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=> 5));
+  //$post_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=> 5));
+  //The Query
+  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+  $post_query = new WP_Query();
+  $post_query->query( 'showposts=5&paged='.$paged );
   $postid = $post->ID;
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
@@ -39,13 +43,33 @@
               <img class="post-image block-center" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>">
 
             	<article class="post-entry">
-            		<?php the_content('Read on...'); ?>
+            		<?php the_content('Read On <i class="fa fa-fw fa-long-arrow-right"></i>'); ?>
             	</article>
             </div>
           </section>
 
         <?php
           endwhile;
+          // pager
+          if( $post_query->max_num_pages > 1 ) : ?>
+              <nav class="pager">
+              <?php
+              if($paged != 1) : ?>
+                <div class="pager-col">
+                  <a class="pager-link" href="/humble-thoughts/"><i class="fa fa-fw fa-angle-double-left"></i></a>
+                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
+                </div>
+              <?php endif;
+
+              if($paged != $post_query->max_num_pages) : ?>
+                <div class="pager-col">
+                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . $post_query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
+                </div>
+              <?php endif; ?>
+            </nav>
+        <?php endif;
+
           wp_reset_postdata();
           else :
         ?>
