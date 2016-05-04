@@ -398,25 +398,25 @@ address { font-style: normal; }
     right: 0;
     bottom: 0;
     z-index: 2;
-    background-color: rgba(255,255,255,.3);
-    opacity: 0;
-    transition: opacity .3s ease-in;
+    background-color: rgba(255,255,255,0);
+    transition: background-color .3s ease-in;
   }
-    .bxslider .item:hover .item-overlay { opacity: 1; }
+    .bxslider .item:hover .item-overlay { background-color: rgba(255,255,255, .3); }
   .bxslider .item-overlay i {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -100%);
-    padding: 10px 0;
+    width: .9em;
+    line-height: .9em;
     font-size: 4rem;
-    color: #6fa66d;
-    text-shadow:
-      1px 1px 0 #283B27,
-      -1px -1px 0 #283B27,
-      1px -1px 0 #283B27,
-      -1px 1px 0 #283B27;
+    color: #efefef;
+    background-color: #111;
+    border-radius: 50%;
+    opacity: .7;
+    transition: color .3s ease-in, opacity .3s ease-in;
   }
+    .bxslider .item:hover .item-overlay i { color: #6fa66d; opacity: 1; }
   .bxslider .item h3 {
     margin: 5px auto;
     font-weight: 400;
