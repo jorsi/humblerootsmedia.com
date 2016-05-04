@@ -28,14 +28,15 @@
 ?>
   <div class="nav-pad"></div>
 <main id="main" class="contact" style="background-image: url(<?php echo $thumb; ?>);">
-  <div class="container-lg clearfix">
-    <aside class="col-half contact-text">
+  <div class="container-sm contact-container clearfix">
+    <aside class="contact-text">
+      <h1>Contact Us</h1>
       <div>
         <?php echo $status; ?>
       </div>
     </aside>
 
-    <section class="col-half contact-form">
+    <section class="contact-form">
       <form method="post">
         <input type="hidden" name="action" value="contact">
         <label>
@@ -47,7 +48,10 @@
         <label>
           <textarea name="message" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue">Tell us about your project.</textarea>
         </label>
-        <button type="submit">Send</button>
+        <button type="submit">
+          Send
+          <i class="fa fa-fw fa-paper-plane"></i>
+        </button>
       </form>
     </section>
   </div>

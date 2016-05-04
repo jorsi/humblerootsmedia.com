@@ -1,21 +1,25 @@
 .contact {
+  min-height: 80vh;
+  padding: 50px 5px;
   background-size: cover;
 }
+.contact-container {
+  padding: 25px 5%;
+  background-color: rgba(111, 166, 109, .7);
+}
 .contact-text {
-  margin: 25px auto;
-  padding: 0 15px;
+  margin: 0 auto 25px auto;
 }
   .contact-text > div {
     margin: 2px auto;
     padding: 15px 25px;
-    font-size: 1.3rem;
-    line-height: 1.3;
-    border: 1px solid rgba(0,0,0,.3);
-    background-color: rgba(255, 255, 255, .6);
+  }
+  .contact-text h1 {
+    text-transform: uppercase;
+    border-bottom: 1px solid #111;
   }
 .contact-form {
-  margin: 25px auto;
-  padding: 0 15px;
+  margin: 0 auto;
 }
 
 form {
@@ -26,15 +30,10 @@ form {
 }
   form label {
     display: inline-block;
-    margin: 2px 0 0 0;
+    margin: 5px auto;
     width: 100%;
-    border: 1px solid rgba(0,0,0,.3);
-    background-color: rgba(255, 255, 255, .6);
-    box-sizing: border-box;
-  }
-  form label:first-of-type { margin-right: 2px; }
-  @media (min-width:600px) {
-    form label:not(:last-of-type) { float: left; width: 49.666%; }
+    border-bottom: 2px solid #111;
+    background-color: rgba(255, 255, 255, 1);
   }
 
   form input,
@@ -50,7 +49,9 @@ form {
     padding:10px 25px;
     width: 100%;
     font-family: inherit;
-    font-weight: 300;
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(0, 0, 0, .5);
     border: none;
     outline:none;
     background-color: transparent;
@@ -63,25 +64,19 @@ form {
     height: 50px
   }
   form textarea {
-    resize: vertical;
-    height: 250px
+    resize: none;
+    height: 200px
   }
   form button {
     display:block;
-    margin-top: 2px;
-    padding:10px;
-    width:100%;
-    font-size:1.2em;
-    text-transform:uppercase;
-    outline:none;
-    border: 1px solid rgba(0,0,0,.3);
-    border-radius:2px;
-    background-color: rgba(255,255,255,.2);
-    transition:background-color .75s,border-color .75s
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    outline: none;
+    border: 2px solid #111;
+    background-color: transparent;
+    transition: background-color .75s,border-color .75s
   }
-  form button:hover,
-  form button:active,
-  form button:focus {
-    background-color:#aecdac;
-    border-color:#aecdac
+  form button:hover {
+    background-color: rgba(255,255,255, .9);
   }
