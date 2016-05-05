@@ -39,8 +39,10 @@ header {
       font-size: 2rem;
       font-weight: 400;
       line-height: 1.1;
+      transition: color .3s ease-in;
   }
-    .post-summary .post-title:hover { text-decoration: underline; }
+    .post-summary .post-title:hover { color: #6fa66d; }
+    .post-summary .post-title:active { color: #FFDD55;}
   .post-summary .post-metadata {
     color: #ababab;
   }
@@ -87,21 +89,8 @@ header {
 
 .more-link {
   display: block;
-  margin: 25px auto;
-  padding: 3px 10px;
-  width: 150px;
-  font-size: 1.2rem;
-  text-transform: uppercase;
   text-align: center;
-  border: 1px solid #111;
-  border-radius: 5px;
-  transition: border-color .3s ease-in, background-color .3s ease-in;
 }
-  .more-link:hover {
-    border-color: #6fa66d;
-    background-color: #6fa66d;
-  }
-
 .pager {
   font-size: 1.2rem;
   border-top: 1px solid #cbcbcb;
@@ -116,3 +105,4 @@ header {
     transition: color .3s ease-in;
   }
     .pager-link:hover { color: #6fa66d; }
+    .pager-link:active { color: #FFDD55;}
