@@ -361,14 +361,11 @@ address { font-style: normal; }
   }
 .scroll-up {
   display: block;
-  font-size: 3em;
+  margin: 15px;
+  font-size: 2rem;
   text-align: center;
-  color: #332a20;
-  transition: color .3s;
+  color: #efefef;
 }
-  .scroll-up:hover {
-    color: #efefef;
-  }
 
 /* Specific Blocks */
 #productions-control {
@@ -477,7 +474,7 @@ address { font-style: normal; }
 
 #info {}
   #info > div {
-    margin: 45px auto 25px auto;
+    margin: 45px auto 0 auto;
     padding: 0 15px;
   }
   #info > div::after {

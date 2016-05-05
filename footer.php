@@ -22,10 +22,10 @@
             endwhile;
           ?>
         </div>
+          <a class="scroll-up smooth-scroll" href="#top"><i class="fa fa-chevron-circle-up"></i></a>
       </div>
 
       <div id="copyright">
-        <!-- <a class="scroll-up smooth-scroll" href="#top"><i class="fa fa-chevron-circle-up"></i></a> -->
         <small>&copy; <script>document.write(new Date().getFullYear())</script> Humble Roots Media</small>
       </div>
 
