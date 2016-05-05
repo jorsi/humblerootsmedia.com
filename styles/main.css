@@ -38,8 +38,8 @@ a {
   color: inherit;
   text-decoration: none;
 }
-a:hover { }
-a:active { }
+a:hover { color: #6fa66d; }
+a:active { color: #FFDD55; }
 img {
   max-width: 100%; /* Ensures no image breaks its container */
 }
@@ -472,6 +472,9 @@ address { font-style: normal; }
   font-weight: 400;
   background-color: #6fa66d;
 }
+  #footer a { transition: color .2s ease-in; }
+  #footer a:hover { color: #FFDD55; }
+
 #info {}
   #info > div {
     margin: 45px auto 25px auto;
