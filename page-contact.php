@@ -6,12 +6,12 @@
     $email = $_POST['email'];
     $message = $_POST['message'];
 
-    $to = 'jonathon.orsi@gmail.com';
+    $to = 'hello@humblerootsmedia.com';
     $subject = 'New Email from Humble Roots Media Website';
     $msg = 'This message is being sent to you through the Humble Roots Media website.<br><br>'
           .'From: ' . $name . '<br>'
           .'Email: ' . $email . '<br>'
-          .'Message: ' .$message . '<br><br>'
+          .'Message: <br><br>' .$message . '<br><br>'
 	  .'Reply to the email address given in the information above. Replies to this email will not be received by the person who sent this message.';
 //    $headers = 'From: Wordpress <wordpress@jonorsi.com>' . '\r\n';
 
