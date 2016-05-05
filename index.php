@@ -76,6 +76,8 @@
         <div class="container-md">
           <p>
             <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_midtro-text', true ) ); ?>
+          </p>
+          <p>
             <a href="/clientele">See how.</a>
           </p>
         </div>
