@@ -2,20 +2,21 @@
       $postid = $post->ID;
 ?>
   <div class="nav-pad"></div>
-  <header class="splash flex flex-column flex-center parallax-window" data-parallax="scroll" data-image-src="<?php header_image(); ?>">
-    <h1 class="splash-title"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-title', true) ); ?></h1>
-    <h3 class="splash-tagline"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-tagline', true) ); ?></h3>
+  <header class="splash flex table parallax-window" data-parallax="scroll" data-image-src="<?php header_image(); ?>">
+    <div class="table-cell">
+      <h1 class="splash-title"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-title', true) ); ?></h1>
+      <h3 class="splash-tagline"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-tagline', true) ); ?></h3>
 
-    <?php
-      if ( get_post_meta($postid, 'humblerootsmedia_ghost-checkbox', true) ) {
-        ?>
-        <a class="splash-ghost ghost smooth-scroll" href="#main">
-          <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_ghost-text', true ) ); ?>
-        </a>
-    <?php
-      }
-    ?>
-
+      <?php
+        if ( get_post_meta($postid, 'humblerootsmedia_ghost-checkbox', true) ) {
+          ?>
+          <a class="splash-ghost ghost smooth-scroll" href="#main">
+            <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_ghost-text', true ) ); ?>
+          </a>
+      <?php
+        }
+      ?>
+    </div>
   </header>
 
   <main id="main">
@@ -63,10 +64,12 @@
         </div>
       </section>
 
-      <aside class="flex flex-column flex-center slide parallax-window" data-parallax="scroll" data-image-src="<?php echo get_theme_mod('humblerootsmedia_slide_image') ?>">
-        <h1 class="slide-title">Humble Thoughts</h1>
-        <h3 class="slide-tagline">Our blog, our memories and scribes.</h3>
-        <a class="ghost" href="/humble-thoughts">Discover</a>
+      <aside class="flex table slide parallax-window" data-parallax="scroll" data-image-src="<?php echo get_theme_mod('humblerootsmedia_slide_image') ?>">
+        <div class="table-cell">
+          <h1 class="slide-title">Humble Thoughts</h1>
+          <h3 class="slide-tagline">Our blog, our memories and scribes.</h3>
+          <a class="ghost" href="/humble-thoughts">Discover</a>
+        </div>
       </aside>
 
       <aside class="break text-center">

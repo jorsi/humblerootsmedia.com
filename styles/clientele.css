@@ -7,6 +7,7 @@
     margin: 0 auto 15px auto;
     padding: 0 25px;
     background-color: #cdcdcd;
+    box-sizing: border-box;
   }
     @media (min-width: 600px) {
       .testimonial .testimonial-content {
@@ -16,7 +17,7 @@
     }
   .testimonial .testimonial-footer {}
   .testimonial .testimonial-quote {
-    width: 100%;
+    margin: 0;
     font-style: italic;
     text-align: center;
     vertical-align: middle;

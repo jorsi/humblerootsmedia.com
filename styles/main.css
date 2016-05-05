@@ -112,9 +112,12 @@ address { font-style: normal; }
   margin: 0 auto;
   max-width: 1200px;
 }
-.flex { display: flex; }
-.flex-column { flex-direction: column; }
-.flex-center { justify-content: center; align-items: center; }
+
+/* Vertical Centering */
+.table { display: table; width: 100%; }
+.table-cell { display: table-cell; text-align: center; vertical-align: middle; }
+.flex { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+
 
 /* Section Layouts */
 .nav {
