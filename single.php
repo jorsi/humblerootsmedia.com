@@ -44,7 +44,7 @@
           'exclude' => $post->ID,
           'order' => 'DESC',
           'post_type' => 'post',
-          'post_status' => 'draft, publish, future, pending, private',
+          'post_status' => 'publish',
           'suppress_filters' => true );
       	$recent_posts = wp_get_recent_posts( $args );
       	foreach( $recent_posts as $recent ){
