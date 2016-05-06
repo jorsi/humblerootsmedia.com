@@ -38,7 +38,7 @@
          );
         $loop = new WP_Query( $args );
         while ( $loop->have_posts() ) : $loop->the_post();
-            echo '<div class="testimonial col-third">';
+            echo '<div class="testimonial">';
               echo '<div class="flex table testimonial-content">';
                 echo '<div class="table-cell">';
                   echo '<blockquote class="testimonial-quote">' . get_post_meta($post->ID, 'testimonial_quote', true) . '</blockquote>';
