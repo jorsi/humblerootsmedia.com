@@ -79,7 +79,6 @@ header {
 .recent-posts {
   position: relative;
   padding: 15px 0;
-  background-color: #D2E0CC;
 }
   .recent-posts:after {
     position: absolute;
@@ -89,12 +88,17 @@ header {
     content: "";
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 20px solid #D2E0CC;
+    border-top: 20px solid #efefef;
   }
-  .recent-posts_h2 {}
+  .recent-posts_h2 {
+    margin: 5px;
+    padding: 0 10px;
+    font-family: Georgia, serif;
+    background-color: #D2E0CC;
+    border-radius: 5px;
+  }
   .recent-posts_ul {
-    border-top: 1px solid #6fa66d;
-    padding: 15px 0;
+    padding: 5px 0;
   }
   .recent-posts_li {
     padding: 10px;
@@ -103,7 +107,7 @@ header {
       .recent-posts_li {
         float: left;
         padding: 10px;
-        width: 20%;
+        width: 33.33%;
         box-sizing: border-box;
       }
     }
@@ -115,4 +119,5 @@ header {
   .recent-posts_h4 {
     margin: 2px auto;
     font-weight: 200;
+    line-height: 1.2;
   }

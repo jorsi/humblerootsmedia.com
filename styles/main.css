@@ -12,6 +12,7 @@
   Light-Greyish-Green: #cbdfcb
   Dark-Greyish-Blue: #23232d
   Dark-Greyish-Green: #232d23
+  Some Gold: #FFDD55
 
 
 
@@ -139,7 +140,7 @@ address { font-style: normal; }
       display: inline-block;
       margin: 5px auto;
       padding: 0 5px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
       text-transform: uppercase;
       vertical-align: top;
@@ -270,7 +271,7 @@ address { font-style: normal; }
   }
 .content {
   padding: 25px 15px;
-  background-color: #dbdbdb;
+  background-color: #CFDBCF;
 }
 .content h2 {
   font-size: 2.5rem;
@@ -370,6 +371,7 @@ address { font-style: normal; }
 
 /* Specific Blocks */
 #productions-control {
+  vertical-align: top;
   text-align: center;
 }
   #productions-control .prev, #productions-control .next {
@@ -378,15 +380,14 @@ address { font-style: normal; }
     padding: 0 .3em;
     font-size: 1.5rem;
     cursor: pointer;
+    color: #6fa66d;
+    transition: color .2s ease-in;
   }
+    #productions-control .prev:hover, #productions-control .next:hover { color: #EED035; }
   #productions-control h2 {
     display: inline-block;
     font-size: 1.5rem;
     font-weight: 200;
-  }
-  @media (min-width: 600px) {
-    #productions-control .prev, #productions-control .next {font-size: 3rem;}
-    #productions-control h2 {font-size: 3rem;}
   }
   .bxslider .item {
     position: relative;
@@ -438,7 +439,7 @@ address { font-style: normal; }
   padding: 0 15px;
 }
   #instagram-icon {
-    padding: 10px;
+    padding: 25px;
     font-size: 3em;
   }
   #instafeed .instagram-item {

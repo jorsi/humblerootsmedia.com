@@ -39,13 +39,22 @@
                 <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
               </h2>
               <p class="post-metadata text-center">
-                Posted in <?php the_category( ', ' ); ?> on <?php the_time('F jS, Y'); ?> by <?php the_author(); ?>
+                <?php
+                  $categories = get_the_category();
+                  echo 'Posted in ';
+                  foreach ($categories as $category) {
+                    echo $category->name . ' ';
+                  }
+                  echo 'on ';
+                  the_time('F jS, Y');
+                  echo ' by ';
+                  the_author(); ?>
               </p>
 
-              <img class="post-image block-center" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>">
+                <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><img class="post-image block-center" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>"></a>
 
             	<article class="post-entry">
-            		<?php the_content('<span class="ghost">Read On</div>'); ?>
+            		<?php the_content('<span class="ghost">Read More</div>'); ?>
             	</article>
             </div>
           </section>

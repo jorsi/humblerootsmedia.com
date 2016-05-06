@@ -28,7 +28,7 @@
 ?>
   <div class="nav-pad"></div>
 <main id="main" class="contact" style="background-image: url(<?php echo $thumb; ?>);">
-  <div class="container-sm contact-container clearfix">
+  <div class="container-md contact-container clearfix">
     <aside class="contact-text">
       <h1>Contact Us</h1>
       <div>

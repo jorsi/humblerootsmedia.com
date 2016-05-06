@@ -61,6 +61,9 @@
   <aside class="break text-center">
     <div class="container-md">
       <p><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_outro-text', true ) ); ?></p>
+      <p>
+        <a href="/contact">Grow with us.</a>
+      </p>
     </div>
 
   </aside>

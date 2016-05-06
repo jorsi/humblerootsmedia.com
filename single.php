@@ -39,7 +39,7 @@
       <ul class="recent-posts_ul clearfix">
       <?php
         $args = array(
-          'numberposts' => 5,
+          'numberposts' => 3,
           'offset' => 0,
           'category' => 0,
           'orderby' => 'post_date',
