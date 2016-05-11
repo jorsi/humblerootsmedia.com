@@ -202,10 +202,10 @@ address { font-style: normal; }
         box-sizing: border-box;
         transition: color .3s, background-color .3s;
       }
-        .nav-desktop .links li a:hover {
+        /*.nav-desktop .links li a:hover {
           color: #efefef;
           background-color: #6fa66d;
-        }
+        }*/
       .nav-desktop .brand-name {
         transition: color .3s;
       }
