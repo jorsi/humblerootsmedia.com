@@ -50,12 +50,17 @@
               echo '<li>';
                 for ( $i = 0; $i < 3; $i++ ) : $loop->the_post();
                   echo '<div class="item">';
+                    echo '<div class="img-overlay">';
+                      echo '<a class="fancybox fancybox.iframe" href="' . get_post_meta($post->ID, 'productions_video_uri', true) . '?autoplay=true">';
+                        echo '<i class="fa fa-fw fa-play-circle-o"></i>';
+                        echo '<img src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '">';
+                      echo '</a>';
+                    echo '</div>';
                     echo '<a class="fancybox fancybox.iframe" href="' . get_post_meta($post->ID, 'productions_video_uri', true) . '?autoplay=true">';
-                      echo '<div class="item-overlay"><i class="fa fa-fw fa-play-circle"></i></div>';
-                      echo '<img src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '">';
                       echo '<h3>' . get_the_title() . '</h3>';
-                      echo '<p>' . get_post_meta($post->ID, 'productions_video_description', true) . '</p>';
                     echo '</a>';
+                    echo '<p>' . get_post_meta($post->ID, 'productions_video_description', true) . '</p>';
+
                   echo '</div>';
                 endfor;
               echo '</li>';

@@ -408,29 +408,21 @@ address { font-style: normal; }
       max-width: none;
     }
   }
-  .bxslider .item-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    text-align: center;
-  }
-  .bxslider .item-overlay i {
+  .bxslider .img-overlay {
     position: relative;
-    margin-top: 27.5%;
-    width: .9em;
-    line-height: .9em;
+  }
+  .bxslider .img-overlay i {
+    position: absolute;
+    margin-top: 22.5%;
+    width: 100%;
+    text-align: center;
     font-size: 4rem;
-    color: #6fa66d;
-    background-color: #111;
-    border-radius: 50%;
+    color: #efefef;
     opacity: 0;
     transition: color .3s ease-in, opacity .3s ease-in;
   }
-    .bxslider .item:hover .item-overlay i { opacity: 1; }
-    .bxslider .item:active .item-overlay i { color: #EED035; }
+    .bxslider .item .img-overlay:hover i { opacity: 1; }
+    .bxslider .item .img-overlay:active i { color: #6fa66d; }
   .bxslider .item h3 {
     margin: 5px auto;
     font-weight: 400;
