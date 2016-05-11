@@ -252,7 +252,7 @@ address { font-style: normal; }
   }
   .splash-tagline {
     display: none;
-    margin: 5px auto 45px auto;
+    margin: 5px auto 25px auto;
     color: #efefef;
     font-size: 1.5rem;
     font-style: italic;
@@ -293,7 +293,7 @@ address { font-style: normal; }
   }
   .slide .slide-tagline {
     display: none;
-    margin: 5px auto 45px auto;
+    margin: 5px auto 25px auto;
     color: #efefef;
     font-size: 1.5rem;
     font-style: italic;
@@ -349,6 +349,8 @@ address { font-style: normal; }
 }
 /* Components */
 .ghost {
+  display: inline-block;
+  margin: 10px auto;
   padding: 5px 10px;
   font-size: 1.2rem;
   font-weight: 700;
