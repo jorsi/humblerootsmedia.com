@@ -53,10 +53,10 @@ header {
   }
   .post-entry > p:first-child:first-letter {
     float: left;
-    margin: 0 5px 5px 0;
+    margin: 5px 5px 5px 0;
     font-family: Georgia, serif;
-    font-size: 4.5rem;
-    line-height: .9;
+    font-size: 3rem;
+    line-height: .8;
   }
   .post-entry p {
     margin: 45px auto;
@@ -90,7 +90,7 @@ header {
 
 .more-link {
   display: block;
-  margin: 15px auto;
+  margin: 25px auto;
   text-align: center;
 }
 .pager {

@@ -28,7 +28,7 @@ body {
   font-size: 14px;
   font-weight: 200;
   line-height: 1.5;
-  letter-spacing: .05rem;
+  letter-spacing: .04em;
   background-color: #efefef;
 }
 @media (min-width: 600px) { body { font-size: 16px; }}
