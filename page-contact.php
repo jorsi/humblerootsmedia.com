@@ -30,7 +30,6 @@
 <main id="main" class="contact" style="background-image: url(<?php echo $thumb; ?>);">
   <div class="container-md contact-container clearfix">
     <aside class="contact-text">
-      <h1>Contact Us</h1>
       <div>
         <?php echo $status; ?>
       </div>
