@@ -258,6 +258,7 @@ address { font-style: normal; }
     font-style: italic;
     font-weight: 200;
     text-align: center;
+    text-shadow: 1px 1px 1px black;
   }
   .splash-ghost {
     display: none;
@@ -298,6 +299,7 @@ address { font-style: normal; }
     font-style: italic;
     font-weight: 200;
     text-align: center;
+    text-shadow: 1px 1px 1px black;
   }
   @media (min-width: 600px) {
     .slide .slide-title { font-size: 4.5rem; }
