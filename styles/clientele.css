@@ -40,17 +40,20 @@
     max-height: 100px;
   }
   .testimonial .testimonial-name {
-    margin: 5px;
+    margin: 2px auto;
     font-weight: 200;
+    line-height: 1;
   }
   .testimonial .testimonial-jobtitle {
-    margin: 5px;
-    font-size: .8rem;
-  }
-  .testimonial .testimonial-company {
-    margin: 5px;
+    margin: 2px auto;
     font-size: .8rem;
     font-weight: 200;
+  }
+  .testimonial .testimonial-company {
+    margin: 5px auto;
+    font-size: .9rem;
+    font-weight: 200;
+    line-height: 1;
     text-decoration: underline;
     transition: color .3s ease-in;
   }
