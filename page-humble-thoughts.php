@@ -15,15 +15,6 @@
   <div class="container-md humble-header">
       <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-title', true ) ); ?></h1>
       <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
-      <?php
-        if ( get_post_meta($postid, 'humblerootsmedia_ghost-checkbox', true) ) {
-          ?>
-          <a class="splash-ghost ghost smooth-scroll" href="#main">
-            <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_ghost-text', true ) ); ?>
-          </a>
-      <?php
-        }
-      ?>
   </div>
   <div class="container-lg">
     <section class="blog-posts">

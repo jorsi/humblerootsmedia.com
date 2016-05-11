@@ -1,14 +1,14 @@
-header {
-  margin: 0 auto;
+.humble-header {
+  margin: 0 auto 25px auto;
   padding: 25px 0;
-  border-bottom: 1px solid #6fa66d;
+  border-bottom: 1px solid #CFDBCF;
 }
   @media (min-width: 600px) {
-    header {
-      margin: 45px auto 35px auto;
-      padding: 0;
+    .humble-header {
+        margin: 25px auto;
     }
   }
+  .humble-header .splash-tagline { text-shadow: none; }
 .humble-title {
   margin: 5px auto;
   font-size: 4rem;
@@ -24,17 +24,19 @@ header {
 .post-title {
   font-family: Georgia;
   margin: 10px auto;
-  font-size: 2rem;
+  padding: 0 10px;
+  font-size: 2.5rem;
   font-weight: 400;
   line-height: 1.1;
 }
 .post-metadata {
   color: #ababab;
 }
-.post-content {}
+.post-content {
+  padding: 0 2%;
+}
   .post-entry {
     margin: 50px auto;
-    padding: 0 2%;
   }
   .post-entry h2, .post-entry h3, .post-entry h4, .post-entry h5, .post-entry h6 {
     margin: 25px auto;
