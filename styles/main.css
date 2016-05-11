@@ -463,6 +463,7 @@ address { font-style: normal; }
 #footer {
   font-weight: 400;
   background-color: #6fa66d;
+  text-align: center;
 }
   #footer a { transition: color .2s ease-in; }
   #footer a:hover { color: #FFDD55; }
