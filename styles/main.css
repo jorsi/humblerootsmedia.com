@@ -443,7 +443,9 @@ address { font-style: normal; }
     padding: 1%;
     width: 50%;
     box-sizing: border-box;
+    transition: opacity .3s ease-in;
   }
+    #instafeed .instagram-item:hover { opacity: .6; }
   @media (min-width: 750px) {
     #instafeed .instagram-item {
       width: 25%;
