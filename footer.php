@@ -26,7 +26,7 @@
       </div>
 
       <div id="copyright">
-        <small>&copy; <script>document.write(new Date().getFullYear())</script> Humble Roots Media</small>
+        <small>&copy; <script>document.write(new Date().getFullYear())</script> Humble Roots Media - Created by <a href="http://www.jonorsi.com" target="_blank">Jonathon Orsi</a></small>
       </div>
 
     </footer>
