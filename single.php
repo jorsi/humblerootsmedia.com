@@ -10,6 +10,7 @@
   <div class="container-md humble-header">
       <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $humble->ID, 'humblerootsmedia_splash-title', true ) ); ?></h1>
       <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta(  $humble->ID, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
+      <?php get_search_form(); ?>
   </div>
   <section class="post-content">
     <div class="container-md">

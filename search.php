@@ -1,27 +1,43 @@
 <?php
   get_header();
-  // the query
-  //$post_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=> 5));
+  $humble = get_page_by_title( 'Humble Thoughts' );
+
   //The Query
+  global $query_string;
+
+  $query_args = explode("&", $query_string);
+  $search_query = array(
+    'post_type'=>'post',
+    'post_status'=>'publish'
+  );
+
+  if( strlen($query_string) > 0 ) {
+  	foreach($query_args as $key => $string) {
+  		$query_split = explode("=", $string);
+  		$search_query[$query_split[0]] = urldecode($query_split[1]);
+  	} // foreach
+  } //if
+
+  // Search again to keep query
+  $search = new WP_Query($search_query);
+  $results = $search->found_posts;
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-  $post_query = new WP_Query();
-  $post_query->query( 'showposts=5&paged='.$paged );
-  $postid = $post->ID;
-  $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+  var_dump($query_string);
 ?>
 
 <div class="nav-pad"></div>
 <main id="main">
   <div class="container-md humble-header">
-      <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-title', true ) ); ?></h1>
-      <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
-      <?php get_search_form(); ?>
+      <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $humble->ID, 'humblerootsmedia_splash-title', true ) ); ?></h1>
+      <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta(  $humble->ID, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
+      <div><?php get_search_form(); ?></div>
+      <div>Found <?php echo $results; ?> results.</div>
   </div>
   <div class="container-lg">
     <section class="blog-posts">
       <!-- Start the Loop. -->
       <?php
-        if ( $post_query->have_posts() ) : while ( $post_query->have_posts() ) : $post_query->the_post(); ?>
+        if ( $search->have_posts() ) : while ( $search->have_posts() ) : $search->the_post(); ?>
           <section class="post-summary">
             <div class="container-md">
             	<h2 class="post-title text-center">
@@ -51,20 +67,22 @@
         <?php
           endwhile;
           // pager
-          if( $post_query->max_num_pages > 1 ) : ?>
+          if( $search->max_num_pages > 1 ) : ?>
               <nav class="pager">
               <?php
-              if($paged != 1) : ?>
+              if($search_query['paged'] > 1) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="/humble-thoughts/"><i class="fa fa-fw fa-angle-double-left"></i></a>
-                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
+                  <a class="pager-link" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . ($search_query['paged'] - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Previous Page</a>
                 </div>
               <?php endif;
 
-              if($paged != $post_query->max_num_pages) : ?>
+              for ($i = 1; $i <= $search->max_num_pages; $i++) : ?>
+                  <a class="pager-link <?php if ($i == $search_query['paged']) echo 'current-page'; ?>" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . $i; ?>"><?php echo $i; ?></a>
+
+              <?php endfor;
+              if($paged != $search->max_num_pages) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
-                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . $post_query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
+                  <a class="pager-link" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . ($search_query['paged'] + 1); ?>"> Next Page <i class="fa fa-fw fa-angle-right"></i></a>
                 </div>
               <?php endif; ?>
             </nav>
