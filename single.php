@@ -10,7 +10,11 @@
   <div class="container-md humble-header">
       <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $humble->ID, 'humblerootsmedia_splash-title', true ) ); ?></h1>
       <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta(  $humble->ID, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
-      <?php get_search_form(); ?>
+      <form role="search" method="get" id="searchform" class="searchform" action="/">
+          <label class="screen-reader-text" for="s">Search for:</label>
+          <input type="text" value="" name="s" id="s">
+          <button type="submit" id="searchsubmit"><i class="fa fa-fw fa-search"></i></button>
+      </form>
   </div>
   <section class="post-content">
     <div class="container-md">

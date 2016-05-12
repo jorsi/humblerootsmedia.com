@@ -34,10 +34,8 @@ function humblerootsmedia_enqueue() {
     }
     if ( is_page( 'Clientele') )
       wp_enqueue_style( 'humblerootsmedia_style_clientele', get_stylesheet_directory_uri() . '/styles/clientele.css');
-    if ( is_page( 'Humble Thoughts') )
-      wp_enqueue_style( 'humblerootsmedia_style_humble-thoughts', get_stylesheet_directory_uri() . '/styles/humble-thoughts.css');
+    if ( is_page( 'Humble Thoughts') || is_single() || is_search() )
+      wp_enqueue_style( 'humblerootsmedia_style_blog', get_stylesheet_directory_uri() . '/styles/blog.css');
     if ( is_page( 'Contact') )
       wp_enqueue_style( 'humblerootsmedia_style_contact', get_stylesheet_directory_uri() . '/styles/contact.css');
-    if ( is_single() )
-      wp_enqueue_style( 'humblerootsmedia_style_single', get_stylesheet_directory_uri() . '/styles/single.css');
 }

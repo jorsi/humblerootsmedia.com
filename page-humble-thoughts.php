@@ -15,7 +15,11 @@
   <div class="container-md humble-header">
       <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-title', true ) ); ?></h1>
       <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
-      <?php get_search_form(); ?>
+      <form role="search" method="get" id="searchform" class="searchform" action="/">
+          <label class="screen-reader-text" for="s">Search for:</label>
+          <input type="text" value="" name="s" id="s">
+          <button type="submit" id="searchsubmit"><i class="fa fa-fw fa-search"></i></button>
+      </form>
   </div>
   <div class="container-lg">
     <section class="blog-posts">
@@ -24,7 +28,7 @@
         if ( $post_query->have_posts() ) : while ( $post_query->have_posts() ) : $post_query->the_post(); ?>
           <section class="post-summary">
             <div class="container-md">
-            	<h2 class="post-title text-center">
+              <h2 class="post-title text-center">
                 <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
               </h2>
               <p class="post-metadata text-center">
@@ -42,9 +46,9 @@
 
                 <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><img class="post-image block-center" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>"></a>
 
-            	<article class="post-entry">
-            		<?php the_content('<span class="ghost">Read More</div>'); ?>
-            	</article>
+              <article class="post-entry">
+                <?php the_content('<span class="ghost">Read More</div>'); ?>
+              </article>
             </div>
           </section>
 
@@ -73,7 +77,7 @@
           wp_reset_postdata();
           else :
         ?>
-      	   <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+           <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
       <?php endif; ?>
     </section>
 

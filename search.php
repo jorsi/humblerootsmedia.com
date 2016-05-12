@@ -22,7 +22,11 @@
   $search = new WP_Query($search_query);
   $results = $search->found_posts;
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-  var_dump($query_string);
+  $start = $paged * 5 - 4;
+  //1 = 1
+  //2 = 6
+  //3 = 11
+  //4 = 16
 ?>
 
 <div class="nav-pad"></div>
@@ -30,8 +34,14 @@
   <div class="container-md humble-header">
       <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $humble->ID, 'humblerootsmedia_splash-title', true ) ); ?></h1>
       <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta(  $humble->ID, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
-      <div><?php get_search_form(); ?></div>
-      <div>Found <?php echo $results; ?> results.</div>
+      <form role="search" method="get" id="searchform" class="searchform" action="/">
+          <label class="screen-reader-text" for="s">Search for:</label>
+          <input type="text" value="<?php echo $search_query['s']; ?>" name="s" id="s">
+          <button type="submit" id="searchsubmit"><i class="fa fa-fw fa-search"></i></button>
+      </form>
+      <p class="search-results">
+        Displaying <?php echo $start . ' to ' . (($start + 4) <= $results ? ($start + 4) : $results); ?> of <?php echo $results; ?> results.
+      </p>
   </div>
   <div class="container-lg">
     <section class="blog-posts">
@@ -72,17 +82,22 @@
               <?php
               if($search_query['paged'] > 1) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . ($search_query['paged'] - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Previous Page</a>
+                  <a class="pager-link" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . ($search_query['paged'] - 1); ?>"><i class="fa fa-fw fa-angle-left"></i></a>
                 </div>
               <?php endif;
 
-              for ($i = 1; $i <= $search->max_num_pages; $i++) : ?>
-                  <a class="pager-link <?php if ($i == $search_query['paged']) echo 'current-page'; ?>" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . $i; ?>"><?php echo $i; ?></a>
+              for ($i = 1; $i <= $search->max_num_pages; $i++) :
+                if ($i != $search_query['paged']) : ?>
+                  <a class="pager-link page" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . $i; ?>">
+                  <?php echo $i ?></a>
+                <?php else : ?>
+                  <span class="current-page"><?php echo $i ?></span>
+                <?php endif;
 
-              <?php endfor;
+              endfor;
               if($paged != $search->max_num_pages) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . ($search_query['paged'] + 1); ?>"> Next Page <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . ($search_query['paged'] ? $search_query['paged'] + 1 : 2); ?>"><i class="fa fa-fw fa-angle-right"></i></a>
                 </div>
               <?php endif; ?>
             </nav>
