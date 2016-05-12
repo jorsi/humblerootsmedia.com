@@ -41,18 +41,18 @@
       <div class="container-md">
         <div class="row">
           <div class="col-half">
-            <a href="/">
-              <div class="container-sm">
-                <div class="row">
+            <div class="container-sm">
+              <div class="row">
+                <a href="/">
                   <div class="col">
                     <img class="brand-image" src="<?php echo get_template_directory_uri(); ?>/images/humble-logo.png">
                   </div>
                   <div class="col brand-name">
                     <div class="humblerootsmedia">Humble Roots Media</div>
                   </div>
-                </div>
+                </a>
               </div>
-            </a>
+            </div>
           </div>
           <div class="col-half">
             <?php
