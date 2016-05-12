@@ -413,16 +413,16 @@ address { font-style: normal; }
   }
   .bxslider .img-overlay i {
     position: absolute;
-    margin-top: 22.5%;
-    width: 100%;
-    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 4rem;
     color: #efefef;
     opacity: 0;
     transition: color .3s ease-in, opacity .3s ease-in;
   }
     .bxslider .item .img-overlay:hover i { opacity: 1; }
-    .bxslider .item .img-overlay:active i { color: #6fa66d; }
+    .bxslider .item .img-overlay i:hover { color: #6fa66d; }
   .bxslider .item h3 {
     margin: 5px auto;
     font-weight: 400;
