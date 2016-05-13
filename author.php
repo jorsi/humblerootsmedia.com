@@ -1,56 +1,34 @@
 <?php
   get_header();
-  $humble = get_page_by_title( 'Humble Thoughts' );
-
+  // the query
+  //$post_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=> 5));
   //The Query
-  global $query_string;
-
-  $query_args = explode("&", $query_string);
-  $search_query = array(
-    'post_type'=>'post',
-    'post_status'=>'publish'
-  );
-
-  if( strlen($query_string) > 0 ) {
-  	foreach($query_args as $key => $string) {
-  		$query_split = explode("=", $string);
-  		$search_query[$query_split[0]] = urldecode($query_split[1]);
-  	} // foreach
-  } //if
-
-  // Search again to keep query
-  $search = new WP_Query($search_query);
-  $results = $search->found_posts;
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-  $start = $paged * 5 - 4;
-  //1 = 1
-  //2 = 6
-  //3 = 11
-  //4 = 16
+  $post_query = new WP_Query();
+  $post_query->query( 'showposts=5&paged='.$paged );
+  $postid = $post->ID;
+  $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
 
 <div class="nav-pad"></div>
 <main id="main">
   <div class="container-md humble-header">
-      <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $humble->ID, 'humblerootsmedia_splash-title', true ) ); ?></h1>
-      <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta(  $humble->ID, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
+      <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-title', true ) ); ?></h1>
+      <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
       <form role="search" method="get" id="searchform" class="searchform" action="/">
           <label class="screen-reader-text" for="s">Search for:</label>
-          <input type="text" value="<?php echo $search_query['s']; ?>" name="s" id="s">
+          <input type="text" value="" name="s" id="s">
           <button type="submit" id="searchsubmit"><i class="fa fa-fw fa-search"></i></button>
       </form>
-      <p class="search-results">
-        Displaying <?php echo $start . ' to ' . (($start + 4) <= $results ? ($start + 4) : $results); ?> of <?php echo $results; ?> results.
-      </p>
   </div>
   <div class="container-lg">
     <section class="blog-posts">
       <!-- Start the Loop. -->
       <?php
-        if ( $search->have_posts() ) : while ( $search->have_posts() ) : $search->the_post(); ?>
+        if ( $post_query->have_posts() ) : while ( $post_query->have_posts() ) : $post_query->the_post(); ?>
           <section class="post-summary">
             <div class="container-md">
-            	<h2 class="post-title text-center">
+              <h2 class="post-title text-center">
                 <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
               </h2>
               <div class="post-metadata">
@@ -100,38 +78,31 @@
                 </ul>
               </div>
 
-                <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><img class="post-image block-center" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>"></a>
+              <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><img class="post-image block-center" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>"></a>
 
-            	<article class="post-entry">
-            		<?php the_content('<span class="ghost">Read More</div>'); ?>
-            	</article>
+              <article class="post-entry">
+                <?php the_content('<span class="ghost">Read More</div>'); ?>
+              </article>
             </div>
           </section>
 
         <?php
           endwhile;
           // pager
-          if( $search->max_num_pages > 1 ) : ?>
+          if( $post_query->max_num_pages > 1 ) : ?>
               <nav class="pager">
               <?php
-              if($search_query['paged'] > 1) : ?>
+              if($paged != 1) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . ($search_query['paged'] - 1); ?>"><i class="fa fa-fw fa-angle-left"></i></a>
+                  <a class="pager-link" href="/humble-thoughts/"><i class="fa fa-fw fa-angle-double-left"></i></a>
+                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
                 </div>
               <?php endif;
 
-              for ($i = 1; $i <= $search->max_num_pages; $i++) :
-                if ($i != $search_query['paged']) : ?>
-                  <a class="pager-link page" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . $i; ?>">
-                  <?php echo $i ?></a>
-                <?php else : ?>
-                  <span class="current-page"><?php echo $i ?></span>
-                <?php endif;
-
-              endfor;
-              if($paged != $search->max_num_pages) : ?>
+              if($paged != $post_query->max_num_pages) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . ($search_query['paged'] ? $search_query['paged'] + 1 : 2); ?>"><i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . $post_query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
                 </div>
               <?php endif; ?>
             </nav>
@@ -140,7 +111,7 @@
           wp_reset_postdata();
           else :
         ?>
-      	   <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+           <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
       <?php endif; ?>
     </section>
 

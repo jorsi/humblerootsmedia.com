@@ -31,20 +31,54 @@
               <h2 class="post-title text-center">
                 <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
               </h2>
-              <p class="post-metadata text-center">
-                <?php
-                  $categories = get_the_category();
-                  echo 'Posted in ';
-                  foreach ($categories as $category) {
-                    echo $category->name . ' ';
-                  }
-                  echo 'on ';
-                  the_time('F jS, Y');
-                  echo ' by ';
-                  the_author(); ?>
-              </p>
+              <div class="post-metadata">
+                <ul class="post-metadata-authorinfo">
+                  <li class="post-metadata-author">Written by <span class="author"><?php echo get_the_author(); ?></span></li>
+                  <li class="post-metadata-time"> on <time datetime="<?php echo get_the_time('F jS, Y g:i:s'); ?>" pubdate><?php echo get_the_time('F jS, Y'); ?></time></li>
+                  
+                  <?php
+                  $twitter = get_the_author_meta( 'twitter' );
+                  if ( $twitter ) { ?>
+                    <li class="post-metadata-twitter">
+                      <a href="http://www.twitter.com/' . $twitter . '" target="_blank">
+                        <i class="fa fa-fw fa-twitter"></i>@<?php echo $twitter; ?>
+                      </a>
+                    </li>
+                  <?php }
 
-                <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><img class="post-image block-center" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>"></a>
+                  $instagram = get_the_author_meta( 'instagram' );
+                  if ( $instagram ) { ?>
+                    <li class="post-metadata-instagram">
+                      <a href="http://www.instagram.com/' . $instagram . '" target="_blank">
+                        <i class="fa fa-fw fa-instagram"></i>@<?php echo $instagram; ?>
+                      </a>
+                    </li>
+                  <?php }
+
+                  $facebook = get_the_author_meta( 'facebook' );
+                  if ( $facebook ) { ?>
+                    <li class="post-metadata-facebook">
+                      <a href="http://www.facebook.com/' . $facebook . '" target="_blank">
+                        <i class="fa fa-fw fa-facebook"></i>@<?php echo $facebook; ?>
+                      </a>
+                    </li>
+                  <?php } ?>
+                </ul>
+                <ul class="post-metadata-categories">
+                  <?php
+                  $categories = get_the_category();
+                  if ( $categories ) {
+                      foreach ($categories as $category) {
+                        if ( $category->name != 'Uncategorised' ) { ?>
+                          <li class="post-metadata-category"><?php echo $category->name; ?></li>
+                        <?php
+                        }
+                      } ?>
+                  <?php } ?>
+                </ul>
+              </div>
+
+              <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><img class="post-image block-center" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>"></a>
 
               <article class="post-entry">
                 <?php the_content('<span class="ghost">Read More</div>'); ?>

@@ -69,8 +69,18 @@
   .post-title a:hover { color: #6fa66d; }
   .post-title a:active { color: #FFDD55;}
 .post-metadata {
+  margin: 0 auto 15px auto;
+  font-size: .8em;
   color: #ababab;
+  text-align: center;
 }
+  .post-metadata .post-metadata-authorinfo li { display: inline-block; }
+  .post-metadata .post-metadata-categories li { display: inline-block; }
+  .post-metadata .post-metadata-categories:before { content: 'Categories: '; }
+
+  .post-metadata .author,
+  .post-metadata i { color: #6fa66d; }
+  .post-metadata .post-metadata-categories li:not(:last-of-type):after { content: ','; }
   .post-entry h2, .post-entry h3, .post-entry h4, .post-entry h5, .post-entry h6 {
     margin: 25px auto;
     max-width: 750px;

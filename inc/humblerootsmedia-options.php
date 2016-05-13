@@ -33,6 +33,20 @@ function humblerootsmedia_init() {
     'socialmedia' => 'Social Media Menu',
   ));
 
+  function new_contactmethods( $contactmethods ) {
+
+    // Add Twitter
+    $contactmethods['twitter'] = 'Twitter';
+
+    // Add Facebook
+    $contactmethods['facebook'] = 'Facebook';
+
+    // Add Facebook
+    $contactmethods['instagram'] = 'Instagram';
+    return $contactmethods;
+  }
+  add_filter('user_contactmethods','new_contactmethods',10,1);
+
   // Check if the menus exists
   $menu_name = 'Pages Menu';
   $menu_exists = wp_get_nav_menu_object( $menu_name );
