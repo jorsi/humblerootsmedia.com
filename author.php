@@ -1,15 +1,18 @@
-<?php
-  get_header();
+<?php get_header();
+
   // Variables
   $humble = get_page_by_title( 'Humble Thoughts' );
-  $author = get_the_author();
+  $author = get_user_by( 'slug', get_query_var( 'author_name' ) );
 
   //The Query
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
   $post_query = new WP_Query();
-  $post_query->query( 'showposts=5&author_name=' .$author .'&paged='.$paged );
+  $post_query->query( 'showposts=5&author_name=' . $author->user_nicename .'&paged='.$paged );
   $postid = $post->ID;
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+  $results = $post_query->found_posts;
+  $start = $paged * 5 - 4;
 ?>
 
 <div class="nav-pad"></div>
@@ -22,6 +25,9 @@
           <input type="text" value="" name="s" id="s">
           <button type="submit" id="searchsubmit"><i class="fa fa-fw fa-search"></i></button>
       </form>
+      <p class="search-results">
+        Displaying <?php echo $start . ' to ' . (($start + 4) <= $results ? ($start + 4) : $results); ?> of <?php echo $results; ?> results.
+      </p>
   </div>
   <div class="container-lg">
     <section class="blog-posts">
@@ -35,7 +41,7 @@
               </h2>
               <div class="post-metadata">
                 <ul class="post-metadata-authorinfo">
-                  <li class="post-metadata-author">Written by <span class="author"><a href="/author/<?php echo get_the_author(); ?>"><?php echo get_the_author(); ?></a></span></li>
+                  <li class="post-metadata-author">Written by <span class="author"><a href="/author/<?php echo get_the_author_meta('user_nicename'); ?>"><?php echo get_the_author(); ?></a></span></li>
                   <li class="post-metadata-time"> on <time datetime="<?php echo get_the_time('F jS, Y g:i:s'); ?>" pubdate><?php echo get_the_time('F jS, Y'); ?></time></li>
 
                   <?php
@@ -100,15 +106,15 @@
               <?php
               if($paged != 1) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="/author/<?php echo $author; ?>"><i class="fa fa-fw fa-angle-double-left"></i></a>
-                  <a class="pager-link" href="/author/<?php echo $author;?>/page/<?php echo ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
+                  <a class="pager-link" href="/author/<?php echo $author->user_nicename; ?>"><i class="fa fa-fw fa-angle-double-left"></i></a>
+                  <a class="pager-link" href="/author/<?php echo $author->user_nicename;?>/page/<?php echo ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
                 </div>
               <?php endif;
 
               if($paged != $post_query->max_num_pages) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="/author/<?php echo $author; ?>/page/<?php echo ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
-                  <a class="pager-link" href="/author/<?php echo $author; ?>/page/<?php echo $post_query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
+                  <a class="pager-link" href="/author/<?php echo $author->user_nicename; ?>/page/<?php echo ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="/author/<?php echo $author->user_nicename; ?>/page/<?php echo $post_query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
                 </div>
               <?php endif; ?>
             </nav>
@@ -123,14 +129,13 @@
 
     <aside class="break text-center">
       <div class="container-md">
-        <p><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_outro-text', true ) ); ?></p>
+        <p><?php echo stripslashes( get_post_meta( $humble->ID, 'humblerootsmedia_outro-text', true ) ); ?></p>
         <p>
           <a href="/contact">Grow with us.</a>
         </p>
       </div>
     </aside>
+
   </div>
 </main>
-
-<?php
-  get_footer();
+<?php get_footer();

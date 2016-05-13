@@ -21,7 +21,7 @@
       <h2 class="post-title text-center"><?php single_post_title(); ?></h2>
       <div class="post-metadata">
         <ul class="post-metadata-authorinfo">
-          <li class="post-metadata-author">Written by <span class="author"><a href="/author/<?php echo get_the_author(); ?>"><?php echo get_the_author(); ?></a></span></li>
+          <li class="post-metadata-author">Written by <span class="author"><a href="/author/<?php echo get_the_author_meta('user_nicename'); ?>"><?php echo get_the_author(); ?></a></span></li>
           <li class="post-metadata-time"> on <time datetime="<?php echo get_the_time('F jS, Y g:i:s'); ?>" pubdate><?php echo get_the_time('F jS, Y'); ?></time></li>
 
           <?php
@@ -104,6 +104,15 @@
       </ul>
     </div>
   </section>
+
+  <aside class="break text-center">
+    <div class="container-md">
+      <p><?php echo stripslashes( get_post_meta( $humble->ID, 'humblerootsmedia_outro-text', true ) ); ?></p>
+      <p>
+        <a href="/contact">Grow with us.</a>
+      </p>
+    </div>
+  </aside>
 </main>
 
 <?php
