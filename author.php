@@ -1,11 +1,13 @@
 <?php
   get_header();
-  // the query
-  //$post_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=> 5));
+  // Variables
+  $humble = get_page_by_title( 'Humble Thoughts' );
+  $author = get_the_author();
+
   //The Query
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
   $post_query = new WP_Query();
-  $post_query->query( 'showposts=5&paged='.$paged );
+  $post_query->query( 'showposts=5&author_name=' .$author .'&paged='.$paged );
   $postid = $post->ID;
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
@@ -13,8 +15,8 @@
 <div class="nav-pad"></div>
 <main id="main">
   <div class="container-md humble-header">
-      <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-title', true ) ); ?></h1>
-      <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta( $postid, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
+      <h1 class="humble-title"><?php echo stripslashes( get_post_meta( $humble->ID, 'humblerootsmedia_splash-title', true ) ); ?></h1>
+      <h3 class="splash-tagline black"><?php echo stripslashes( get_post_meta(  $humble->ID, 'humblerootsmedia_splash-tagline', true ) ); ?></h3>
       <form role="search" method="get" id="searchform" class="searchform" action="/">
           <label class="screen-reader-text" for="s">Search for:</label>
           <input type="text" value="" name="s" id="s">
@@ -33,14 +35,14 @@
               </h2>
               <div class="post-metadata">
                 <ul class="post-metadata-authorinfo">
-                  <li class="post-metadata-author">Written by <span class="author"><?php echo get_the_author(); ?></span></li>
+                  <li class="post-metadata-author">Written by <span class="author"><a href="/author/<?php echo get_the_author(); ?>"><?php echo get_the_author(); ?></a></span></li>
                   <li class="post-metadata-time"> on <time datetime="<?php echo get_the_time('F jS, Y g:i:s'); ?>" pubdate><?php echo get_the_time('F jS, Y'); ?></time></li>
 
                   <?php
                   $twitter = get_the_author_meta( 'twitter' );
                   if ( $twitter ) { ?>
                     <li class="post-metadata-twitter">
-                      <a href="http://www.twitter.com/' . $twitter . '" target="_blank">
+                      <a href="http://www.twitter.com/<?php echo $twitter; ?>" target="_blank">
                         <i class="fa fa-fw fa-twitter"></i>@<?php echo $twitter; ?>
                       </a>
                     </li>
@@ -49,7 +51,7 @@
                   $instagram = get_the_author_meta( 'instagram' );
                   if ( $instagram ) { ?>
                     <li class="post-metadata-instagram">
-                      <a href="http://www.instagram.com/' . $instagram . '" target="_blank">
+                      <a href="http://www.instagram.com/<?php echo $instagram; ?>" target="_blank">
                         <i class="fa fa-fw fa-instagram"></i>@<?php echo $instagram; ?>
                       </a>
                     </li>
@@ -58,7 +60,7 @@
                   $facebook = get_the_author_meta( 'facebook' );
                   if ( $facebook ) { ?>
                     <li class="post-metadata-facebook">
-                      <a href="http://www.facebook.com/' . $facebook . '" target="_blank">
+                      <a href="http://www.facebook.com/<?php echo $facebook; ?>" target="_blank">
                         <i class="fa fa-fw fa-facebook"></i>@<?php echo $facebook; ?>
                       </a>
                     </li>
@@ -70,7 +72,11 @@
                   if ( $categories ) {
                       foreach ($categories as $category) {
                         if ( $category->name != 'Uncategorised' ) { ?>
-                          <li class="post-metadata-category"><?php echo $category->name; ?></li>
+                          <li class="post-metadata-category">
+                            <a href="/category/<?php echo $category->slug; ?>">
+                              <?php echo $category->name; ?>
+                            </a>
+                          </li>
                         <?php
                         }
                       } ?>
@@ -94,15 +100,15 @@
               <?php
               if($paged != 1) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="/humble-thoughts/"><i class="fa fa-fw fa-angle-double-left"></i></a>
-                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
+                  <a class="pager-link" href="/author/<?php echo $author; ?>"><i class="fa fa-fw fa-angle-double-left"></i></a>
+                  <a class="pager-link" href="/author/<?php echo $author;?>/page/<?php echo ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
                 </div>
               <?php endif;
 
               if($paged != $post_query->max_num_pages) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
-                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . $post_query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
+                  <a class="pager-link" href="/author/<?php echo $author; ?>/page/<?php echo ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="/author/<?php echo $author; ?>/page/<?php echo $post_query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
                 </div>
               <?php endif; ?>
             </nav>

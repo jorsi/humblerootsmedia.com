@@ -21,14 +21,14 @@
       <h2 class="post-title text-center"><?php single_post_title(); ?></h2>
       <div class="post-metadata">
         <ul class="post-metadata-authorinfo">
-          <li class="post-metadata-author">Written by <span class="author"><?php echo get_the_author(); ?></span></li>
+          <li class="post-metadata-author">Written by <span class="author"><a href="/author/<?php echo get_the_author(); ?>"><?php echo get_the_author(); ?></a></span></li>
           <li class="post-metadata-time"> on <time datetime="<?php echo get_the_time('F jS, Y g:i:s'); ?>" pubdate><?php echo get_the_time('F jS, Y'); ?></time></li>
 
           <?php
           $twitter = get_the_author_meta( 'twitter' );
           if ( $twitter ) { ?>
             <li class="post-metadata-twitter">
-              <a href="http://www.twitter.com/' . $twitter . '" target="_blank">
+              <a href="http://www.twitter.com/<?php echo $twitter; ?>" target="_blank">
                 <i class="fa fa-fw fa-twitter"></i>@<?php echo $twitter; ?>
               </a>
             </li>
@@ -37,7 +37,7 @@
           $instagram = get_the_author_meta( 'instagram' );
           if ( $instagram ) { ?>
             <li class="post-metadata-instagram">
-              <a href="http://www.instagram.com/' . $instagram . '" target="_blank">
+              <a href="http://www.instagram.com/<?php echo $instagram; ?>" target="_blank">
                 <i class="fa fa-fw fa-instagram"></i>@<?php echo $instagram; ?>
               </a>
             </li>
@@ -46,7 +46,7 @@
           $facebook = get_the_author_meta( 'facebook' );
           if ( $facebook ) { ?>
             <li class="post-metadata-facebook">
-              <a href="http://www.facebook.com/' . $facebook . '" target="_blank">
+              <a href="http://www.facebook.com/<?php echo $facebook; ?>" target="_blank">
                 <i class="fa fa-fw fa-facebook"></i>@<?php echo $facebook; ?>
               </a>
             </li>
@@ -58,7 +58,11 @@
           if ( $categories ) {
               foreach ($categories as $category) {
                 if ( $category->name != 'Uncategorised' ) { ?>
-                  <li class="post-metadata-category"><?php echo $category->name; ?></li>
+                  <li class="post-metadata-category">
+                    <a href="/category/<?php echo $category->slug; ?>">
+                      <?php echo $category->name; ?>
+                    </a>
+                  </li>
                 <?php
                 }
               } ?>
