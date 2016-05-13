@@ -2,12 +2,12 @@
   get_header();
   // Variables
   $humble = get_page_by_title( 'Humble Thoughts' );
-  $category = single_cat_title("",false);
+  $cat = get_category_by_slug( single_cat_title("",false) );
 
   //The Query
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
   $post_query = new WP_Query();
-  $post_query->query( 'showposts=5&category_name=' . $category .'&paged='.$paged );
+  $post_query->query( 'showposts=5&category_name=' . $cat->slug .'&paged='.$paged );
   $postid = $post->ID;
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 
@@ -106,15 +106,15 @@
               <?php
               if($paged != 1) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="/category/<?php echo $category; ?>"><i class="fa fa-fw fa-angle-double-left"></i></a>
-                  <a class="pager-link" href="/category/<?php echo $category;?>/page/<?php echo ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
+                  <a class="pager-link" href="/category/<?php echo $cat->slug; ?>"><i class="fa fa-fw fa-angle-double-left"></i></a>
+                  <a class="pager-link" href="/category/<?php echo $cat->slug;?>/page/<?php echo ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
                 </div>
               <?php endif;
 
               if($paged != $post_query->max_num_pages) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="/category/<?php echo $category; ?>/page/<?php echo ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
-                  <a class="pager-link" href="/category/<?php echo $category; ?>/page/<?php echo $post_query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
+                  <a class="pager-link" href="/category/<?php echo $cat->slug; ?>/page/<?php echo ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="/category/<?php echo $cat->slug; ?>/page/<?php echo $post_query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
                 </div>
               <?php endif; ?>
             </nav>
