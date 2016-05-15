@@ -55,8 +55,7 @@ function humblerootsmedia_init() {
 
   // Register Menu Locations
   register_nav_menus( array(
-    'pages' => 'Pages Menu',
-    'socialmedia' => 'Social Media Menu',
+    'pages' => 'Pages Menu'
   ));
 
   // Check if the menus exists
