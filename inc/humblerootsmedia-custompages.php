@@ -1,4 +1,6 @@
 <?php
+
+// Create Pages
 add_action( 'after_setup_theme', 'humblerootsmedia_default_pages' );
 function humblerootsmedia_default_pages() {
   // Set-up Default Pages

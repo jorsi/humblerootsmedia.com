@@ -1,5 +1,7 @@
 <?php
-// Custom Post Types
+
+// Create Custom Post Types
+add_action( 'init', 'humblerootsmedia_custom_posts' );
 function humblerootsmedia_custom_posts() {
   $labels = array(
     'name'               => _x( 'Productions', 'post type general name' ),
@@ -107,12 +109,11 @@ function humblerootsmedia_custom_posts() {
   );
   register_post_type( 'footer', $args);
 }
-add_action( 'init', 'humblerootsmedia_custom_posts' );
 
 // Adds the Productions Custom Fields
 function add_productions_metaboxes() {
   add_meta_box('productions_video_description', 'Video Description', 'productions_video_desc_display', 'production', 'normal', 'default');
-    add_meta_box('productions_video_uri', 'Video Source', 'productions_video_uri_display', 'production', 'normal', 'default');
+  add_meta_box('productions_video_uri', 'Video Source', 'productions_video_uri_display', 'production', 'normal', 'default');
 }
 // The Production Metaboxes
 function productions_video_desc_display() {
