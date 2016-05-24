@@ -376,11 +376,11 @@ address { font-style: normal; }
 /* Specific Blocks */
 .home header {
   background-color: #111;
-  transition: background-color 10s ease-in;
+  transition: background-color 3s ease-in;
 }
   .home header > .table-cell {
     opacity: 0;
-    transition: opacity 3.5s ease-out;
+    transition: opacity 3s ease-out;
   }
 #productions-control {
   vertical-align: top;
@@ -390,7 +390,7 @@ address { font-style: normal; }
     display: inline-block;
     margin: .83em auto;
     padding: 0 .3em;
-    font-size: 1.5rem;
+    font-size: 2em;
     cursor: pointer;
     color: #6fa66d;
     transition: color .2s ease-in;
@@ -398,7 +398,7 @@ address { font-style: normal; }
     #productions-control .prev:hover, #productions-control .next:hover { color: #EED035; }
   #productions-control h2 {
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 2em;
     font-weight: 200;
   }
   .bxslider .item {
