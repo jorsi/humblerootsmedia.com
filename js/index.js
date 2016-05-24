@@ -1,4 +1,8 @@
 $(document).ready(function(){
+  // Start home page header animations
+  $('.home header').css('background-color', 'transparent');
+  $('.home header > .table-cell').css('opacity', '1');
+  
   // Initialize the video slider
   var slider = $('.bxslider').bxSlider({
     pager: false,

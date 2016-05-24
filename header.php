@@ -17,7 +17,7 @@
     <![endif]-->
 	<?php wp_head();?>
 </head>
-  <body id="top">
+  <body id="top" <?php body_class( $class ); ?>>
 
     <nav class="nav nav-mobile">
       <div class="container clearfix">

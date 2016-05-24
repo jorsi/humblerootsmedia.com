@@ -374,6 +374,14 @@ address { font-style: normal; }
 }
 
 /* Specific Blocks */
+.home header {
+  background-color: #111;
+  transition: background-color 10s ease-in;
+}
+  .home header > .table-cell {
+    opacity: 0;
+    transition: opacity 3.5s ease-out;
+  }
 #productions-control {
   vertical-align: top;
   text-align: center;
