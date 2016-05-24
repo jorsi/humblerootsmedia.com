@@ -510,6 +510,7 @@ address { font-style: normal; }
   }
 #copyright {
   padding: 10px 0;
+  font-size: .6em;
   text-align: center;
   text-transform: uppercase;
   color: #1d1d1d;
