@@ -175,12 +175,12 @@ address { font-style: normal; }
       background-color: #efefef;
       border-bottom: 1px solid #dfdfdf;
 
-      transition: top .3s, border-bottom .3s;
+      transition: transform .3s ease-out, border-bottom .3s ease-out;
     }
     .nav-desktop.nav-fixed {
       border-bottom: 1px solid #4d4d4d;
     }
-    .nav-desktop.nav-up { top: -100%; }
+    .nav-desktop.nav-up { transform: translateY(-100%); }
       .nav-desktop .links {
         text-align: right;
       }
