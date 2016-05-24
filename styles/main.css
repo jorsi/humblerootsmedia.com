@@ -310,7 +310,7 @@ address { font-style: normal; }
   padding: 45px 15px;
   background-color: #efefef;
 }
-  .break p { margin: 0; font-size: 2rem; }
+  .break p { margin: 0; font-size: 1.4em; }
   .break a { color: #6fa66d; transition: color .2s ease-in; }
   .break a:hover { color: #EED035; }
 .break::after {
