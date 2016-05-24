@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
   // Start home page header animations
   $('.home header > .table-cell').css('opacity', '1');
     // Images are loaded
@@ -8,10 +8,13 @@ $(document).ready(function(){
 
   // Initialize the video slider
   var slider = $('.bxslider').bxSlider({
+    oneToOneTouch: false,
     pager: false,
     controls: false,
     keyboardEnabled: true,
-    infiniteLoop: true
+    infiniteLoop: true,
+    auto: 'true',
+    pause: '5000'
   });
 
   var prev = $('#productions-control .prev');

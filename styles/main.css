@@ -390,7 +390,7 @@ address { font-style: normal; }
     display: inline-block;
     margin: .83em auto;
     padding: 0 .3em;
-    font-size: 2em;
+    font-size: 1.5em;
     cursor: pointer;
     color: #6fa66d;
     transition: color .2s ease-in;
@@ -398,9 +398,14 @@ address { font-style: normal; }
     #productions-control .prev:hover, #productions-control .next:hover { color: #EED035; }
   #productions-control h2 {
     display: inline-block;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 200;
   }
+    @media (min-width: 600px) {
+      #productions-control h2, #productions-control .prev, #productions-control .next {
+        font-size: 2em;
+      }
+    }
   .bxslider .item {
     position: relative;
     margin: 0 auto;
