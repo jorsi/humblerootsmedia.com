@@ -122,7 +122,7 @@
 
               for ($i = 1; $i <= $search->max_num_pages; $i++) :
                 if ($i != $search_query['paged']) : ?>
-                  <a class="pager-link page" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . $i; ?>">
+                  <a class="pager-link pages" href="<?php echo '/?s=' . $search_query['s'] . '&paged=' . $i; ?>">
                   <?php echo $i ?></a>
                 <?php else : ?>
                   <span class="current-page"><?php echo $i ?></span>
