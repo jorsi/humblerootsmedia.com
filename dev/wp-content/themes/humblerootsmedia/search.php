@@ -2,8 +2,6 @@
   get_header();
   $humble = get_page_by_title( 'Humble Thoughts' );
 
-  // Get the page
-  $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
   // Get the query string, put them in the search arguments
   global $query_string;
@@ -19,11 +17,14 @@
   } //if
 
   // The query - Add query string arguments to search query arguments
+  // Get the page
+  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
   $args = array_merge($args, array(
     'post_type' => 'post',
     'post_status' => 'publish',
     'posts_per_page' => 5,
-    'page' => $paged
+    'paged' => $paged
   ));
   $query = new WP_Query( $args );
 
@@ -130,13 +131,13 @@
               if( $paged > 1 ) : ?>
                 <div class="pager-col">
                   <a class="pager-link" href="<?php echo '/?s=' . $query->query['s']; ?>"><i class="fa fa-fw fa-angle-double-left"></i></a>
-                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&page=' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
+                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
                 </div>
               <?php endif;
 
               for ($i = 1; $i <= $query->max_num_pages; $i++) :
                 if ( $i != $paged ) : ?>
-                  <a class="pager-link pages" href="<?php echo '/?s=' . $query->query['s'] . '&page=' . $i; ?>">
+                  <a class="pager-link pages" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . $i; ?>">
                   <?php echo $i ?></a>
                 <?php else : ?>
                   <span class="current-page"><?php echo $i ?></span>
@@ -145,8 +146,8 @@
               endfor;
               if( $paged != $query->max_num_pages ) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&page=' . ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
-                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&page=' . $query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
+                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . $query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
                 </div>
               <?php endif; ?>
             </nav>
