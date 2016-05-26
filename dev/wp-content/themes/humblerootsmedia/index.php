@@ -90,7 +90,7 @@
 
       <section class="content text-center">
         <div class="container-md">
-          <i id="instagram-icon" class="fa fa-fw fa-instagram"></i>
+          <a href="https://www.instagram.com/humble_roots_media/" target="_blank"><i id="instagram-icon" class="fa fa-fw fa-instagram"></i></a>
           <div id="instafeed" class="clearfix"></div>
           <i id="load-more" class="fa fa-fw fa-ellipsis-h"></i></button>
         </div>
