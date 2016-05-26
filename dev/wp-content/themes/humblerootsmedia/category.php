@@ -33,7 +33,7 @@
           <input type="text" value="" name="s" id="s">
           <button type="submit" id="searchsubmit"><i class="fa fa-fw fa-search"></i></button>
       </form>
-      <p class="search-results">
+      <p class="results">
         Displaying <?php echo $start . ' to ' . (($start + 4) <= $results ? ($start + 4) : $results); ?> of <?php echo $results; ?> results.
       </p>
   </div>
