@@ -1,0 +1,12 @@
+# Ignore all Wordpress by default, except theme folder
+dev/*.*
+dev/wp-admin
+dev/wp-content/*.*
+dev/wp-content/languages
+dev/wp-content/plugins
+dev/wp-content/upgrade
+dev/wp-content/uploads
+dev/wp-includes
+
+# Ignore .zip theme versions
+*.zip
