@@ -25,9 +25,6 @@ $(document).ready(function(){
     $('body').addClass('mobile');
   }
 
-  // Smooth Scrolling
-  $('.smooth-scroll').smoothScroll();
-
   // Navigation - Mobile
   var menu = $('.menu');
   var links = $('.nav-mobile .links');

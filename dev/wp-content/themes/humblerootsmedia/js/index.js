@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  // Initialize Smooth Scrolling
+  $('.smooth-scroll').smoothScroll();
+
   // Start home page header animations
   $('.home header > .table-cell').css('opacity', '1');
     // Images are loaded

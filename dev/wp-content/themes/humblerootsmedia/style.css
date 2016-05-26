@@ -9,3 +9,426 @@ Tags: humbleroots
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
+/*
+  Humble Roots Media
+  Standard Branding Colours
+
+  Green: #6fa66d
+  Brown: #332a20
+
+  Hues
+  White: #efefef
+  Black: #111111
+  Light-Grey: #cbcbcd
+  Light-Greyish-Green: #cbdfcb
+  Dark-Greyish-Blue: #23232d
+  Dark-Greyish-Green: #232d23
+  Some Gold: #FFDD55
+
+
+
+*/
+
+/* Default Typography */
+html {}
+
+/* Default Element Styles */
+body {
+  color: #1d1d1d;
+  font-family: "Cabin", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 1.5;
+  letter-spacing: .04em;
+  background-color: #efefef;
+}
+@media (min-width: 600px) { body { font-size: 16px; }}
+header {}
+footer {}
+h1, h2, h3, h4, h5, h6 {}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease-in;
+}
+a:hover { color: #6fa66d; }
+a:active { color: #FFDD55; }
+img {
+  max-width: 100%; /* Ensures no image breaks its container */
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul li { margin: 0; padding: 0; }
+address { font-style: normal; }
+
+/* Layout Classes */
+.row {
+  vertical-align: top;
+}
+.row::before, .row::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.col {
+  vertical-align: top;
+  box-sizing: border-box;
+}
+  @media (min-width: 600px) {
+    .col {
+      float: left;
+    }
+  }
+.col-half {
+  vertical-align: top;
+  box-sizing: border-box;
+}
+  @media (min-width: 600px) {
+    .col-half {
+      float: left;
+      width: 50%;
+    }
+  }
+.col-third {
+  vertical-align: top;
+  box-sizing: border-box;
+}
+  @media (min-width: 600px) {
+    .col-third {
+      float: left;
+      width: 33.33%;
+    }
+  }
+.col-fourth {
+  vertical-align: top;
+  box-sizing: border-box;
+}
+  @media (min-width: 600px) {
+    .col-fourth {
+      float: left;
+      width: 49.99%;
+    }
+  }
+.container-sm {
+  margin: 0 auto;
+  max-width: 600px;
+}
+.container-md {
+  margin: 0 auto;
+  max-width: 900px;
+}
+.container-lg {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Vertical Centering */
+.table { display: table; width: 100%; }
+.table-cell { display: table-cell; text-align: center; vertical-align: middle; }
+.flex { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+
+
+/* Section Layouts */
+.nav {
+  height: auto;
+}
+.nav-mobile {
+  background-color: #efefef;
+  border-bottom: 1px solid #dfdfdf;
+}
+  .nav-mobile .brand {
+    display: inline-block;
+    width: 85%;
+  }
+    .nav-mobile .brand .brand-image {
+      margin: 3px auto;
+      width: 35px;
+    }
+    .nav-mobile .brand .humblerootsmedia {
+      display: inline-block;
+      margin: 5px auto;
+      padding: 0 5px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      vertical-align: top;
+    }
+  .nav-mobile .menu {
+    float: right;
+    margin: 3px auto;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  .nav-mobile .links {
+    display: none;
+  }
+    .nav-mobile .links li {
+      padding: 10px;
+    }
+  @media (min-width: 700px) {
+    .nav-mobile { display: none; }
+  }
+
+.nav-desktop { display: none; }
+  @media (min-width: 700px) {
+    .nav-desktop {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+
+      color: #111;
+      background-color: #efefef;
+      border-bottom: 1px solid #dfdfdf;
+
+      transition: transform .3s ease-out, border-bottom .3s ease-out;
+    }
+    .nav-desktop.nav-fixed {
+      border-bottom: 1px solid #4d4d4d;
+    }
+    .nav-desktop.nav-up { transform: translateY(-100%); }
+      .nav-desktop .links {
+        text-align: right;
+      }
+      .nav-desktop .links li {
+        float: left;
+        width: 25%;
+        text-transform: uppercase;
+        font-size: .9rem;
+        text-align: center;
+      }
+      .nav-desktop .links li:nth-child(2) {
+        width: 50%;
+      }
+      .nav-desktop .links li a {
+        display: inline-block;
+        padding: 34px 0 10px 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        transition: color .3s, background-color .3s;
+      }
+        /*.nav-desktop .links li a:hover {
+          color: #efefef;
+          background-color: #6fa66d;
+        }*/
+      .nav-desktop .brand-name {
+        transition: color .3s;
+      }
+      .nav-desktop .brand-name:hover {
+        color: #6fa66d;
+      }
+      .nav-desktop .brand-name:active {
+        color: #FFDD55;
+      }
+      .nav-desktop .brand-image {
+        float: left;
+        margin: 5px;
+        width: 50px;
+        vertical-align: middle;
+      }
+      .nav-desktop  .welcometo {
+        padding-top: 3px;
+        font-style: italic;
+      }
+      .nav-desktop .humblerootsmedia {
+        display: block;
+        padding-top: 23px;
+        font-size: 1.5em;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+  }
+
+@media (min-width: 700px) {
+  .nav-pad { height: 65px;}
+}
+.splash {
+  min-height: 300px;
+  height: 56.5vw;
+}
+  .splash-title {
+    margin: 5px auto;
+    color: #efefef;
+    font-size: 3.5rem;
+    font-weight: 200;
+    line-height: 1;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+  }
+  .splash-tagline {
+    display: none;
+    margin: 5px auto 25px auto;
+    color: #efefef;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 200;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+  }
+  .splash-ghost {
+    display: none;
+  }
+  @media (min-width: 600px) {
+    .splash-title {
+      font-size: 5rem;
+    }
+    .splash-tagline { display: block; }
+    .splash-ghost { display: inline-block; }
+  }
+.content {
+  padding: 25px 15px;
+  background-color: #CFDBCF;
+}
+.content h2 {
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+.slide {
+  min-height: 300px;
+  height: 56.5vw;
+}
+  .slide .slide-title {
+    margin: 15px auto;
+    color: #efefef;
+    font-size: 3.5rem;
+    font-weight: 200;
+    text-align: center;
+    line-height: 1;
+    text-shadow: 1px 1px 1px black;
+  }
+  .slide .slide-tagline {
+    display: none;
+    margin: 5px auto 25px auto;
+    color: #efefef;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 200;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+  }
+  @media (min-width: 600px) {
+    .slide .slide-title { font-size: 4.5rem; }
+    .slide .slide-tagline { display: block; }
+  }
+.break {
+  position: relative;
+  padding: 45px 15px;
+  background-color: #efefef;
+}
+  .break p { margin: 0; font-size: 1.4em; }
+  .break a { color: #6fa66d; transition: color .2s ease-in; }
+  .break a:hover { color: #EED035; }
+.break::after {
+  position: absolute;
+  left: 50%;
+    transform: translateX(-50%);
+  bottom: -20px;
+  content: "";
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #efefef;
+}
+.break + * { padding-top: 30px; }
+
+/* Helper Classes */
+.clearfix::before, .clearfix::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.text-center {
+  text-align: center;
+}
+.block-center {
+  display: block;
+  margin: 0 auto;
+}
+.padding-menu {
+  padding-top: 50px;
+}
+.green {
+  color: #6fa66d;
+}
+.black {
+  color: #111111;
+}
+/* Components */
+.ghost {
+  display: inline-block;
+  margin: 10px auto;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #6fa66d;
+  background: transparent;
+  border: 2px solid #6fa66d;
+  border-radius: 5px;
+  transition: color .3s, background-color .3s;
+}
+  .ghost:hover {
+    color: #efefef;
+    background-color: #6fa66d;
+    text-decoration: none;
+  }
+.scroll-up {
+  display: block;
+  margin: 15px;
+  font-size: 2rem;
+  text-align: center;
+  color: #efefef;
+}
+
+/* Specific Blocks */
+
+#footer {
+  font-weight: 400;
+  background-color: #6fa66d;
+  text-align: center;
+}
+  #footer a { transition: color .2s ease-in; }
+  #footer a:hover { color: #FFDD55; }
+
+#info {}
+  #info > div {
+    margin: 45px auto 0 auto;
+    padding: 0 15px;
+  }
+  #info > div::after {
+    display: block;
+    margin: 25px auto 0 auto;
+    content: "";
+    border-bottom: 1px solid #23232d;
+  }
+  @media (min-width: 600px) {
+    #info > div {
+      word-wrap: break-word;
+    }
+    #info > div::after {
+      display: none;
+    }
+  }
+  #info h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+#socialmedia {
+  font-size: 1.5em;
+}
+  #socialmedia li {
+    display: inline-block;
+  }
+#copyright {
+  padding: 10px 0;
+  font-size: .6em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #1d1d1d;
+  background-color: #efefef;
+}
