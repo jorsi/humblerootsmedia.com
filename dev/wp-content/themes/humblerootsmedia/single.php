@@ -82,24 +82,24 @@
       <ul class="recent-posts_ul clearfix">
       <?php
         $args = array(
-          'numberposts' => 3,
-          'offset' => 0,
-          'category' => 0,
-          'orderby' => 'post_date',
-          'exclude' => $post->ID,
-          'order' => 'DESC',
           'post_type' => 'post',
           'post_status' => 'publish',
-          'suppress_filters' => true );
-      	$recent_posts = wp_get_recent_posts( $args );
-      	foreach( $recent_posts as $recent ){
-      		echo '<li class="recent-posts_li">';
-            echo '<a class="recent-posts_a" href="' . get_permalink($recent["ID"]) . '">';
-              echo '<img class="recent-posts_img" src="' . wp_get_attachment_image_src( get_post_thumbnail_id( $recent["ID"] ), 'featured-thumb' )[0] . '">';
-              echo '<h4 class="recent-posts_h4">' . $recent["post_title"] . '</h4>';
-            echo '</a>';
-          echo '</li>';
-      	}
+          'showposts' => 3,
+          'orderby' => 'rand',
+          'post__not_in' => array($post->ID)
+        );
+      	$query = new WP_Query( $args );
+        while ($query->have_posts()) : $query->the_post(); ?>
+      		<li class="recent-posts_li">
+            <a class="recent-posts_a" href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+              <img class="recent-posts_img" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>">
+              <h4 class="recent-posts_h4"><?php the_title(); ?></h4>
+            </a>
+            <time class="recent-posts_time" datetime="<?php echo get_the_time('F jS, Y g:i:s'); ?>" pubdate><?php echo get_the_time('F jS, Y'); ?></time>
+          </li>
+        <?php
+        endwhile;
+        wp_reset_postdata();
       ?>
       </ul>
     </div>

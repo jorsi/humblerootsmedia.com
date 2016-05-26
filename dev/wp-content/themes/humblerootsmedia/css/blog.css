@@ -180,11 +180,20 @@
     .recent-posts_a:hover { text-decoration: underline; }
   .recent-posts_img {
     display: block;
+    margin: 0 auto;
+    height: 150px;
   }
   .recent-posts_h4 {
-    margin: 2px auto;
+    margin: 5px auto;
     font-weight: 200;
     line-height: 1.2;
+    text-align: center;
+  }
+  .recent-posts_time {
+    display: block;
+    font-size: .8em;
+    color: #aaa;
+    text-align: center;
   }
 .pages { text-decoration: underline; }
 .current-page { }
