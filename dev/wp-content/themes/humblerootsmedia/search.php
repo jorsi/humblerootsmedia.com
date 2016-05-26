@@ -42,7 +42,7 @@
           <input type="text" value="<?php the_search_query(); ?>" name="s" id="s">
           <button type="submit" id="searchsubmit"><i class="fa fa-fw fa-search"></i></button>
       </form>
-      <p class="search-results">
+      <p class="results">
         <?php if ( $results == 0 ) : ?>
           Sorry, no results were found.
         <?php else : ?>

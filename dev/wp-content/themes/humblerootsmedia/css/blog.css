@@ -44,7 +44,7 @@
     transition: background-color .3s ease-in, border-color .3s ease-in;
   }
       #searchform #searchsubmit:hover { border-color: rgba(111,166,109,.7); background-color: #fff; }
-.search-results { text-align: center; }
+.results { text-align: center; }
 .blog-posts {
   padding: 0 2%;
 }
