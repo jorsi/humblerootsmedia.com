@@ -14,6 +14,7 @@
       </p>
     </div>
   </aside>
+  
 </main>
 <?php
   get_footer();
