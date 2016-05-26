@@ -1,17 +1,17 @@
 <?php get_header();
-      $postid = $post->ID;
+      $homeID = $post->ID;
 ?>
   <div class="nav-pad"></div>
   <header class="splash flex table parallax-window" data-parallax="scroll" data-image-src="<?php header_image(); ?>">
     <div class="table-cell">
-      <h1 class="splash-title"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-title', true) ); ?></h1>
-      <h3 class="splash-tagline"><?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_splash-tagline', true) ); ?></h3>
+      <h1 class="splash-title"><?php echo stripslashes( get_post_meta($homeID, 'humblerootsmedia_splash-title', true) ); ?></h1>
+      <h3 class="splash-tagline"><?php echo stripslashes( get_post_meta($homeID, 'humblerootsmedia_splash-tagline', true) ); ?></h3>
 
       <?php
-        if ( get_post_meta($postid, 'humblerootsmedia_ghost-checkbox', true) ) {
+        if ( get_post_meta($homeID, 'humblerootsmedia_ghost-checkbox', true) ) {
           ?>
           <a class="splash-ghost ghost smooth-scroll" href="#main">
-            <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_ghost-text', true ) ); ?>
+            <?php echo stripslashes( get_post_meta($homeID, 'humblerootsmedia_ghost-text', true ) ); ?>
           </a>
       <?php
         }
@@ -23,7 +23,7 @@
       <aside class="break text-center">
         <div class="container-md">
             <p>
-              <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_intro-text', true ) ); ?>
+              <?php echo stripslashes( get_post_meta($homeID, 'humblerootsmedia_intro-text', true ) ); ?>
             </p>
         </div>
       </aside>
@@ -69,7 +69,7 @@
         </div>
       </section>
 
-      <aside class="flex table slide parallax-window" data-parallax="scroll" data-image-src="<?php echo get_theme_mod('humblerootsmedia_slide_image') ?>">
+      <aside class="flex table slide parallax-window" data-parallax="scroll" data-image-src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $homeID ) ); ?>">
         <div class="table-cell">
           <h1 class="slide-title">Humble Thoughts</h1>
           <h3 class="slide-tagline">Our blog, our memories and scribes.</h3>
@@ -80,7 +80,7 @@
       <aside class="break text-center">
         <div class="container-md">
           <p>
-            <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_midtro-text', true ) ); ?>
+            <?php echo stripslashes( get_post_meta($homeID, 'humblerootsmedia_midtro-text', true ) ); ?>
           </p>
           <p>
             <a href="/clientele">See how.</a>
@@ -99,7 +99,7 @@
       <aside class="break text-center">
         <div class="container-md">
           <p>
-            <?php echo stripslashes( get_post_meta($postid, 'humblerootsmedia_outro-text', true ) ); ?>
+            <?php echo stripslashes( get_post_meta($homeID, 'humblerootsmedia_outro-text', true ) ); ?>
           </p>
           <p>
             <a href="/contact">Grow with us.</a>
