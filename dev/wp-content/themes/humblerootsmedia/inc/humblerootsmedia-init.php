@@ -4,6 +4,10 @@
 add_action( 'after_setup_theme', 'humblerootsmedia_init' );
 function humblerootsmedia_init() {
 
+  // Add Theme Supports
+  require_once( 'humblerootsmedia-customsupport.php' );
+
+  // Attempt to increase upload size
   @ini_set( 'upload_max_size' , '64M' );
   @ini_set( 'post_max_size', '64M');
   @ini_set( 'max_execution_time', '300' );
@@ -22,22 +26,6 @@ function humblerootsmedia_init() {
 
   // Set wp_mail() to send html emails
   add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
-  add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
-
-  // Add custom header support
-  $args = array(
-  	'flex-width'    => true,
-  	'width'         => 1200,
-  	'flex-height'    => true,
-  	'height'        => 675,
-  	'default-image' => get_template_directory_uri() . '/images/camera.jpg',
-  );
-  add_theme_support( 'custom-header', $args );
-
-  // Add featured image support for posts and pages
-  // Featured image will override header image if it is larger
-  add_theme_support( 'post-thumbnails' );
-
 
   add_filter('user_contactmethods','new_contactmethods',10,1);
   function new_contactmethods( $contactmethods ) {
@@ -59,7 +47,7 @@ function humblerootsmedia_init() {
   ));
 
   // Check if the menus exists
-  $menu_name = 'Pages Menu';
+  $menu_name = 'Humble Roots Media Menu';
   $menu_exists = wp_get_nav_menu_object( $menu_name );
 
   // If it doesn't exist, let's create it.
@@ -82,7 +70,7 @@ function humblerootsmedia_init() {
         'menu-item-status' => 'publish'));
 
     $locations = get_theme_mod('nav_menu_locations');
-    $locations['pages'] = $menu_id;  //$foo is term_id of menu
+    $locations['pages'] = $menu_id;
     set_theme_mod('nav_menu_locations', $locations);
   }
 }

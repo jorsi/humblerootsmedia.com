@@ -1,8 +1,8 @@
 <?php
 
 // Create Pages
-add_action( 'after_setup_theme', 'humblerootsmedia_default_pages' );
-function humblerootsmedia_default_pages() {
+add_action( 'after_setup_theme', 'humblerootsmedia_custom_pages' );
+function humblerootsmedia_custom_pages() {
   // Set-up Default Pages
   if (isset($_GET['activated']) && is_admin()) {
 
