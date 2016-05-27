@@ -14,6 +14,8 @@
       // Display Clientele
       $args = array(
         'post_type' => 'client',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
         'orderby' => 'menu_order',
         'order'   => 'ASC'
       );
