@@ -39,36 +39,42 @@
 
           <ul class="bxslider">
           <?php
-            // Display Testimonials
+            // Display Productions
             $args = array(
               'post_type' => 'production',
+              'post_status' => 'publish',
+              'posts_per_page' => -1,
               'orderby' => 'menu_order',
               'order'   => 'ASC'
             );
-            $loop = new WP_Query( $args );
-            while ( $loop->have_posts() ) :
-              echo '<li>';
-                for ( $i = 0; $i < 3; $i++ ) : $loop->the_post();
-                  echo '<div class="item">';
-                    echo '<div class="img-overlay">';
-                      echo '<a class="fancybox fancybox.iframe" href="' . get_post_meta($post->ID, 'productions_video_uri', true) . '?autoplay=true">';
-                        echo '<i class="fa fa-fw fa-play-circle-o"></i>';
-                        echo '<img src="' .  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) . '">';
-                      echo '</a>';
-                    echo '</div>';
-                    echo '<a class="fancybox fancybox.iframe" href="' . get_post_meta($post->ID, 'productions_video_uri', true) . '?autoplay=true">';
-                      echo '<h3>' . get_the_title() . '</h3>';
-                    echo '</a>';
-                    echo '<p>' . get_post_meta($post->ID, 'productions_video_description', true) . '</p>';
+            $query = new WP_Query( $args );
+            while ( $query->have_posts() ) : ?>
+              <li>
+            <?php for ( $i = 0; $i < 3; $i++ ) : $query->the_post(); ?>
+                <div class="item">
+                  <div class="img-overlay">
+                    <a class="fancybox fancybox.iframe" href="<?php echo get_post_meta($post->ID, 'productions_video_uri', true); ?>?autoplay=true">
+                      <i class="fa fa-fw fa-play-circle-o"></i>
+                      <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>">
+                    </a>
+                  </div>
+                  <a class="fancybox fancybox.iframe" href="<?php echo get_post_meta($post->ID, 'productions_video_uri', true); ?>?autoplay=true">
+                    <h3><?php echo get_the_title(); ?></h3>
+                  </a>
+                  <p><?php echo get_post_meta($post->ID, 'productions_video_description', true); ?></p>
 
-                  echo '</div>';
-                endfor;
-              echo '</li>';
-            endwhile; ?>
+                </div>
+            <?php
+              endfor;
+            ?>
+            </li>
+            <?php
+            endwhile;
+            ?>
           </ul>
         </div>
       </section>
-
+      
       <aside class="flex table slide parallax-window" data-parallax="scroll" data-image-src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $homeID ) ); ?>">
         <div class="table-cell">
           <h1 class="slide-title">Humble Thoughts</h1>

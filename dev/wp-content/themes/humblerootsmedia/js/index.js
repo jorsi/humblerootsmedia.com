@@ -17,7 +17,7 @@ $(document).ready(function() {
     keyboardEnabled: true,
     infiniteLoop: true,
     auto: 'true',
-    pause: '5000'
+    pause: '15000'
   });
 
   var prev = $('#productions-control .prev');
