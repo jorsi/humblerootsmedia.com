@@ -204,3 +204,18 @@
   }
 .pages { text-decoration: underline; }
 .current-page { }
+
+/* WP Overrides */
+.wp-caption {
+  max-width: 100% !important;
+}
+  .wp-caption img {
+    width: auto !important;
+    height: auto !important;
+  }
+  .wp-caption .wp-caption-text {
+    margin: 0 15px;
+    max-width: 100%;
+    color: #888888;
+    font-size: .8em;
+  }
