@@ -23,14 +23,14 @@
   $args = array_merge($args, array(
     'post_type' => 'post',
     'post_status' => 'publish',
-    'posts_per_page' => 5,
+    'posts_per_page' => 10,
     'paged' => $paged
   ));
   $query = new WP_Query( $args );
 
   // Get the results
   $results = $query->found_posts;
-  $start = $paged * 5 - 4;
+  $start = $paged * 10 - 9;
 ?>
 
 <div class="nav-pad"></div>
@@ -47,7 +47,7 @@
         <?php if ( $results == 0 ) : ?>
           Sorry, no results were found.
         <?php else : ?>
-          Displaying <?php echo $start . ' to ' . (($start + 4) <= $results ? ($start + 4) : $results); ?> of <?php echo $results; ?> results.
+          Displaying <?php echo $start . ' to ' . (($start + 9) <= $results ? ($start + 9) : $results); ?> of <?php echo $results; ?> results.
         <?php endif; ?>
       </p>
   </div>
@@ -119,7 +119,6 @@
             	</article>
             </div>
           </section>
-      </section>
 
         <?php
           endwhile;
@@ -131,22 +130,13 @@
               if( $paged > 1 ) : ?>
                 <div class="pager-col">
                   <a class="pager-link" href="<?php echo '/?s=' . $query->query['s']; ?>"><i class="fa fa-fw fa-angle-double-left"></i></a>
-                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
+                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer</a>
                 </div>
               <?php endif;
 
-              for ($i = 1; $i <= $query->max_num_pages; $i++) :
-                if ( $i != $paged ) : ?>
-                  <a class="pager-link pages" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . $i; ?>">
-                  <?php echo $i ?></a>
-                <?php else : ?>
-                  <span class="current-page"><?php echo $i ?></span>
-                <?php endif;
-
-              endfor;
               if( $paged != $query->max_num_pages ) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . ($paged + 1); ?>">Older <i class="fa fa-fw fa-angle-right"></i></a>
                   <a class="pager-link" href="<?php echo '/?s=' . $query->query['s'] . '&paged=' . $query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
                 </div>
               <?php endif; ?>
@@ -155,6 +145,7 @@
       endif; endif;
           wp_reset_postdata();
         ?>
+    </section>
 
     <section class="recent-posts">
       <div class="container-md">

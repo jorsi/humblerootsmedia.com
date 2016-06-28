@@ -14,14 +14,14 @@
   $args = array(
     'post_type'=> 'post',
     'post_status'=> 'publish',
-    'posts_per_page'=> 5,
+    'posts_per_page'=> 10,
     'paged' => $paged,
     'author_name' => $author->user_nicename
   );
   $query = new WP_Query( $args );
 
   $results = $query->found_posts;
-  $start = $paged * 5 - 4;
+  $start = $paged * 10 - 9;
 ?>
 
 <div class="nav-pad"></div>
@@ -35,7 +35,7 @@
           <button type="submit" id="searchsubmit"><i class="fa fa-fw fa-search"></i></button>
       </form>
       <p class="results">
-        Displaying <?php echo $start . ' to ' . (($start + 4) <= $results ? ($start + 4) : $results); ?> of <?php echo $results; ?> results.
+        Displaying <?php echo $start . ' to ' . (($start + 9) <= $results ? ($start + 9) : $results); ?> of <?php echo $results; ?> results.
       </p>
   </div>
   <div class="container-lg">
@@ -116,23 +116,13 @@
               if($paged != 1) : ?>
                 <div class="pager-col">
                   <a class="pager-link" href="/author/<?php echo $author->user_nicename; ?>"><i class="fa fa-fw fa-angle-double-left"></i></a>
-                  <a class="pager-link" href="/author/<?php echo $author->user_nicename;?>/page/<?php echo ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
+                  <a class="pager-link" href="/author/<?php echo $author->user_nicename;?>/page/<?php echo ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer</a>
                 </div>
               <?php endif;
 
-              for ($i = 1; $i <= $query->max_num_pages; $i++) :
-                if ( $i != $paged ) : ?>
-                  <a class="pager-link pages" href="/author/<?php echo $author->user_nicename; ?>/page/<?php echo $i; ?>">
-                  <?php echo $i ?></a>
-                <?php else : ?>
-                  <span class="current-page"><?php echo $i ?></span>
-                <?php
-                endif;
-              endfor;
-
               if($paged != $query->max_num_pages) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="/author/<?php echo $author->user_nicename; ?>/page/<?php echo ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="/author/<?php echo $author->user_nicename; ?>/page/<?php echo ($paged + 1); ?>">Older <i class="fa fa-fw fa-angle-right"></i></a>
                   <a class="pager-link" href="/author/<?php echo $author->user_nicename; ?>/page/<?php echo $query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
                 </div>
               <?php endif; ?>

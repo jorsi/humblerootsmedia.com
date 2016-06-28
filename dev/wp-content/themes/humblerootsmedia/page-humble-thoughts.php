@@ -7,7 +7,7 @@
   $args = array(
     'post_type'=>'post',
     'post_status'=>'publish',
-    'posts_per_page'=> 5,
+    'posts_per_page'=> 10,
     'paged' => $paged
   );
   $query = new WP_Query( $args );
@@ -105,23 +105,13 @@
               if($paged != 1) : ?>
                 <div class="pager-col">
                   <a class="pager-link" href="/humble-thoughts/"><i class="fa fa-fw fa-angle-double-left"></i></a>
-                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer Posts</a>
+                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged - 1); ?>"><i class="fa fa-fw fa-angle-left"></i> Newer</a>
                 </div>
               <?php endif;
 
-              for ($i = 1; $i <= $query->max_num_pages; $i++) :
-                if ( $i != $paged ) : ?>
-                  <a class="pager-link pages" href="/humble-thoughts/page/<?php echo $i; ?>">
-                  <?php echo $i ?></a>
-                <?php else : ?>
-                  <span class="current-page"><?php echo $i ?></span>
-                <?php
-                endif;
-              endfor;
-
               if($paged != $query->max_num_pages) : ?>
                 <div class="pager-col">
-                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged + 1); ?>">Older Posts <i class="fa fa-fw fa-angle-right"></i></a>
+                  <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . ($paged + 1); ?>">Older <i class="fa fa-fw fa-angle-right"></i></a>
                   <a class="pager-link" href="<?php echo '/humble-thoughts/page/' . $query->max_num_pages; ?>"><i class="fa fa-fw fa-angle-double-right"></i></a>
                 </div>
               <?php endif; ?>
