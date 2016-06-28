@@ -46,10 +46,10 @@ h1, h2, h3, h4, h5, h6 {}
 a {
   color: inherit;
   text-decoration: none;
-  transition: color .2s ease-in;
+  transition: color .1s;
 }
 a:hover { color: #6fa66d; }
-a:active { color: #FFDD55; }
+a:active, a:focus { color: #FFDD55; }
 img {
   max-width: 100%; /* Ensures no image breaks its container */
 }
