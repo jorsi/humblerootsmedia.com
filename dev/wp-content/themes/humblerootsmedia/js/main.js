@@ -54,4 +54,7 @@ $(document).ready(function(){
       navShrinke(ev);
     }
   });
+
+  // Initialize Smooth Scrolling
+  $('.smooth-scroll').smoothScroll();
 });

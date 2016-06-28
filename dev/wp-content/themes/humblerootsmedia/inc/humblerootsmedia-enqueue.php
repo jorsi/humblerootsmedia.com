@@ -12,6 +12,7 @@ function humblerootsmedia_enqueue() {
 
     // Global scripts
     wp_enqueue_script( 'humblerootsmedia_script_jquery', get_template_directory_uri().'/js/lib/jquery-2.2.4.min.js' );
+    wp_enqueue_script( 'humblerootsmedia_script_smoothscroll', get_template_directory_uri() . '/js/lib/jquery.smooth-scroll.min.js' );
     wp_enqueue_script( 'humblerootsmedia_script', get_template_directory_uri().'/js/main.js' );
 
     /**
@@ -22,7 +23,6 @@ function humblerootsmedia_enqueue() {
       wp_enqueue_style( 'humblerootsmedia_style_fancybox', get_stylesheet_directory_uri() . '/css/lib/jquery.fancybox.css');
 
       wp_enqueue_script( 'humblerootsmedia_script_parallax', get_template_directory_uri().'/js/lib/jquery.parallax.min.js' );
-      wp_enqueue_script( 'humblerootsmedia_script_smoothscroll', get_template_directory_uri() . '/js/lib/jquery.smooth-scroll.min.js' );
       wp_enqueue_script( 'humblerootsmedia_script_fancybox', get_template_directory_uri().'/js/lib/jquery.fancybox.pack.js' );
       wp_enqueue_script( 'humblerootsmedia_script_bxslider', get_template_directory_uri().'/js/lib/jquery.bxslider.min.js' );
       wp_enqueue_script( 'humblerootsmedia_script_instafeed', get_template_directory_uri().'/js/lib/instafeed.min.js' );
