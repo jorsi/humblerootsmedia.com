@@ -8,7 +8,6 @@ function humblerootsmedia_enqueue() {
     wp_enqueue_style( 'humblerootsmedia_style', get_stylesheet_uri() );
     wp_enqueue_style( 'humblerootsmedia_style_normalize', get_template_directory_uri().'/css/lib/normalize.css' );
     wp_enqueue_style( 'humblerootsmedia_style_googlefont_cabin', 'https://fonts.googleapis.com/css?family=Cabin' );
-
     wp_enqueue_style( 'humblerootsmedia_style_fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
 
     // Global scripts
@@ -33,6 +32,7 @@ function humblerootsmedia_enqueue() {
       wp_enqueue_style( 'humblerootsmedia_style_clientele', get_stylesheet_directory_uri() . '/css/clientele.css');
     if ( is_page( 'Humble Thoughts') || is_single() || is_search() || is_author() || is_category() )
       wp_enqueue_style( 'humblerootsmedia_style_blog', get_stylesheet_directory_uri() . '/css/blog.css');
+      wp_enqueue_script( 'humblerootsmedia_script_blog', get_template_directory_uri().'/js/blog.js' );
     if ( is_page( 'Contact') )
       wp_enqueue_style( 'humblerootsmedia_style_contact', get_stylesheet_directory_uri() . '/css/contact.css');
 }
