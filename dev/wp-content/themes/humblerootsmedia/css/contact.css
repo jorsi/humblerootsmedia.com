@@ -1,11 +1,9 @@
-.contact {
-  min-height: 80vh;
-  padding: 50px 5px;
-  background-size: cover;
+.contact-intro {
+  font-size: 2em;
+  line-height: 1.8;
 }
 .contact-container {
-  padding: 25px 5%;
-  background-color: #6fa66d;
+  padding: 0 15px;
 }
 .contact-text {
   margin: 0 auto 25px auto;
@@ -46,7 +44,7 @@ form {
     display: inline-block;
     margin: 5px auto;
     width: 100%;
-    border-bottom: 2px solid #111;
+    border-bottom: 2px solid #6fa66d;
     background-color: rgba(255, 255, 255, 1);
   }
 
@@ -87,10 +85,24 @@ form {
     padding: 10px 20px;
     font-size: 1.2rem;
     outline: none;
-    border: 2px solid #111;
+    border: 2px solid #6fa66d;
     background-color: transparent;
     transition: background-color .75s,border-color .75s
   }
   form button:hover {
     background-color: rgba(255,221,85, .9);
   }
+.contact-footer { margin-top: 45px; }
+  .contact-footer > div { margin-bottom: 45px; }
+  .contact-footer i {
+    font-size: 5em;
+    margin-bottom: 15px;
+  }
+  .contact-footer p { font-size: 1.2em; }
+  .contact-footer .social-media-bar {}
+  .contact-footer .social-media-bar li { display: inline-block; }
+  .contact-footer .social-media-bar i {
+    font-size: 3em;
+    margin: 15px 10px;
+  }
+  .contact-footer a { color: inherit; }

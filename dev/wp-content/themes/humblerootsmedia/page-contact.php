@@ -27,8 +27,9 @@
   $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
 <div class="nav-pad"></div>
-<main id="main" class="contact" style="background-image: url(<?php echo $thumb; ?>);">
+<main id="main" class="contact">
   <div class="container-md contact-container clearfix">
+    <p class="contact-intro"><?php echo stripslashes( get_post_meta($post->ID, 'humblerootsmedia_intro-text', true ) ); ?></p>
     <aside class="contact-text">
       <div>
         <?php echo $status; ?>
@@ -54,6 +55,32 @@
       </form>
     </section>
   </div>
+
+  <aside class="break text-center">
+    <div class="container-md contact-footer row">
+      <div class="col-third">
+        <i class="fa fa-fw fa-envelope-o"></i>
+        <p>
+          <a href="mailto:hello@humblerootsmedia.com" target="_blank">hello@humblerootsmedia.com</a>
+        </p>
+      </div>
+      <div class="col-third">
+        <i class="fa fa-fw fa-phone"></i>
+        <p>Toronto: 647-773-7301</p>
+        <p>Hamilton: 905-929-5417</p>
+      </div>
+      <div class="col-third">
+        <ul class="social-media-bar">
+          <li><a href="https://www.linkedin.com/company/humble-roots-media" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>
+          <li><a href="https://twitter.com/humblerootsnews" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+          <li><a href="https://www.instagram.com/humble_roots_media/" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
+          <li><a href="https://vimeo.com/humblerootsmedia" target="_blank"><i class="fa fa-fw fa-vimeo"></i></a></li>
+          <li><a href="https://www.facebook.com/HumbleRootsMedia/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </aside>
 </main>
 <?php
   get_footer();
