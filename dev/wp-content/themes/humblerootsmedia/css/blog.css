@@ -88,6 +88,10 @@
   .post-metadata .author,
   .post-metadata i { color: #6fa66d; }
   .post-metadata .post-metadata-categories li:not(:last-of-type):after { content: ','; }
+  .post-featured-image {
+    display: block;
+    margin: 0 auto;
+  }
   .post-entry h2, .post-entry h3, .post-entry h4, .post-entry h5, .post-entry h6 {
     margin: 25px auto;
     max-width: 750px;
@@ -106,15 +110,23 @@
     }
   }
   .post-entry p {
-    margin: 45px auto;
+    margin: 0 auto 45px auto;
     max-width: 750px;
     font-family: Arial, san-serif;
     font-weight: 200;
     line-height: 1.5;
   }
+  .post-entry p::after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+  .post-entry img {
+    margin: 0 auto 45px auto;
+  }
   .post-entry blockquote {
     position: relative;
-    margin: 45px 15px 15px 45px;
+    margin: 0 15px 45px 15px;
     padding: 0 5%;
   }
   .post-entry blockquote p {

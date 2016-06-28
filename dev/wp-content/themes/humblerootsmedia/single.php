@@ -69,7 +69,7 @@
           <?php } ?>
         </ul>
       </div>
-      <img src="<?php echo $thumb; ?>"></img>
+      <img class="post-featured-image" src="<?php echo $thumb; ?>">
       <article class="post-entry">
         <?php the_content(); ?>
       </article>
