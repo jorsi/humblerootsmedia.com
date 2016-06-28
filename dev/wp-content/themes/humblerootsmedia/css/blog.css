@@ -28,7 +28,8 @@
   #searchform label { display: none; }
   #searchform #s {
     width: 0px;
-    padding: 5px 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
     outline: none;
     background-color: #fff;
     border: none;
@@ -37,6 +38,7 @@
   }
   #searchform #s.open {
     width: 200px;
+    padding-left: 10px;
   }
   #searchform #searchsubmit {
     width: 35px;
