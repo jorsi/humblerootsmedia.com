@@ -42,7 +42,8 @@ $(document).ready(function() {
       get: 'user',
       userId: '3006504832',
       accessToken: '3006504832.e9691b2.2aa96b63b31d4228bcbd9b9db7434db0',
-      template: '<a class="instagram-item" href="{{link}}" target="_blank"><img src="{{image}}" width="{{width}}" height="{{height}}" alt="{{caption}}"/></a>',
+      limit: 12,
+      template: '<a class="instagram-item" href="{{link}}" target="_blank"><img src="{{image}}" height="{{height}}" width="{{width}}" alt="{{caption}}"/></a>',
       resolution: 'low_resolution',
       after: function() {
         if (!this.hasNext()) {

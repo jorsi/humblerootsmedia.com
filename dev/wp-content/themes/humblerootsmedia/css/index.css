@@ -71,6 +71,7 @@
   }
 #instafeed {
   padding: 0 15px;
+  vertical-align: baseline;
 }
   #instagram-icon {
     padding: 25px;
@@ -81,18 +82,24 @@
     padding: 1%;
     width: 50%;
     box-sizing: border-box;
-    transition: opacity .3s ease-in;
+    vertical-align: baseline;
+    overflow: hidden;
+    transition: all .3s ease-in;
   }
     #instafeed .instagram-item:hover { opacity: .6; }
+  @media (max-width: 749px) {
+    #instafeed .instagram-item:nth-child(2n+1) { clear: left; }
+  }
   @media (min-width: 750px) {
-    #instafeed .instagram-item {
-      width: 25%;
-    }
+    #instafeed .instagram-item { width: 25%; }
+    #instafeed .instagram-item:nth-child(4n+1) { clear: left; }
   }
   #instafeed .instagram-item img {
+    display: block;
     margin: 0;
     width: 100%;
     height: auto;
+    vertical-align: baseline;
   }
   #load-more {
     font-size: 3em;
@@ -100,3 +107,4 @@
     background: transparent;
     cursor: pointer;
   }
+  #load-more[disabled] { color: rgba(0,0,0,.5); cursor: default; }

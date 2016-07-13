@@ -74,7 +74,7 @@
           </ul>
         </div>
       </section>
-      
+
       <aside class="flex table slide parallax-window" data-parallax="scroll" data-image-src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $homeID ) ); ?>">
         <div class="table-cell">
           <h1 class="slide-title">Humble Thoughts</h1>
@@ -98,7 +98,7 @@
         <div class="container-md">
           <a href="https://www.instagram.com/humble_roots_media/" target="_blank"><i id="instagram-icon" class="fa fa-fw fa-instagram"></i></a>
           <div id="instafeed" class="clearfix"></div>
-          <i id="load-more" class="fa fa-fw fa-ellipsis-h"></i></button>
+          <i id="load-more" class="fa fa-fw fa-ellipsis-h"></i>
         </div>
       </section>
 
