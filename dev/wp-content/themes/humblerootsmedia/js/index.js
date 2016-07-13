@@ -19,9 +19,7 @@ $(document).ready(function() {
     pager: false,
     controls: false,
     keyboardEnabled: true,
-    infiniteLoop: true,
-    auto: 'true',
-    pause: '15000'
+    infiniteLoop: true
   });
 
   var prev = $('#productions-control .prev');
