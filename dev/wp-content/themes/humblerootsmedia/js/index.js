@@ -1,10 +1,15 @@
 $(document).ready(function() {
   // Start home page header animations
+  var headerBg = $('#header-bg');
+  console.log(headerBg.attr('src'));
   $('.home header > .table-cell').css('opacity', '1');
-    // Images are loaded
-    $(window).on("load", function() {
-      $('.home header').css('background-color', 'transparent');
-    });
+  // On header image loaded
+  headerBg.ready( function() {
+    var img = $('#header-bg');
+    $('header.parallax-window').attr('data-image-src', img.attr('src'));
+    img.remove();
+    $('header.parallax-window').css('background-color', 'transparent');
+  });
 
   // Initialize the video slider
   var slider = $('.bxslider').bxSlider({
