@@ -1,14 +1,11 @@
 $(document).ready(function() {
   // Start home page header animations
-  var headerBg = $('#header-bg');
-  console.log(headerBg.attr('src'));
   $('.home header > .table-cell').css('opacity', '1');
-  // On header image loaded
-  headerBg.ready( function() {
-    var img = $('#header-bg');
-    $('header.parallax-window').attr('data-image-src', img.attr('src'));
-    img.remove();
-    $('header.parallax-window').css('background-color', 'transparent');
+  var headerBgSrc = $('header.parallax-window').attr('data-image-src');
+  var headerBg = $('img[src$="' + headerBgSrc + '"]');
+  // Fade in once header background image is loaded
+  headerBg.ready(function() {
+    $('.home header').css('background-color', 'transparent');
   });
 
   // Initialize the video slider

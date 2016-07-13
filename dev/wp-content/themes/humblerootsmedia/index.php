@@ -2,9 +2,8 @@
       $homeID = $post->ID;
 ?>
   <div class="nav-pad"></div>
-  <header class="splash flex table parallax-window" data-parallax="scroll" data-image-src="">
+  <header class="splash flex table parallax-window" data-parallax="scroll" data-image-src="<?php header_image(); ?>">
     <div class="table-cell">
-      <img id="header-bg" src="<?php header_image(); ?>">
       <h1 class="splash-title"><?php echo stripslashes( get_post_meta($homeID, 'humblerootsmedia_splash-title', true) ); ?></h1>
       <h3 class="splash-tagline"><?php echo stripslashes( get_post_meta($homeID, 'humblerootsmedia_splash-tagline', true) ); ?></h3>
 
